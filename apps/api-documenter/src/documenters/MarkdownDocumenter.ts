@@ -973,8 +973,25 @@ export class MarkdownDocumenter {
     const configuration: TSDocConfiguration = this._tsdocConfiguration;
 
     let linkText: string = Utilities.getConciseSignature(apiItem);
+
     if (ApiOptionalMixin.isBaseClassOf(apiItem) && apiItem.isOptional) {
       linkText += '?';
+    }
+
+    let i = 0;
+    if (ApiParameterListMixin.isBaseClassOf(apiItem)) {
+      for (let parameter of apiItem.parameters) {
+        let next = false;
+        for (let token of parameter.parameterTypeExcerpt.tokens) {
+          if (next) {
+            i++;
+            if (i === 1) {
+              linkText = linkText.replace('name', 'name: ' + token.text);
+            }
+          }
+          next = token.text.includes('on(name:');
+        }
+      }
     }
 
     return new DocTableCell({ configuration }, [
