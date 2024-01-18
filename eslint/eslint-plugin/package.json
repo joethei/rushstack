@@ -1,6 +1,6 @@
 {
   "name": "@rushstack/eslint-plugin",
-  "version": "0.13.1",
+  "version": "0.14.0",
   "description": "An ESLint plugin providing supplementary rules for use with the @rushstack/eslint-config package",
   "license": "MIT",
   "repository": {
@@ -34,8 +34,8 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "~3.0.0",
-    "@rushstack/heft": "0.62.0",
-    "@rushstack/heft-node-rig": "2.3.2",
+    "@rushstack/heft": "0.64.0",
+    "@rushstack/heft-node-rig": "2.4.0",
     "@types/eslint": "8.2.0",
     "@types/estree": "1.0.5",
     "@types/heft-jest": "1.0.1",

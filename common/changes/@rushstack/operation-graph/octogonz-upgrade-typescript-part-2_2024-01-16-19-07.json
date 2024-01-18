@@ -2,8 +2,8 @@
   "changes": [
     {
       "packageName": "@rushstack/operation-graph",
-      "comment": "Upgrade build dependencies",
-      "type": "patch"
+      "comment": "",
+      "type": "none"
     }
   ],
   "packageName": "@rushstack/operation-graph"

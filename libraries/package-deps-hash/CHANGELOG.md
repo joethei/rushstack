@@ -1,6 +1,18 @@
 # Change Log - @rushstack/package-deps-hash
 
-This log was last generated on Wed, 03 Jan 2024 00:31:18 GMT and should not be manually modified.
+This log was last generated on Thu, 18 Jan 2024 01:08:54 GMT and should not be manually modified.
+
+## 4.1.18
+Thu, 18 Jan 2024 01:08:53 GMT
+
+### Patches
+
+- Handle an edge case in `getRepoState` wherein it tries to asynchronously pipe data to `git hash-object` but the subprocess has already exited.
+
+## 4.1.17
+Tue, 16 Jan 2024 18:30:11 GMT
+
+_Version update only_
 
 ## 4.1.16
 Wed, 03 Jan 2024 00:31:18 GMT
