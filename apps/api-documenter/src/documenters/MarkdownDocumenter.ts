@@ -1153,7 +1153,7 @@ export class MarkdownDocumenter {
             output.appendNodesInParagraph([
               new DocPlainText({
                 configuration,
-                text: ' > '
+                text: ' ˲ '
               }),
               new DocLinkTag({
                 configuration,
