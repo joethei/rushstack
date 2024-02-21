@@ -1158,12 +1158,14 @@ export class MarkdownDocumenter {
             ]);
           }
 
-          new DocLinkTag({
-            configuration,
-            tagName: '@link',
-            linkText: '`' + hierarchyItem.displayName + '`',
-            urlDestination: this._getLinkFilenameForApiItem(hierarchyItem)
-          });
+          output.appendNodeInParagraph(
+            new DocLinkTag({
+              configuration,
+              tagName: '@link',
+              linkText: '`' + hierarchyItem.displayName + '`',
+              urlDestination: this._getLinkFilenameForApiItem(hierarchyItem)
+            })
+          );
       }
     }
   }
