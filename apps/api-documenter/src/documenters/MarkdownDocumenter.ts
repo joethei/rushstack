@@ -1154,15 +1154,16 @@ export class MarkdownDocumenter {
               new DocPlainText({
                 configuration,
                 text: ' ˲ '
-              }),
-              new DocLinkTag({
-                configuration,
-                tagName: '@link',
-                linkText: '`' + hierarchyItem.displayName + '`',
-                urlDestination: this._getLinkFilenameForApiItem(hierarchyItem)
               })
             ]);
           }
+
+          new DocLinkTag({
+            configuration,
+            tagName: '@link',
+            linkText: '`' + hierarchyItem.displayName + '`',
+            urlDestination: this._getLinkFilenameForApiItem(hierarchyItem)
+          });
       }
     }
   }
