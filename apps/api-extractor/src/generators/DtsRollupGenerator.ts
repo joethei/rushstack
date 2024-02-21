@@ -479,7 +479,7 @@ export class DtsRollupGenerator {
           releaseTag === ReleaseTag.None
         );
       case DtsRollupKind.PublicRelease:
-        return releaseTag === ReleaseTag.Public || releaseTag === ReleaseTag.None;
+        return releaseTag === ReleaseTag.Public;
       default:
         throw new Error(`${DtsRollupKind[dtsKind]} is not implemented`);
     }

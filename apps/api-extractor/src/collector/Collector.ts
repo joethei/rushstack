@@ -822,9 +822,7 @@ export class Collector {
     if (astDeclaration.parent) {
       const parentApiItemMetadata: ApiItemMetadata = this.fetchApiItemMetadata(astDeclaration.parent);
       options.effectiveReleaseTag =
-        options.declaredReleaseTag === ReleaseTag.None
-          ? parentApiItemMetadata.effectiveReleaseTag
-          : options.declaredReleaseTag;
+        options.declaredReleaseTag === ReleaseTag.None ? ReleaseTag.Internal : options.declaredReleaseTag;
 
       options.releaseTagSameAsParent =
         parentApiItemMetadata.effectiveReleaseTag === options.effectiveReleaseTag;
@@ -858,7 +856,7 @@ export class Collector {
         }
       }
 
-      options.effectiveReleaseTag = ReleaseTag.Public;
+      options.effectiveReleaseTag = ReleaseTag.Internal;
     }
 
     const apiItemMetadata: ApiItemMetadata = new ApiItemMetadata(options);
