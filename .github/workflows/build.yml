@@ -34,6 +34,18 @@ jobs:
           rush update --bypass-policy
           rush build
 
+      - name: Commit and Create Git tag
+        id: create_tag
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -a -m "${{ github.run_number }}"
+          git tag -a ${{ github.run_number }}
+          git push origin ${{ github.run_number }}
+          git push origin main
+          echo "tag=${{ github.run_number }}" >> $GITHUB_OUTPUT
+
+
       - name: Release
         uses: softprops/action-gh-release@v1
         env:
@@ -44,6 +56,7 @@ jobs:
             Obsidian rushstack fork binary. This is used to generate the TypeScript API inside the [Obsidian Developers Documentation](https://docs.obsidian.md).
           draft: false
           prerelease: false
+          tag_name: ${{ steps.create_tag.outputs.tag }}
           files: |
               ./apps/api-documenter/bin/api-documenter
               ./apps/api-extractor/bin/api-extractor
