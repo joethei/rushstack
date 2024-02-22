@@ -37,6 +37,7 @@ jobs:
       - name: Commit and Create Git tag
         id: create_tag
         run: |
+          git add .
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -a -m "${{ github.run_number }}"
@@ -44,7 +45,6 @@ jobs:
           git push origin ${{ github.run_number }}
           git push origin main
           echo "tag=${{ github.run_number }}" >> $GITHUB_OUTPUT
-
 
       - name: Release
         uses: softprops/action-gh-release@v1
