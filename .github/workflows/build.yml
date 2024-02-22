@@ -1,4 +1,4 @@
-name: Build Obsidian api-documenter
+name: Build
 
 on:
   workflow_dispatch:
@@ -41,7 +41,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -a -m "${{ github.run_number }}"
-          git tag -a ${{ github.run_number }}
+          git tag -a ${{ github.run_number }} -m "${{github.run_number}}"
           git push origin ${{ github.run_number }}
           git push origin main
           echo "tag=${{ github.run_number }}" >> $GITHUB_OUTPUT
