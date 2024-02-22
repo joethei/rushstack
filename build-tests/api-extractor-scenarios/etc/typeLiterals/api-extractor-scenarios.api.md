@@ -6,10 +6,12 @@
 
 // @public (undocumented)
 export class ClassWithTypeLiterals {
+    // @internal
     method1(vector: {
         x: number;
         y: number;
     }): void;
+    // @internal
     method2(): {
         classValue: ClassWithTypeLiterals;
         callback: () => number;

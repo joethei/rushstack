@@ -15,19 +15,21 @@ import type { WebpackPluginInstance } from 'webpack';
 
 // @public (undocumented)
 export interface IDefaultLocaleOptions {
+    // @internal
     fillMissingTranslationStrings?: boolean;
+    // @internal
     localeName: string;
 }
 
 // @public (undocumented)
 export interface ILocaleData {
-    // (undocumented)
+    // @internal (undocumented)
     [locFilePath: string]: ILocaleFileData;
 }
 
 // @public (undocumented)
 export interface ILocaleElementMap {
-    // (undocumented)
+    // @internal (undocumented)
     [locale: string]: string;
 }
 
@@ -36,28 +38,35 @@ export type ILocaleFileData = string | ILocaleFileObject | ReadonlyMap<string, s
 
 // @public (undocumented)
 export interface ILocaleFileObject {
-    // (undocumented)
+    // @internal (undocumented)
     [stringName: string]: string;
 }
 
 // @public
 export interface ILocalizationPluginOptions {
+    // @internal
     formatLocaleForFilename?: (locale: string) => string;
+    // @internal
     globsToIgnore?: string[];
+    // @internal
     localizationStats?: ILocalizationStatsOptions;
+    // @internal
     localizedData: ILocalizedData;
+    // @internal
     noStringsLocaleName?: string;
+    // @internal
     realContentHash?: boolean;
+    // @internal
     runtimeLocaleExpression?: string;
 }
 
 // @public (undocumented)
 export interface ILocalizationStats {
-    // (undocumented)
+    // @internal (undocumented)
     entrypoints: {
         [name: string]: ILocalizationStatsEntrypoint;
     };
-    // (undocumented)
+    // @internal (undocumented)
     namedChunkGroups: {
         [name: string]: ILocalizationStatsChunkGroup;
     };
@@ -65,40 +74,47 @@ export interface ILocalizationStats {
 
 // @public (undocumented)
 export interface ILocalizationStatsChunkGroup {
-    // (undocumented)
+    // @internal (undocumented)
     localizedAssets: ILocaleElementMap;
 }
 
 // @public (undocumented)
 export interface ILocalizationStatsEntrypoint {
-    // (undocumented)
+    // @internal (undocumented)
     localizedAssets: ILocaleElementMap;
 }
 
 // @public
 export interface ILocalizationStatsOptions {
+    // @internal
     callback?: (stats: ILocalizationStats) => void;
+    // @internal
     dropPath?: string;
 }
 
 // @public (undocumented)
 export interface ILocalizedData {
+    // @internal
     defaultLocale: IDefaultLocaleOptions;
+    // @internal
     passthroughLocale?: IPassthroughLocaleOptions;
+    // @internal
     pseudolocales?: IPseudolocalesOptions;
+    // @internal
     resolveMissingTranslatedStrings?: (locales: string[], localizedFileKey: string, loaderContext: LoaderContext<{}>) => Promise<IResolvedMissingTranslations> | IResolvedMissingTranslations;
+    // @internal
     translatedStrings: ILocalizedStrings;
 }
 
 // @public (undocumented)
 export interface ILocalizedStrings {
-    // (undocumented)
+    // @internal (undocumented)
     [locale: string]: ILocaleData;
 }
 
 // @public (undocumented)
 export interface ILocalizedWebpackChunk extends Chunk {
-    // (undocumented)
+    // @internal (undocumented)
     localizedFiles?: {
         [locale: string]: string;
     };
@@ -106,13 +122,15 @@ export interface ILocalizedWebpackChunk extends Chunk {
 
 // @public
 export interface IPassthroughLocaleOptions {
+    // @internal
     passthroughLocaleName?: string;
+    // @internal
     usePassthroughLocale?: boolean;
 }
 
 // @public
 export interface IPseudolocalesOptions {
-    // (undocumented)
+    // @internal (undocumented)
     [pseudoLocaleName: string]: IPseudolocaleOptions;
 }
 
@@ -121,24 +139,33 @@ export type IResolvedMissingTranslations = ReadonlyMap<string, ILocaleFileData>;
 
 // @public (undocumented)
 export interface _IStringPlaceholder {
+    // @internal
     locFilePath: string;
+    // @internal
     stringName: string;
+    // @internal
     suffix: string;
+    // @internal
     value: string;
+    // @internal
     valuesByLocale: Map<string, string>;
 }
 
 // @public (undocumented)
 export interface ITrueHashPluginOptions {
+    // @internal
     hashFunction?: (contents: string | Buffer) => string;
+    // @internal
     stageOverride?: number;
 }
 
 // @public
 export class LocalizationPlugin implements WebpackPluginInstance {
+    // @internal
     constructor(options: ILocalizationPluginOptions);
     // (undocumented)
     addDefaultLocFileAsync(context: LoaderContext<{}>, localizedFileKey: string, localizedResourceData: ILocalizationFile): Promise<Record<string, string>>;
+    // @internal
     apply(compiler: Compiler): void;
     // @internal (undocumented)
     getDataForSerialNumber(serialNumber: string): _IStringPlaceholder | undefined;
@@ -146,14 +173,15 @@ export class LocalizationPlugin implements WebpackPluginInstance {
     getPlaceholder(localizedFileKey: string, stringName: string): _IStringPlaceholder | undefined;
     // @internal (undocumented)
     readonly _options: ILocalizationPluginOptions;
-    // (undocumented)
+    // @internal (undocumented)
     readonly stringKeys: Map<string, _IStringPlaceholder>;
 }
 
 // @public (undocumented)
 export class TrueHashPlugin implements WebpackPluginInstance {
+    // @internal
     constructor(options?: ITrueHashPluginOptions);
-    // (undocumented)
+    // @internal (undocumented)
     apply(compiler: Compiler): void;
 }
 

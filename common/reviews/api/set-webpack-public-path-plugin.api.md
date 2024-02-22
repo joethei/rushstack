@@ -8,6 +8,7 @@ import type webpack from 'webpack';
 
 // @public (undocumented)
 export interface IScriptNameAssetNameOptions {
+    // @internal
     useAssetName: true;
 }
 
@@ -16,44 +17,53 @@ export type IScriptNameOptions = IScriptNameAssetNameOptions | IScriptNameRegexO
 
 // @public (undocumented)
 export interface IScriptNameRegexOptions {
+    // @internal
     isTokenized?: boolean;
+    // @internal
     name: string;
 }
 
 // @public
 export interface ISetWebpackPublicPathOptions {
+    // @internal
     getPostProcessScript?: (varName: string) => string;
+    // @internal
     preferLastFoundScript?: boolean;
+    // @internal
     regexVariable?: string;
 }
 
 // @public
 export interface ISetWebpackPublicPathPluginOptions extends ISetWebpackPublicPathOptions {
+    // @internal
     scriptName: IScriptNameOptions;
 }
 
 // @public
 export class SetPublicPathCurrentScriptPlugin extends SetPublicPathPluginBase {
+    // @internal
     constructor();
-    // (undocumented)
+    // @internal (undocumented)
     protected _applyCompilation(thisWebpack: typeof webpack, compilation: webpack.Compilation): void;
 }
 
 // @public
 export class SetPublicPathPlugin extends SetPublicPathPluginBase {
+    // @internal
     constructor(options: ISetWebpackPublicPathPluginOptions);
-    // (undocumented)
+    // @internal (undocumented)
     protected _applyCompilation(thisWebpack: typeof webpack, compilation: webpack.Compilation): void;
-    // (undocumented)
+    // @internal (undocumented)
     readonly options: ISetWebpackPublicPathPluginOptions;
 }
 
 // @public (undocumented)
 export abstract class SetPublicPathPluginBase implements webpack.WebpackPluginInstance {
+    // @internal
     constructor(pluginName: string);
-    // (undocumented)
+    // @internal (undocumented)
     apply(compiler: webpack.Compiler): void;
-    // (undocumented)
+    // @internal (undocumented)
     protected abstract _applyCompilation(thisWebpack: typeof webpack, compilation: webpack.Compilation): void;
 }
 

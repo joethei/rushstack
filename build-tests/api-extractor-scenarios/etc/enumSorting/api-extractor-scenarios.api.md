@@ -6,18 +6,21 @@
 
 // @public (undocumented)
 export const enum ConstEnum {
-    // (undocumented)
+    // @internal (undocumented)
     One = 1,
-    // (undocumented)
+    // @internal (undocumented)
     Two = 2,
-    // (undocumented)
+    // @internal (undocumented)
     Zero = 0
 }
 
 // @public (undocumented)
 export enum RegularEnum {
+    // @internal
     One = 1,
+    // @internal
     Two = 2,
+    // @internal
     Zero = 0
 }
 

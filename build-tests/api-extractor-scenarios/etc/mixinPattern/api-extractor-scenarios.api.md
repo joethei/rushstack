@@ -6,7 +6,7 @@
 
 // @public (undocumented)
 export class A {
-    // (undocumented)
+    // @internal (undocumented)
     prop?: string;
 }
 

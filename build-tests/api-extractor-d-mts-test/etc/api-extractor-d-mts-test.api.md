@@ -11,7 +11,7 @@ export default DefaultClass;
 
 // @public (undocumented)
 export class Lib4Class {
-    // (undocumented)
+    // @internal (undocumented)
     prop: number;
 }
 

@@ -8,15 +8,21 @@ import { Extractor } from '@microsoft/api-extractor';
 
 // @public (undocumented)
 export class Class1 extends Class2<number> {
+    // @internal
     fourthProp: number;
+    // @internal
     secondProp: boolean;
+    // @internal
     someOverload(x: boolean | string): void;
 }
 
 // @public (undocumented)
 export class Class2<T> extends Namespace1.Class3 {
+    // @internal
     secondProp: boolean | string;
+    // @internal
     someMethod(x: boolean): void;
+    // @internal
     thirdProp: T;
 }
 
@@ -53,18 +59,23 @@ export interface IExtendsInterfaceLikeTypeAlias extends IInterfaceLikeTypeAlias,
 
 // @public
 export interface IExtendsMultipleInterfaces extends IInterface1, IInterface2 {
+    // @internal
     secondProp: boolean;
+    // @internal
     thirdProp: string;
 }
 
 // @public (undocumented)
 export interface IInterface1 {
+    // @internal
     secondProp: boolean | string;
+    // @internal
     someProp: number;
 }
 
 // @public (undocumented)
 export interface IInterface2 {
+    // @internal
     someProp: number;
 }
 
@@ -77,9 +88,13 @@ export type IInterfaceLikeTypeAlias = {
 export namespace Namespace1 {
     // (undocumented)
     export class Class3 {
+        // @internal
         someMethod(x: boolean | string): void;
+        // @internal
         someOverload(x: boolean): void;
+        // @internal
         someOverload(x: string): void;
+        // @internal
         someProp: number;
     }
 }

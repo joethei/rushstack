@@ -13,9 +13,9 @@ export function f(arg1: Lib1Class, arg2: Lib2Class): void;
 //
 // @public (undocumented)
 export class Lib1Class extends Lib1ForgottenExport {
-    // (undocumented)
+    // @internal (undocumented)
     readonly readonlyProperty: string;
-    // (undocumented)
+    // @internal (undocumented)
     writeableProperty: string;
 }
 

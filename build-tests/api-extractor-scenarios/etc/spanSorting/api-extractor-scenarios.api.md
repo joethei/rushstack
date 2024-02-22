@@ -6,19 +6,21 @@
 
 // @public
 export class ExampleA {
-    // (undocumented)
+    // @internal (undocumented)
     member1: string;
-    // (undocumented)
+    // @internal (undocumented)
     member2(): Promise<void>;
 }
 
 // @public
 export class ExampleB {
+    // @internal
     tryLoadFromFile(approvedPackagesPolicyEnabled: boolean): boolean;
 }
 
 // @public (undocumented)
 export class ExampleC {
+    // @internal
     member1(): void;
 }
 

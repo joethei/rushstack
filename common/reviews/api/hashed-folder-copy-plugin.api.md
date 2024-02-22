@@ -8,7 +8,7 @@ import type webpack from 'webpack';
 
 // @public (undocumented)
 export class HashedFolderCopyPlugin implements webpack.WebpackPluginInstance {
-    // (undocumented)
+    // @internal (undocumented)
     apply(compiler: webpack.Compiler): void;
 }
 

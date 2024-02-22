@@ -55,10 +55,6 @@ items:
             uid: 'api-documenter-test!DocEnum:enum'
           - name: DocEnumNamespaceMerge (Enum)
             uid: 'api-documenter-test!DocEnumNamespaceMerge:enum'
-          - name: DocEnumNamespaceMerge (Namespace)
-            uid: 'api-documenter-test!DocEnumNamespaceMerge:namespace'
-          - name: EcmaSmbols
-            uid: 'api-documenter-test!EcmaSmbols:namespace'
           - name: ExampleDuplicateTypeAlias
             uid: 'api-documenter-test!ExampleDuplicateTypeAlias:type'
           - name: ExampleTypeAlias
@@ -71,10 +67,6 @@ items:
             uid: 'api-documenter-test!GenericTypeAlias:type'
           - name: IDocInterface7
             uid: 'api-documenter-test!IDocInterface7:interface'
-          - name: OuterNamespace
-            uid: 'api-documenter-test!OuterNamespace:namespace'
-          - name: OuterNamespace.InnerNamespace
-            uid: 'api-documenter-test!OuterNamespace.InnerNamespace:namespace'
           - name: SystemEvent
             uid: 'api-documenter-test!SystemEvent:class'
           - name: TypeAlias

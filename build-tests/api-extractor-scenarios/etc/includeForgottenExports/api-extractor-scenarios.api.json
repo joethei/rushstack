@@ -263,7 +263,7 @@
         {
           "kind": "Class",
           "canonicalReference": "api-extractor-scenarios!~ForgottenExport1:class",
-          "docComment": "/**\n * `ForgottenExport2` wants to inherit this doc comment, but unfortunately this isn't supported yet\n *\n * @public\n */\n",
+          "docComment": "/**\n * `ForgottenExport2` wants to inherit this doc comment, but unfortunately this isn't supported yet\n *\n * @remarks\n *\n * The constructor for this class is marked as internal. Third-party code should not call the constructor directly or create subclasses that extend the `ForgottenExport1` class.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -275,54 +275,7 @@
           "isAbstract": false,
           "name": "ForgottenExport1",
           "preserveMemberOrder": false,
-          "members": [
-            {
-              "kind": "Constructor",
-              "canonicalReference": "api-extractor-scenarios!~ForgottenExport1:constructor(1)",
-              "docComment": "/**\n * Constructs a new instance of the `ForgottenExport1` class\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "constructor();"
-                }
-              ],
-              "releaseTag": "Public",
-              "isProtected": false,
-              "overloadIndex": 1,
-              "parameters": []
-            },
-            {
-              "kind": "Property",
-              "canonicalReference": "api-extractor-scenarios!~ForgottenExport1#prop:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "prop?: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "ForgottenExport2",
-                  "canonicalReference": "api-extractor-scenarios!~ForgottenExport2:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": true,
-              "releaseTag": "Public",
-              "name": "prop",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "isStatic": false,
-              "isProtected": false,
-              "isAbstract": false
-            }
-          ],
+          "members": [],
           "implementsTokenRanges": []
         },
         {
@@ -365,25 +318,7 @@
           "releaseTag": "Public",
           "name": "ForgottenExport4",
           "preserveMemberOrder": false,
-          "members": [
-            {
-              "kind": "Class",
-              "canonicalReference": "api-extractor-scenarios!~ForgottenExport4~ForgottenExport5:class",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "class ForgottenExport5 "
-                }
-              ],
-              "releaseTag": "Public",
-              "isAbstract": false,
-              "name": "ForgottenExport5",
-              "preserveMemberOrder": false,
-              "members": [],
-              "implementsTokenRanges": []
-            }
-          ]
+          "members": []
         },
         {
           "kind": "Class",
@@ -621,53 +556,7 @@
           "releaseTag": "Public",
           "name": "SomeNamespace1",
           "preserveMemberOrder": false,
-          "members": [
-            {
-              "kind": "Class",
-              "canonicalReference": "api-extractor-scenarios!SomeNamespace1.ForgottenExport3:class",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "class ForgottenExport3 "
-                }
-              ],
-              "releaseTag": "Public",
-              "isAbstract": false,
-              "name": "ForgottenExport3",
-              "preserveMemberOrder": false,
-              "members": [],
-              "implementsTokenRanges": []
-            },
-            {
-              "kind": "Function",
-              "canonicalReference": "api-extractor-scenarios!SomeNamespace1.someFunction3:function(1)",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "export function someFunction3(): "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "ForgottenExport3",
-                  "canonicalReference": "api-extractor-scenarios!SomeNamespace1~ForgottenExport3:class"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "returnTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "releaseTag": "Public",
-              "overloadIndex": 1,
-              "parameters": [],
-              "name": "someFunction3"
-            }
-          ]
+          "members": []
         }
       ]
     }

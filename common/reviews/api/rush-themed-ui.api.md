@@ -14,33 +14,33 @@ export const Checkbox: ({ label, isChecked, onChecked }: ICheckboxProps) => JSX.
 
 // @public
 export interface IButtonProps {
-    // (undocumented)
+    // @internal (undocumented)
     children: JSX.Element | string;
-    // (undocumented)
+    // @internal (undocumented)
     disabled?: boolean;
-    // (undocumented)
+    // @internal (undocumented)
     onClick: () => void;
 }
 
 // @public
 export interface ICheckboxProps {
-    // (undocumented)
+    // @internal (undocumented)
     isChecked: boolean;
-    // (undocumented)
+    // @internal (undocumented)
     label: string;
-    // (undocumented)
+    // @internal (undocumented)
     onChecked: (checked: boolean) => void;
 }
 
 // @public
 export interface IInputProps {
-    // (undocumented)
+    // @internal (undocumented)
     onChange: (e: React_2.ChangeEvent<HTMLInputElement>) => void;
-    // (undocumented)
+    // @internal (undocumented)
     placeholder?: string;
-    // (undocumented)
+    // @internal (undocumented)
     type?: string;
-    // (undocumented)
+    // @internal (undocumented)
     value: string;
 }
 
@@ -49,45 +49,45 @@ export const Input: ({ value, placeholder, onChange, type }: IInputProps) => JSX
 
 // @public
 export interface IScrollAreaProps {
-    // (undocumented)
+    // @internal (undocumented)
     children: React_2.ReactNode;
 }
 
 // @public
 export interface ITabsItem {
-    // (undocumented)
+    // @internal (undocumented)
     body?: React_2.ReactNode;
-    // (undocumented)
+    // @internal (undocumented)
     header: string;
-    // (undocumented)
+    // @internal (undocumented)
     value?: string;
 }
 
 // @public
 export interface ITabsProps {
-    // (undocumented)
+    // @internal (undocumented)
     def?: string;
-    // (undocumented)
+    // @internal (undocumented)
     items: ITabsItem[];
-    // (undocumented)
+    // @internal (undocumented)
     onChange?: (value: any) => void;
-    // (undocumented)
+    // @internal (undocumented)
     renderChildren?: () => JSX.Element;
-    // (undocumented)
+    // @internal (undocumented)
     value: string;
 }
 
 // @public
 export interface ITextProps {
-    // (undocumented)
+    // @internal (undocumented)
     bold?: boolean;
-    // (undocumented)
+    // @internal (undocumented)
     children: React_2.ReactNode;
-    // (undocumented)
+    // @internal (undocumented)
     className?: string;
-    // (undocumented)
+    // @internal (undocumented)
     size?: number;
-    // (undocumented)
+    // @internal (undocumented)
     type: TextType;
 }
 

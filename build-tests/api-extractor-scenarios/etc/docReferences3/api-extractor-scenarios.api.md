@@ -6,7 +6,7 @@
 
 // @public (undocumented)
 export namespace A {
-    // (undocumented)
+    // @internal (undocumented)
     export class B {
         // (undocumented)
         myMethod(): void;
@@ -15,7 +15,7 @@ export namespace A {
 
 // @public (undocumented)
 export interface A {
-    // (undocumented)
+    // @internal (undocumented)
     myProperty: string;
 }
 

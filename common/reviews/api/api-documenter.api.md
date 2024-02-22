@@ -9,14 +9,19 @@ import type { ApiModel } from '@microsoft/api-extractor-model';
 
 // @public
 export interface IApiDocumenterPluginManifest {
+    // @internal
     features: IFeatureDefinition[];
+    // @internal
     manifestVersion: 1000;
 }
 
 // @public
 export interface IFeatureDefinition {
+    // @internal
     featureName: string;
+    // @internal
     kind: 'MarkdownDocumenterFeature';
+    // @internal
     subclass: {
         new (initialization: PluginFeatureInitialization): MarkdownDocumenterFeature;
     };
@@ -24,8 +29,11 @@ export interface IFeatureDefinition {
 
 // @public
 export interface IMarkdownDocumenterFeatureOnBeforeWritePageArgs {
+    // @internal
     readonly apiItem: ApiItem;
+    // @internal
     readonly outputFilename: string;
+    // @internal
     pageContent: string;
 }
 
@@ -39,17 +47,19 @@ export class MarkdownDocumenterAccessor {
     //
     // @internal
     constructor(implementation: IMarkdownDocumenterAccessorImplementation);
+    // @internal
     getLinkForApiItem(apiItem: ApiItem): string | undefined;
 }
 
 // @public
 export class MarkdownDocumenterFeature extends PluginFeature {
-    // (undocumented)
+    // @internal (undocumented)
     static [Symbol.hasInstance](instance: object): boolean;
+    // @internal
     context: MarkdownDocumenterFeatureContext;
-    // @virtual
+    // @internal @virtual
     onBeforeWritePage(eventArgs: IMarkdownDocumenterFeatureOnBeforeWritePageArgs): void;
-    // @virtual
+    // @internal @virtual
     onFinished(eventArgs: IMarkdownDocumenterFeatureOnFinishedArgs): void;
 }
 
@@ -57,19 +67,23 @@ export class MarkdownDocumenterFeature extends PluginFeature {
 export class MarkdownDocumenterFeatureContext {
     // @internal
     constructor(options: MarkdownDocumenterFeatureContext);
+    // @internal
     readonly apiModel: ApiModel;
+    // @internal
     readonly documenter: MarkdownDocumenterAccessor;
+    // @internal
     readonly outputFolder: string;
 }
 
 // @public
 export abstract class PluginFeature {
-    // (undocumented)
+    // @internal (undocumented)
     static [Symbol.hasInstance](instance: object): boolean;
     // @internal
     constructor(initialization: PluginFeatureInitialization);
+    // @internal
     context: PluginFeatureContext;
-    // @virtual
+    // @internal @virtual
     onInitialized(): void;
 }
 

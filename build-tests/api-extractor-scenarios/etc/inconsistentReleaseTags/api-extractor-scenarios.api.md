@@ -9,7 +9,7 @@ export function alphaFunctionReturnsBeta(): IBeta;
 
 // @beta (undocumented)
 export interface IBeta {
-    // (undocumented)
+    // @internal (undocumented)
     x: number;
 }
 

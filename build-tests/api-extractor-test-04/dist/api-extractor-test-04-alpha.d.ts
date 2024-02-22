@@ -13,10 +13,7 @@ import { Lib1Interface } from 'api-extractor-lib1-test';
  * @alpha
  */
 export declare class AlphaClass {
-    /**
-     * This is a comment
-     */
-    undecoratedMember(): void;
+    /* Excluded from this release type: undecoratedMember */
     /* Excluded from this release type: _internalMember */
 }
 
@@ -25,10 +22,7 @@ export declare class AlphaClass {
  * @beta
  */
 export declare class BetaClass implements BetaInterface {
-    /**
-     * This is a comment
-     */
-    undecoratedMember(): void;
+    /* Excluded from this release type: undecoratedMember */
     /**
      * This is an alpha comment
      * @alpha
@@ -42,10 +36,7 @@ export declare class BetaClass implements BetaInterface {
  * @beta
  */
 export declare interface BetaInterface {
-    /**
-     * This is a comment
-     */
-    undecoratedMember(): void;
+    /* Excluded from this release type: undecoratedMember */
     /**
      * This is an alpha comment
      * @alpha
@@ -59,10 +50,7 @@ export declare interface BetaInterface {
  * @beta
  */
 export declare const enum ConstEnum {
-    /**
-     * This member inherits its \@beta status from the parent
-     */
-    BetaMember2 = "BetaMember2",
+    /* Excluded from this release type: BetaMember2 */
     /**
      * This member is marked as \@alpha
      * @alpha
@@ -76,30 +64,7 @@ export declare const enum ConstEnum {
  * @beta
  */
 export declare namespace EntangledNamespace {
-    /**
-     * This is a nested namespace.
-     * The "beta" release tag is inherited from the parent.
-     */
-    export namespace N2 {
-        /**
-         * This class is in a nested namespace.
-         * @alpha
-         */
-        export class ClassX {
-            /**
-             * The "alpha" release tag is inherited from the parent.
-             */
-            static a: string;
-        }
-    }
-    /**
-     * This is a nested namespace.
-     * The "beta" release tag is inherited from the parent.
-     */
-    export namespace N3 {
-        /* Excluded from this release type: _ClassY */
-    }
-}
+    /* Excluded from this release type: N2 *//* Excluded from this release type: N3 */}
 
 /**
  * This is an exported type alias.
@@ -133,10 +98,7 @@ export declare class PublicClass {
      * @beta
      */
     betaField: string;
-    /**
-     * This is a comment
-     */
-    undecoratedMember(): void;
+    /* Excluded from this release type: undecoratedMember */
     /**
      * This is a beta comment
      * @beta
@@ -155,10 +117,7 @@ export declare class PublicClass {
  * @beta
  */
 export declare enum RegularEnum {
-    /**
-     * This member inherits its \@beta status from the parent
-     */
-    BetaMember = 100,
+    /* Excluded from this release type: BetaMember */
     /**
      * This member is marked as \@alpha
      * @alpha

@@ -13,27 +13,31 @@ import { MAX_UNSIGNED_VALUE } from 'long';
 
 // @public
 export abstract class AbstractClass {
-    // (undocumented)
+    // @internal (undocumented)
     abstract test(): void;
 }
 
 // @public
 export abstract class AbstractClass2 {
-    // (undocumented)
+    // @internal (undocumented)
     abstract test2(): void;
 }
 
 // @public
 export abstract class AbstractClass3 {
-    // (undocumented)
+    // @internal (undocumented)
     abstract test3(): void;
 }
 
 // @public
 export class AmbientConsumer {
+    // @internal
     builtinDefinition1(): Map<string, string>;
+    // @internal
     builtinDefinition2(): Promise<void>;
+    // @internal
     definitelyTyped(): jest.MockContext<number, any>;
+    // @internal
     localTypings(): IAmbientInterfaceExample;
 }
 
@@ -43,37 +47,44 @@ export class ClassExportedAsDefault {
 
 // @public
 export class ClassWithAccessModifiers {
+    // @internal
     defaultPublicMethod(): void;
+    // @internal
     protected protectedField: number;
+    // @internal
     protected get protectedGetter(): string;
+    // @internal
     protected protectedSetter(x: string): void;
+    // @internal
     static publicStaticField: number;
 }
 
 // @public (undocumented)
 export class ClassWithSymbols {
-    // (undocumented)
+    // @internal (undocumented)
     [ANamespace.fullyExportedCustomSymbol](): void;
     // Warning: (ae-forgotten-export) The symbol "ANamespace" needs to be exported by the entry point index.d.ts
     //
-    // (undocumented)
+    // @internal (undocumented)
     get [ANamespace.locallyExportedCustomSymbol](): string;
-    // (undocumented)
+    // @internal (undocumented)
     [fullyExportedCustomSymbol](): void;
-    // (undocumented)
+    // @internal (undocumented)
     get [locallyExportedCustomSymbol](): string;
-    // (undocumented)
+    // @internal (undocumented)
     get [Symbol.toStringTag](): string;
-    // (undocumented)
+    // @internal (undocumented)
     readonly [unexportedCustomSymbol]: number;
 }
 
 // @public
 export class ClassWithTypeLiterals {
+    // @internal
     method1(vector: {
         x: number;
         y: number;
     }): void;
+    // @internal
     method2(): {
         classValue: ClassWithTypeLiterals;
         callback: () => number;
@@ -82,21 +93,23 @@ export class ClassWithTypeLiterals {
 
 // @public (undocumented)
 export const enum ConstEnum {
-    // (undocumented)
+    // @internal (undocumented)
     One = 1,
-    // (undocumented)
+    // @internal (undocumented)
     Two = 2,
-    // (undocumented)
+    // @internal (undocumented)
     Zero = 0
 }
 
 // @public
 export class DecoratorTest {
+    // @internal
     test(): void;
 }
 
 // @public (undocumented)
 export class DefaultExportEdgeCase {
+    // @internal
     reference: ClassExportedAsDefault;
 }
 
@@ -104,7 +117,7 @@ export class DefaultExportEdgeCase {
 export class ForgottenExportConsumer1 {
     // Warning: (ae-forgotten-export) The symbol "IForgottenExport" needs to be exported by the entry point index.d.ts
     //
-    // (undocumented)
+    // @internal (undocumented)
     test1(): IForgottenExport | undefined;
 }
 
@@ -112,7 +125,7 @@ export class ForgottenExportConsumer1 {
 export class ForgottenExportConsumer2 {
     // Warning: (ae-forgotten-export) The symbol "IForgottenExport_2" needs to be exported by the entry point index.d.ts
     //
-    // (undocumented)
+    // @internal (undocumented)
     test2(): IForgottenExport_2 | undefined;
 }
 
@@ -120,7 +133,7 @@ export class ForgottenExportConsumer2 {
 export class ForgottenExportConsumer3 {
     // Warning: (ae-forgotten-export) The symbol "IForgottenDirectDependency" needs to be exported by the entry point index.d.ts
     //
-    // (undocumented)
+    // @internal (undocumented)
     test2(): IForgottenDirectDependency | undefined;
 }
 
@@ -129,22 +142,23 @@ export const fullyExportedCustomSymbol: unique symbol;
 
 // @public
 export interface IInterfaceAsDefaultExport {
+    // @internal
     member: string;
 }
 
 // @alpha
 export interface IMergedInterface {
-    // (undocumented)
+    // @internal (undocumented)
     reference: IMergedInterfaceReferencee;
-    // (undocumented)
+    // @internal (undocumented)
     type: string;
 }
 
 // @alpha
 export interface IMergedInterface {
-    // (undocumented)
+    // @internal (undocumented)
     reference: IMergedInterfaceReferencee;
-    // (undocumented)
+    // @internal (undocumented)
     type: string;
 }
 
@@ -166,9 +180,9 @@ export namespace NamespaceContainingVariable {
 
 // @public
 export class ReexportedClass {
-    // (undocumented)
+    // @internal (undocumented)
     getSelfReference(): ReexportedClass;
-    // (undocumented)
+    // @internal (undocumented)
     getValue(): string;
 }
 
@@ -178,22 +192,27 @@ export class ReferenceLibDirective extends Intl.PluralRules {
 
 // @public (undocumented)
 export enum RegularEnum {
+    // @internal
     One = 1,
+    // @internal
     Two = 2,
+    // @internal
     Zero = 0
 }
 
 // @public
 export class TypeReferencesInAedoc {
+    // @internal
     getValue(arg1: TypeReferencesInAedoc): TypeReferencesInAedoc;
+    // @internal
     getValue2(arg1: TypeReferencesInAedoc): TypeReferencesInAedoc;
-    // (undocumented)
+    // @internal (undocumented)
     getValue3(arg1: TypeReferencesInAedoc): TypeReferencesInAedoc;
 }
 
 // @public (undocumented)
 export class UseLong {
-    // (undocumented)
+    // @internal (undocumented)
     use_long(): Long_2;
 }
 

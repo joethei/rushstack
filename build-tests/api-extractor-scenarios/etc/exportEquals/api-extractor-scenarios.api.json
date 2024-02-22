@@ -186,36 +186,7 @@
           "releaseTag": "Public",
           "name": "ITeamsContext",
           "preserveMemberOrder": false,
-          "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "api-extractor-scenarios!ITeamsContext#context:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "context: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "Context",
-                  "canonicalReference": "!microsoftTeams.Context:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "context",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            }
-          ],
+          "members": [],
           "extendsTokenRanges": []
         }
       ]

@@ -1,9 +1,4 @@
-declare namespace NS {
-    export {
-        NS_PUBLIC
-    }
-}
-export { NS }
+/* Excluded from this release type: NS */
 
 /* Excluded from this release type: NS_BETA */
 

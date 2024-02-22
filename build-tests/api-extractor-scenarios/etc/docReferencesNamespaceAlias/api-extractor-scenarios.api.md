@@ -6,17 +6,17 @@
 
 // @public (undocumented)
 export class Item {
-    // (undocumented)
+    // @internal (undocumented)
     options: Options;
 }
 
 // @public (undocumented)
 interface Options {
-    // (undocumented)
+    // @internal (undocumented)
     color: 'red' | 'blue';
-    // (undocumented)
+    // @internal (undocumented)
     name: string;
-    // (undocumented)
+    // @internal (undocumented)
     subOptions: SubOptions;
 }
 
@@ -36,7 +36,7 @@ declare namespace sub {
 
 // @public (undocumented)
 interface SubOptions {
-    // (undocumented)
+    // @internal (undocumented)
     count: number;
 }
 

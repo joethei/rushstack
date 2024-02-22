@@ -42,25 +42,37 @@ export type GlobFn = (pattern: string | string[], options?: IGlobOptions | undef
 
 // @public (undocumented)
 export class HeftConfiguration {
+    // @internal
     get buildFolderPath(): string;
     // @internal
     _checkForRigAsync(): Promise<void>;
+    // @internal
     get globalTerminal(): ITerminal;
+    // @internal
     get heftPackageJson(): IPackageJson;
     // @internal (undocumented)
     static initialize(options: _IHeftConfigurationInitializationOptions): HeftConfiguration;
+    // @internal
     get projectConfigFolderPath(): string;
+    // @internal
     get projectPackageJson(): IPackageJson;
+    // @internal
     get rigConfig(): IRigConfig;
+    // @internal
     get rigPackageResolver(): IRigPackageResolver;
+    // @internal
     get tempFolderPath(): string;
+    // @internal
     get terminalProvider(): ITerminalProvider;
 }
 
 // @public
 export interface ICopyOperation extends IFileSelectionSpecifier {
+    // @internal
     destinationFolders: string[];
+    // @internal
     flatten?: boolean;
+    // @internal
     hardlink?: boolean;
 }
 
@@ -70,17 +82,25 @@ export interface IDeleteOperation extends IFileSelectionSpecifier {
 
 // @public
 export interface IFileSelectionSpecifier {
+    // @internal
     excludeGlobs?: string[];
+    // @internal
     fileExtensions?: string[];
+    // @internal
     includeGlobs?: string[];
+    // @internal
     sourcePath?: string;
 }
 
 // @public
 export interface IGlobOptions {
+    // @internal
     absolute?: boolean;
+    // @internal
     cwd?: string;
+    // @internal
     dot?: boolean;
+    // @internal
     ignore?: string[];
 }
 
@@ -97,6 +117,7 @@ export interface IHeftDefaultParameters {
     readonly locales: Iterable<string>;
     readonly production: boolean;
     readonly verbose: boolean;
+    // @internal
     readonly watch: boolean;
 }
 
@@ -147,13 +168,17 @@ export interface IHeftParameters extends IHeftDefaultParameters {
 
 // @public
 export interface IHeftParsedCommandLine {
+    // @internal
     readonly commandName: string;
+    // @internal
     readonly unaliasedCommandName: string;
 }
 
 // @public
 export interface IHeftPlugin<TSession extends IHeftLifecycleSession | IHeftTaskSession = IHeftLifecycleSession | IHeftTaskSession, TOptions = void> {
+    // @internal
     readonly accessor?: object;
+    // @internal
     apply(session: TSession, heftConfiguration: HeftConfiguration, pluginOptions?: TOptions): void;
 }
 
@@ -173,8 +198,10 @@ export interface IHeftTaskFileOperations {
 
 // @public
 export interface IHeftTaskHooks {
+    // @internal
     readonly registerFileOperations: AsyncSeriesWaterfallHook<IHeftTaskFileOperations>;
     readonly run: AsyncParallelHook<IHeftTaskRunHookOptions>;
+    // @internal
     readonly runIncremental: AsyncParallelHook<IHeftTaskRunIncrementalHookOptions>;
 }
 
@@ -190,7 +217,9 @@ export interface IHeftTaskRunHookOptions {
 
 // @public
 export interface IHeftTaskRunIncrementalHookOptions extends IHeftTaskRunHookOptions {
+    // @internal
     readonly requestRun: () => void;
+    // @internal
     readonly watchGlobAsync: WatchGlobFn;
 }
 
@@ -199,6 +228,7 @@ export interface IHeftTaskSession {
     readonly hooks: IHeftTaskHooks;
     readonly logger: IScopedLogger;
     readonly parameters: IHeftParameters;
+    // @internal
     readonly parsedCommandLine: IHeftParsedCommandLine;
     requestAccessToPluginByName<T extends object>(pluginToAccessPackage: string, pluginToAccessName: string, pluginApply: (pluginAccessor: T) => void): void;
     readonly taskName: string;
@@ -207,19 +237,29 @@ export interface IHeftTaskSession {
 
 // @public
 export interface IIncrementalCopyOperation extends ICopyOperation {
+    // @internal
     onlyIfChanged?: boolean;
 }
 
 // @public (undocumented)
 export interface IMetricsData {
+    // @internal
     command: string;
+    // @internal
     commandParameters: Record<string, string>;
+    // @internal
     encounteredError?: boolean;
+    // @internal
     machineArch: string;
+    // @internal
     machineCores: number;
+    // @internal
     machineOs: string;
+    // @internal
     machineProcessor: string;
+    // @internal
     machineTotalMemoryMB: number;
+    // @internal
     taskTotalExecutionMs: number;
 }
 
@@ -233,39 +273,47 @@ export interface _IPerformanceData {
 
 // @public
 export interface IRigPackageResolver {
-    // (undocumented)
+    // @internal (undocumented)
     resolvePackageAsync(packageName: string, terminal: ITerminal): Promise<string>;
 }
 
 // @beta
 export interface IRunScript {
+    // @internal
     runAsync: (options: IRunScriptOptions) => Promise<void>;
 }
 
 // @beta
 export interface IRunScriptOptions {
-    // (undocumented)
+    // @internal (undocumented)
     heftConfiguration: HeftConfiguration;
-    // (undocumented)
+    // @internal (undocumented)
     heftTaskSession: IHeftTaskSession;
-    // (undocumented)
+    // @internal (undocumented)
     runOptions: IHeftTaskRunHookOptions;
-    // (undocumented)
+    // @internal (undocumented)
     scriptOptions: Record<string, unknown>;
 }
 
 // @public
 export interface IScopedLogger {
+    // @internal
     emitError(error: Error): void;
+    // @internal
     emitWarning(warning: Error): void;
+    // @internal
     readonly hasErrors: boolean;
+    // @internal
     readonly loggerName: string;
+    // @internal
     resetErrorsAndWarnings(): void;
+    // @internal
     readonly terminal: ITerminal;
 }
 
 // @public
 export interface IWatchedFileState {
+    // @internal
     changed: boolean;
 }
 

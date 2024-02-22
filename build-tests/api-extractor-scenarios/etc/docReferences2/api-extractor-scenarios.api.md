@@ -6,13 +6,17 @@
 
 // @public (undocumented)
 export class CyclicA {
+    // @internal
     methodA1(): void;
+    // @internal
     methodA3(): void;
 }
 
 // @public (undocumented)
 export class CyclicB {
+    // @internal
     methodB2(): void;
+    // @internal
     methodB4(): void;
 }
 
@@ -20,9 +24,9 @@ export class CyclicB {
 export class FailWithSelfReference {
     // Warning: (ae-cyclic-inherit-doc) The @inheritDoc tag for "method1" refers to its own declaration
     //
-    // (undocumented)
+    // @internal (undocumented)
     method1(): void;
-    // (undocumented)
+    // @internal (undocumented)
     method2(): void;
 }
 

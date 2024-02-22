@@ -26,10 +26,15 @@ export function generateLicenseFileForAsset(compilation: Compilation, asset: IAs
 
 // @public
 export interface IAssetInfo {
+    // @internal
     chunk: Chunk;
+    // @internal
     fileName: string;
+    // @internal
     renderInfo: Map<string | number, IRenderedModulePosition>;
+    // @internal
     source: sources.Source;
+    // @internal
     type: string;
 }
 
@@ -38,28 +43,33 @@ export type IAssetMap = Map<string, IAssetInfo>;
 
 // @public
 export interface IAssetStats {
-    // (undocumented)
+    // @internal (undocumented)
     positionByModuleId: Map<string | number, IRenderedModulePosition>;
 }
 
 // @public
 export interface IDehydratedAssets {
+    // @internal
     assets: IAssetMap;
+    // @internal
     modules: IModuleMap;
 }
 
 // @public
 export interface IFactoryMeta {
-    // (undocumented)
+    // @internal (undocumented)
     comments?: Comment[];
-    // (undocumented)
+    // @internal (undocumented)
     skipMinification?: boolean;
 }
 
 // @public
 export interface IModuleInfo {
+    // @internal
     id: string | number;
+    // @internal
     module: Module;
+    // @internal
     source: sources.Source;
 }
 
@@ -68,42 +78,51 @@ export type IModuleMap = Map<string | number, IModuleInfo>;
 
 // @public
 export interface IModuleMinifierPluginHooks {
+    // @internal
     postProcessCodeFragment: SyncWaterfallHook<[sources.ReplaceSource, IPostProcessFragmentContext]>;
+    // @internal
     rehydrateAssets: AsyncSeriesWaterfallHook<[IDehydratedAssets, Compilation]>;
 }
 
 // @public
 export interface IModuleMinifierPluginOptions {
+    // @internal
     minifier: IModuleMinifier;
+    // @internal
     sourceMap?: boolean;
 }
 
 // @public
 export interface IModuleMinifierPluginStats {
-    // (undocumented)
+    // @internal (undocumented)
     metadataByAssetFileName: Map<string, IAssetStats>;
-    // (undocumented)
+    // @internal (undocumented)
     metadataByModule: WeakMap<Module, IModuleStats>;
 }
 
 // @public
 export interface IModuleStats {
-    // (undocumented)
+    // @internal (undocumented)
     hashByChunk: Map<Chunk, string>;
-    // (undocumented)
+    // @internal (undocumented)
     sizeByHash: Map<string, number>;
 }
 
 // @public
 export interface IPostProcessFragmentContext {
+    // @internal
     compilation: Compilation;
+    // @internal
     loggingName: string;
+    // @internal
     module: Module | undefined;
 }
 
 // @public
 export interface IRenderedModulePosition {
+    // @internal
     charLength: number;
+    // @internal
     charOffset: number;
 }
 
@@ -115,14 +134,15 @@ export const MODULE_WRAPPER_SUFFIX: ');';
 
 // @public
 export class ModuleMinifierPlugin implements WebpackPluginInstance {
+    // @internal
     constructor(options: IModuleMinifierPluginOptions);
-    // (undocumented)
+    // @internal (undocumented)
     apply(compiler: Compiler): void;
-    // (undocumented)
+    // @internal (undocumented)
     static getCompilationStatistics(compilation: Compilation): IModuleMinifierPluginStats | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     readonly hooks: IModuleMinifierPluginHooks;
-    // (undocumented)
+    // @internal (undocumented)
     minifier: IModuleMinifier;
 }
 

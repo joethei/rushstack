@@ -11,10 +11,12 @@ import type { RushSession } from '@rushstack/rush-sdk';
 // @public (undocumented)
 class RushServePlugin implements IRushPlugin {
     // Warning: (ae-forgotten-export) The symbol "IRushServePluginOptions" needs to be exported by the entry point index.d.ts
+    //
+    // @internal
     constructor(options: IRushServePluginOptions);
-    // (undocumented)
+    // @internal (undocumented)
     apply(rushSession: RushSession, rushConfiguration: RushConfiguration): void;
-    // (undocumented)
+    // @internal (undocumented)
     readonly pluginName: 'RushServePlugin';
 }
 export { RushServePlugin }

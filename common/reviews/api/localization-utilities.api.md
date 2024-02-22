@@ -17,30 +17,31 @@ export type IgnoreStringFunction = (filePath: string, stringName: string) => boo
 
 // @public (undocumented)
 export interface ILocalizationFile {
-    // (undocumented)
+    // @internal (undocumented)
     [stringName: string]: ILocalizedString;
 }
 
 // @public (undocumented)
 export interface ILocalizedString {
-    // (undocumented)
+    // @internal (undocumented)
     comment?: string;
-    // (undocumented)
+    // @internal (undocumented)
     value: string;
 }
 
 // @public (undocumented)
 export interface IParseFileOptions {
-    // (undocumented)
+    // @internal (undocumented)
     content: string;
-    // (undocumented)
+    // @internal (undocumented)
     filePath: string;
+    // @internal
     ignoreString?: IgnoreStringFunction;
 }
 
 // @public (undocumented)
 export interface IParseLocFileOptions extends IParseFileOptions, IParseResxOptionsBase {
-    // (undocumented)
+    // @internal (undocumented)
     parser?: ParserKind;
 }
 
@@ -50,43 +51,43 @@ export interface IParseResxOptions extends IParseFileOptions, IParseResxOptionsB
 
 // @public (undocumented)
 export interface IParseResxOptionsBase {
-    // (undocumented)
+    // @internal (undocumented)
     ignoreMissingResxComments: boolean | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     resxNewlineNormalization: NewlineKind | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     terminal: ITerminal;
 }
 
 // @public
 export interface IPseudolocaleOptions {
-    // (undocumented)
+    // @internal (undocumented)
     append?: string;
-    // (undocumented)
+    // @internal (undocumented)
     delimiter?: string;
-    // (undocumented)
+    // @internal (undocumented)
     endDelimiter?: string;
-    // (undocumented)
+    // @internal (undocumented)
     extend?: number;
-    // (undocumented)
+    // @internal (undocumented)
     override?: string;
-    // (undocumented)
+    // @internal (undocumented)
     prepend?: string;
-    // (undocumented)
+    // @internal (undocumented)
     startDelimiter?: string;
 }
 
 // @public (undocumented)
 export interface ITypingsGeneratorOptions extends ITypingsGeneratorBaseOptions {
-    // (undocumented)
+    // @internal (undocumented)
     exportAsDefault?: boolean;
-    // (undocumented)
+    // @internal (undocumented)
     ignoreMissingResxComments?: boolean | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     ignoreString?: IgnoreStringFunction;
-    // (undocumented)
+    // @internal (undocumented)
     processComment?: (comment: string | undefined, resxFilePath: string, stringName: string) => string | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     resxNewlineNormalization?: NewlineKind | undefined;
 }
 
@@ -107,6 +108,7 @@ export type ParserKind = 'resx' | 'loc.json' | 'resjson';
 
 // @public
 export class TypingsGenerator extends StringValuesTypingsGenerator {
+    // @internal
     constructor(options: ITypingsGeneratorOptions);
 }
 

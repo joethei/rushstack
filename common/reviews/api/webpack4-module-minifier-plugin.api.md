@@ -49,11 +49,17 @@ export interface _IAcornComment {
 
 // @public
 export interface IAssetInfo {
+    // @internal
     chunk: webpack.compilation.Chunk;
+    // @internal
     externalNames: Map<string, string>;
+    // @internal
     fileName: string;
+    // @internal
     modules: (string | number)[];
+    // @internal
     renderInfo: Map<string | number, IRenderedModulePosition>;
+    // @internal
     source: Source;
 }
 
@@ -62,24 +68,33 @@ export type IAssetMap = Map<string, IAssetInfo>;
 
 // @public
 export interface IAssetStats {
-    // (undocumented)
+    // @internal (undocumented)
     positionByModuleId: Map<string | number, IRenderedModulePosition>;
 }
 
 // @public
 export interface IDehydratedAssets {
+    // @internal
     assets: IAssetMap;
+    // @internal
     modules: IModuleMap;
 }
 
 // @public
 export interface IExtendedModule extends webpack.compilation.Module {
+    // @internal
     external?: boolean;
+    // @internal
     hasDependencies(callback: (dep: webpack.compilation.Dependency) => boolean | void): boolean;
+    // @internal
     id: string | number | null;
+    // @internal
     identifier(): string;
+    // @internal
     modules?: IExtendedModule[];
+    // @internal
     readableIdentifier(requestShortener: unknown): string;
+    // @internal
     resource?: string;
 }
 
@@ -89,7 +104,9 @@ export { IMinifierConnection }
 
 // @public
 export interface IModuleInfo {
+    // @internal
     module: IExtendedModule;
+    // @internal
     source: Source;
 }
 
@@ -112,22 +129,29 @@ export { IModuleMinifierFunction }
 
 // @public
 export interface IModuleMinifierPluginHooks {
+    // @internal
     finalModuleId: SyncWaterfallHook<string | number | undefined, webpack.compilation.Compilation>;
+    // @internal
     postProcessCodeFragment: SyncWaterfallHook<ReplaceSource, IPostProcessFragmentContext>;
+    // @internal
     rehydrateAssets: AsyncSeriesWaterfallHook<IDehydratedAssets, webpack.compilation.Compilation>;
 }
 
 // @public
 export interface IModuleMinifierPluginOptions {
+    // @internal
     compressAsyncImports?: boolean;
+    // @internal
     minifier: IModuleMinifier;
+    // @internal
     sourceMap?: boolean;
+    // @internal
     usePortableModules?: boolean;
 }
 
 // @public
 export interface IModuleMinifierPluginStats {
-    // (undocumented)
+    // @internal (undocumented)
     metadataByAssetFileName: Map<string, IAssetStats>;
 }
 
@@ -146,14 +170,19 @@ export interface _INormalModuleFactoryModuleData {
 
 // @public
 export interface IPostProcessFragmentContext {
+    // @internal
     compilation: webpack.compilation.Compilation;
+    // @internal
     loggingName: string;
+    // @internal
     module: webpack.compilation.Module | undefined;
 }
 
 // @public
 export interface IRenderedModulePosition {
+    // @internal
     charLength: number;
+    // @internal
     charOffset: number;
 }
 
@@ -177,14 +206,15 @@ export const MODULE_WRAPPER_SUFFIX: ');';
 
 // @public
 export class ModuleMinifierPlugin implements webpack.Plugin {
+    // @internal
     constructor(options: IModuleMinifierPluginOptions);
-    // (undocumented)
+    // @internal (undocumented)
     apply(compiler: webpack.Compiler): void;
-    // (undocumented)
+    // @internal (undocumented)
     static getCompilationStatistics(compilation: webpack.compilation.Compilation): IModuleMinifierPluginStats | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     readonly hooks: IModuleMinifierPluginHooks;
-    // (undocumented)
+    // @internal (undocumented)
     minifier: IModuleMinifier;
 }
 
@@ -192,8 +222,9 @@ export { NoopMinifier }
 
 // @public
 export class PortableMinifierModuleIdsPlugin implements Plugin {
+    // @internal
     constructor(minifierHooks: IModuleMinifierPluginHooks);
-    // (undocumented)
+    // @internal (undocumented)
     apply(compiler: Compiler): void;
 }
 

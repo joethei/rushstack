@@ -186,53 +186,7 @@
           "releaseTag": "Public",
           "name": "IExample",
           "preserveMemberOrder": false,
-          "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "api-extractor-scenarios!IExample#generic:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "generic: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "import('api-extractor-lib1-test')."
-                },
-                {
-                  "kind": "Reference",
-                  "text": "Lib1GenericType",
-                  "canonicalReference": "api-extractor-lib1-test!Lib1GenericType:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": "<number | undefined, import('api-extractor-lib1-test')."
-                },
-                {
-                  "kind": "Reference",
-                  "text": "Lib1Interface",
-                  "canonicalReference": "api-extractor-lib1-test!Lib1Interface:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ">"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "generic",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 6
-              }
-            }
-          ],
+          "members": [],
           "extendsTokenRanges": []
         }
       ]

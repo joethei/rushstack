@@ -6,15 +6,15 @@
 
 // @public (undocumented)
 export class Item {
-    // (undocumented)
+    // @internal (undocumented)
     options: renamed_Options;
 }
 
 // @public (undocumented)
 export interface renamed_Options {
-    // (undocumented)
+    // @internal (undocumented)
     color: 'red' | 'blue';
-    // (undocumented)
+    // @internal (undocumented)
     name: string;
 }
 

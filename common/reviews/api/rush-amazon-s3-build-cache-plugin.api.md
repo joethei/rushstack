@@ -14,50 +14,51 @@ import type { RushSession } from '@rushstack/rush-sdk';
 
 // @public
 export class AmazonS3Client {
+    // @internal
     constructor(credentials: IAmazonS3Credentials | undefined, options: IAmazonS3BuildCacheProviderOptionsAdvanced, webClient: WebClient, terminal: ITerminal);
-    // (undocumented)
+    // @internal (undocumented)
     getObjectAsync(objectName: string): Promise<Buffer | undefined>;
-    // (undocumented)
+    // @internal (undocumented)
     _getSha256Hmac(key: string | Buffer, data: string): Buffer;
-    // (undocumented)
+    // @internal (undocumented)
     _getSha256Hmac(key: string | Buffer, data: string, encoding: 'hex'): string;
-    // (undocumented)
+    // @internal (undocumented)
     static tryDeserializeCredentials(credentialString: string | undefined): IAmazonS3Credentials | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     uploadObjectAsync(objectName: string, objectBuffer: Buffer): Promise<void>;
-    // (undocumented)
+    // @internal (undocumented)
     static UriEncode(input: string): string;
 }
 
 // @public
 export interface IAmazonS3BuildCacheProviderOptionsAdvanced extends IAmazonS3BuildCacheProviderOptionsBase {
-    // (undocumented)
+    // @internal (undocumented)
     s3Endpoint: string;
 }
 
 // @public (undocumented)
 export interface IAmazonS3BuildCacheProviderOptionsBase {
-    // (undocumented)
+    // @internal (undocumented)
     isCacheWriteAllowed: boolean;
-    // (undocumented)
+    // @internal (undocumented)
     s3Prefix: string | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     s3Region: string;
 }
 
 // @public
 export interface IAmazonS3BuildCacheProviderOptionsSimple extends IAmazonS3BuildCacheProviderOptionsBase {
-    // (undocumented)
+    // @internal (undocumented)
     s3Bucket: string;
 }
 
 // @public
 export interface IAmazonS3Credentials {
-    // (undocumented)
+    // @internal (undocumented)
     accessKeyId: string;
-    // (undocumented)
+    // @internal (undocumented)
     secretAccessKey: string;
-    // (undocumented)
+    // @internal (undocumented)
     sessionToken: string | undefined;
 }
 
@@ -65,45 +66,46 @@ export interface IAmazonS3Credentials {
 //
 // @public
 export interface IGetFetchOptions extends IWebFetchOptionsBase {
-    // (undocumented)
+    // @internal (undocumented)
     verb: 'GET' | never;
 }
 
 // @public
 export interface IPutFetchOptions extends IWebFetchOptionsBase {
-    // (undocumented)
+    // @internal (undocumented)
     body?: Buffer;
-    // (undocumented)
+    // @internal (undocumented)
     verb: 'PUT';
 }
 
 // @public (undocumented)
 class RushAmazonS3BuildCachePlugin implements IRushPlugin {
-    // (undocumented)
+    // @internal (undocumented)
     apply(rushSession: RushSession, rushConfig: RushConfiguration): void;
-    // (undocumented)
+    // @internal (undocumented)
     pluginName: string;
 }
 export default RushAmazonS3BuildCachePlugin;
 
 // @public
 export class WebClient {
+    // @internal
     constructor();
-    // (undocumented)
+    // @internal (undocumented)
     accept: string | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     addBasicAuthHeader(userName: string, password: string): void;
-    // (undocumented)
+    // @internal (undocumented)
     fetchAsync(url: string, options?: IGetFetchOptions | IPutFetchOptions): Promise<WebClientResponse>;
-    // (undocumented)
+    // @internal (undocumented)
     static mergeHeaders(target: fetch.Headers, source: fetch.Headers): void;
     // Warning: (ae-forgotten-export) The symbol "WebClientProxy" needs to be exported by the entry point index.d.ts
     //
-    // (undocumented)
+    // @internal (undocumented)
     proxy: WebClientProxy;
-    // (undocumented)
+    // @internal (undocumented)
     readonly standardHeaders: fetch.Headers;
-    // (undocumented)
+    // @internal (undocumented)
     userAgent: string | undefined;
 }
 

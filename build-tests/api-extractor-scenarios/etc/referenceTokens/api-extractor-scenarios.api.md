@@ -8,7 +8,7 @@ import { Lib2Class } from 'api-extractor-lib2-test';
 
 // @public
 export namespace n1 {
-    // (undocumented)
+    // @internal (undocumented)
     export namespace n2 {
         // (undocumented)
         export namespace n3 {
@@ -23,16 +23,16 @@ export namespace n1 {
         export type SomeType2 = number;
             {};
     }
-    // (undocumented)
+    // @internal (undocumented)
     export function someFunction1(): SomeType1;
-    // (undocumented)
+    // @internal (undocumented)
     export type SomeType1 = number;
         {};
 }
 
 // @public (undocumented)
 export class SomeClass1 {
-    // (undocumented)
+    // @internal (undocumented)
     static staticProp: number;
 }
 
@@ -50,11 +50,11 @@ export class SomeClass4 extends SomeClass5 {
 
 // @public (undocumented)
 export enum SomeEnum {
-    // (undocumented)
+    // @internal (undocumented)
     A = "A",
-    // (undocumented)
+    // @internal (undocumented)
     B = "B",
-    // (undocumented)
+    // @internal (undocumented)
     C = "C"
 }
 
@@ -75,15 +75,15 @@ export function someFunction9({ prop }: SomeInterface1): void;
 
 // @public (undocumented)
 export interface SomeInterface1 {
-    // (undocumented)
+    // @internal (undocumented)
     prop: number;
 }
 
 // @public
 export interface SomeInterface1 {
-    // (undocumented)
+    // @internal (undocumented)
     [SomeSymbol1]: () => string;
-    // (undocumented)
+    // @internal (undocumented)
     [SomeVar1]: () => string;
 }
 

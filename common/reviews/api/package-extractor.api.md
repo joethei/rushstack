@@ -9,64 +9,99 @@ import { ITerminal } from '@rushstack/terminal';
 
 // @public
 export interface IExtractorDependencyConfiguration {
+    // @internal
     dependencyName: string;
+    // @internal
     dependencyVersionRange: string;
+    // @internal
     patternsToExclude?: string[];
+    // @internal
     patternsToInclude?: string[];
 }
 
 // @public
 export interface IExtractorMetadataJson {
+    // @internal
     links: ILinkInfo[];
+    // @internal
     mainProjectName: string;
+    // @internal
     projects: IProjectInfoJson[];
 }
 
 // @public
 export interface IExtractorOptions {
+    // @internal
     createArchiveFilePath?: string;
+    // @internal
     createArchiveOnly?: boolean;
+    // @internal
     dependencyConfigurations?: IExtractorDependencyConfiguration[];
+    // @internal
     folderToCopy?: string;
+    // @internal
     includeDevDependencies?: boolean;
+    // @internal
     includeNpmIgnoreFiles?: boolean;
+    // @internal
     linkCreation?: 'default' | 'script' | 'none';
+    // @internal
     mainProjectName: string;
+    // @internal
     overwriteExisting: boolean;
+    // @internal
     pnpmInstallFolder?: string;
+    // @internal
     projectConfigurations: IExtractorProjectConfiguration[];
+    // @internal
     sourceRootFolder: string;
+    // @internal
     targetRootFolder: string;
+    // @internal
     terminal: ITerminal;
+    // @internal
     transformPackageJson?: (packageJson: IPackageJson) => IPackageJson | undefined;
 }
 
 // @public
 export interface IExtractorProjectConfiguration {
+    // @internal
     additionalDependenciesToInclude?: string[];
+    // @internal
     additionalProjectsToInclude?: string[];
+    // @internal
     dependenciesToExclude?: string[];
+    // @internal
     patternsToExclude?: string[];
+    // @internal
     patternsToInclude?: string[];
+    // @internal
     projectFolder: string;
+    // @internal
     projectName: string;
 }
 
 // @public
 export interface ILinkInfo {
+    // @internal
     kind: 'fileLink' | 'folderLink';
+    // @internal
     linkPath: string;
+    // @internal
     targetPath: string;
 }
 
 // @public
 export interface IProjectInfoJson {
+    // @internal
     path: string;
+    // @internal
     projectName: string;
 }
 
 // @public
 export class PackageExtractor {
+    // @internal
     extractAsync(options: IExtractorOptions): Promise<void>;
     // @beta
     static getPackageIncludedFilesAsync(packageRootPath: string): Promise<string[]>;

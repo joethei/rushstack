@@ -20,10 +20,11 @@ type DuplicateName_2 = number;
 
 // @public
 class ForgottenExport1 {
+    // @internal
     constructor();
     // Warning: (ae-forgotten-export) The symbol "ForgottenExport2" needs to be exported by the entry point index.d.ts
     //
-    // (undocumented)
+    // @internal (undocumented)
     prop?: ForgottenExport2;
 }
 
@@ -34,7 +35,7 @@ type ForgottenExport2 = number;
 
 // @public (undocumented)
 namespace ForgottenExport4 {
-    // (undocumented)
+    // @internal (undocumented)
     class ForgottenExport5 {
     }
 }
@@ -81,10 +82,10 @@ export function someFunction7(): AnotherDuplicateName_2;
 
 // @public (undocumented)
 export namespace SomeNamespace1 {
-    // (undocumented)
+    // @internal (undocumented)
     export class ForgottenExport3 {
     }
-    // (undocumented)
+    // @internal (undocumented)
     export function someFunction3(): ForgottenExport3;
         {};
 }

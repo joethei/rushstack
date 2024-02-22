@@ -24,13 +24,13 @@ export function getRepoStateAsync(rootDirectory: string, additionalRelativePaths
 
 // @beta
 export interface IFileDiffStatus {
-    // (undocumented)
+    // @internal (undocumented)
     mode: string;
-    // (undocumented)
+    // @internal (undocumented)
     newhash: string;
-    // (undocumented)
+    // @internal (undocumented)
     oldhash: string;
-    // (undocumented)
+    // @internal (undocumented)
     status: 'A' | 'D' | 'M';
 }
 

@@ -12,47 +12,55 @@ import * as Webpack from 'webpack';
 
 // @public (undocumented)
 export interface IDefaultLocaleOptions {
+    // @internal
     fillMissingTranslationStrings?: boolean;
+    // @internal
     localeName: string;
 }
 
 // @public (undocumented)
 export interface ILocaleData {
-    // (undocumented)
+    // @internal (undocumented)
     [locFilePath: string]: string | ILocaleFileData;
 }
 
 // @public (undocumented)
 export interface ILocaleElementMap {
-    // (undocumented)
+    // @internal (undocumented)
     [locale: string]: string;
 }
 
 // @public (undocumented)
 export interface ILocaleFileData {
-    // (undocumented)
+    // @internal (undocumented)
     [stringName: string]: string;
 }
 
 // @public
 export interface ILocalizationPluginOptions {
-    // @deprecated (undocumented)
+    // @internal @deprecated (undocumented)
     filesToIgnore?: string[];
+    // @internal
     globsToIgnore?: string[];
+    // @internal
     ignoreString?: IgnoreStringFunction;
+    // @internal
     localizationStats?: ILocalizationStatsOptions;
+    // @internal
     localizedData: ILocalizedData;
+    // @internal
     noStringsLocaleName?: string;
+    // @internal
     typingsOptions?: ITypingsGenerationOptions;
 }
 
 // @public (undocumented)
 export interface ILocalizationStats {
-    // (undocumented)
+    // @internal (undocumented)
     entrypoints: {
         [name: string]: ILocalizationStatsEntrypoint;
     };
-    // (undocumented)
+    // @internal (undocumented)
     namedChunkGroups: {
         [name: string]: ILocalizationStatsChunkGroup;
     };
@@ -60,42 +68,51 @@ export interface ILocalizationStats {
 
 // @public (undocumented)
 export interface ILocalizationStatsChunkGroup {
-    // (undocumented)
+    // @internal (undocumented)
     localizedAssets: ILocaleElementMap;
 }
 
 // @public (undocumented)
 export interface ILocalizationStatsEntrypoint {
-    // (undocumented)
+    // @internal (undocumented)
     localizedAssets: ILocaleElementMap;
 }
 
 // @public
 export interface ILocalizationStatsOptions {
+    // @internal
     callback?: (stats: ILocalizationStats) => void;
+    // @internal
     dropPath?: string;
 }
 
 // @public (undocumented)
 export interface ILocalizedData {
+    // @internal
     defaultLocale: IDefaultLocaleOptions;
+    // @internal
     ignoreMissingResxComments?: boolean;
+    // @internal
     normalizeResxNewlines?: 'lf' | 'crlf';
+    // @internal
     passthroughLocale?: IPassthroughLocaleOptions;
+    // @internal
     pseudolocales?: IPseudolocalesOptions;
+    // @internal
     resolveMissingTranslatedStrings?: (locales: string[], filePath: string) => IResolvedMissingTranslations;
+    // @internal
     translatedStrings: ILocalizedStrings;
 }
 
 // @public (undocumented)
 export interface ILocalizedStrings {
-    // (undocumented)
+    // @internal (undocumented)
     [locale: string]: ILocaleData;
 }
 
 // @public (undocumented)
 export interface ILocalizedWebpackChunk extends Webpack.compilation.Chunk {
-    // (undocumented)
+    // @internal (undocumented)
     localizedFiles?: {
         [locale: string]: string;
     };
@@ -103,19 +120,21 @@ export interface ILocalizedWebpackChunk extends Webpack.compilation.Chunk {
 
 // @public
 export interface IPassthroughLocaleOptions {
+    // @internal
     passthroughLocaleName?: string;
+    // @internal
     usePassthroughLocale?: boolean;
 }
 
 // @public
 export interface IPseudolocalesOptions {
-    // (undocumented)
+    // @internal (undocumented)
     [pseudoLocaleName: string]: IPseudolocaleOptions;
 }
 
 // @public (undocumented)
 export interface IResolvedMissingTranslations {
-    // (undocumented)
+    // @internal (undocumented)
     [localeName: string]: string | ILocaleFileData;
 }
 
@@ -129,23 +148,29 @@ export interface _IStringPlaceholder {
 
 // @public
 export interface ITypingsGenerationOptions {
+    // @internal
     exportAsDefault?: boolean;
+    // @internal
     generatedTsFolder: string;
-    // @deprecated (undocumented)
+    // @internal @deprecated (undocumented)
     ignoreString?: (resxFilePath: string, stringName: string) => boolean;
+    // @internal
     processComment?: (comment: string | undefined, resxFilePath: string, stringName: string) => string | undefined;
+    // @internal
     secondaryGeneratedTsFolders?: string[];
+    // @internal
     sourceRoot?: string;
 }
 
 // @public
 export class LocalizationPlugin implements Webpack.Plugin {
+    // @internal
     constructor(options: ILocalizationPluginOptions);
     // Warning: (ae-forgotten-export) The symbol "IAddDefaultLocFileResult" needs to be exported by the entry point index.d.ts
     //
     // @internal (undocumented)
     addDefaultLocFile(terminal: ITerminal, localizedResourcePath: string, localizedResourceData: ILocalizationFile): IAddDefaultLocFileResult;
-    // (undocumented)
+    // @internal (undocumented)
     apply(compiler: Webpack.Compiler): void;
     // Warning: (ae-forgotten-export) The symbol "IStringSerialNumberData" needs to be exported by the entry point index.d.ts
     //

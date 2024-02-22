@@ -6,7 +6,9 @@
 
 // @public
 export abstract class AbstractClass {
+    // @internal
     abstract method(): void;
+    // @internal
     protected abstract property: number;
 }
 
@@ -19,6 +21,7 @@ export const constVariable: number;
 
 // @public (undocumented)
 export class DecoratorExample {
+    // @internal
     creationDate: Date;
 }
 
@@ -28,7 +31,9 @@ export interface DefaultType {
 
 // @public
 export class DocBaseClass {
+    // @internal
     constructor();
+    // @internal
     constructor(x: number);
 }
 
@@ -36,27 +41,38 @@ export class DocBaseClass {
 export class DocClass1 extends DocBaseClass implements IDocInterface1, IDocInterface2 {
     // @internal
     constructor(name: string);
-    // @deprecated (undocumented)
+    // @internal @deprecated (undocumented)
     deprecatedExample(): void;
+    // @internal
     exampleFunction(a: string, b: string): string;
+    // @internal
     exampleFunction(x: number): number;
+    // @internal
     genericWithConstraintAndDefault<T extends Constraint = DefaultType>(x: T): void;
+    // @internal
     interestingEdgeCases(): void;
-    // @eventProperty
+    // @internal @eventProperty
     malformedEvent: SystemEvent;
-    // @eventProperty
+    // @internal @eventProperty
     readonly modifiedEvent: SystemEvent;
+    // @internal
     protected static readonly multipleModifiersProperty: boolean;
+    // @internal
     optionalParamFunction(x?: number): void;
+    // @internal
     protected protectedProperty: string;
-    // (undocumented)
+    // @internal (undocumented)
     get readonlyProperty(): string;
+    // @internal
     regularProperty: SystemEvent;
+    // @internal
     static sumWithExample(x: number, y: number): number;
+    // @internal
     tableExample(): void;
-    // (undocumented)
+    // @internal (undocumented)
     get writeableProperty(): string;
     set writeableProperty(value: string);
+    // @internal
     set writeonlyProperty(value: string);
 }
 
@@ -70,25 +86,32 @@ export interface DocClassInterfaceMerge {
 
 // @public
 export enum DocEnum {
+    // @internal
     One = 1,
+    // @internal
     Two = 2,
+    // @internal
     Zero = 0
 }
 
 // @public
 export enum DocEnumNamespaceMerge {
+    // @internal
     Left = 0,
+    // @internal
     Right = 1
 }
 
 // @public
 export namespace DocEnumNamespaceMerge {
+    // @internal
     export function exampleFunction(): void;
 }
 
 // @public
 export namespace EcmaSmbols {
-    const example: unique symbol;
+    const // @internal
+    example: unique symbol;
 }
 
 // @public
@@ -112,80 +135,99 @@ export type GenericTypeAlias<T> = T[];
 
 // @public (undocumented)
 export interface IDocInterface1 {
+    // @internal
     regularProperty: SystemEvent;
 }
 
 // @public (undocumented)
 export interface IDocInterface2 extends IDocInterface1 {
-    // @deprecated (undocumented)
+    // @internal @deprecated (undocumented)
     deprecatedExample(): void;
 }
 
 // @public
 export interface IDocInterface3 {
+    // @internal
     "[not.a.symbol]": string;
+    // @internal
     [EcmaSmbols.example]: string;
+    // @internal
     (x: number): number;
+    // @internal
     [x: string]: string;
+    // @internal
     new (): IDocInterface1;
+    // @internal
     "redundantQuotes": string;
 }
 
 // @public
 export interface IDocInterface4 {
+    // @internal
     Context: ({ children }: {
         children: string;
     }) => boolean;
+    // @internal
     generic: Generic<number>;
+    // @internal
     numberOrFunction: number | (() => number);
+    // @internal
     stringOrNumber: string | number;
 }
 
 // @public
 export interface IDocInterface5 {
+    // @internal
     regularProperty: string;
 }
 
 // @public
 export interface IDocInterface6 {
+    // @internal
     regularProperty: number;
 }
 
 // @public
 export interface IDocInterface6 {
-    // (undocumented)
+    // @internal (undocumented)
     arrayProperty: IDocInterface1[];
-    // (undocumented)
+    // @internal (undocumented)
     genericReferenceMethod<T>(x: T): T;
-    // (undocumented)
+    // @internal (undocumented)
     intersectionProperty: IDocInterface1 & IDocInterface2;
-    // (undocumented)
+    // @internal (undocumented)
     tupleProperty: [IDocInterface1, IDocInterface2];
-    // (undocumented)
+    // @internal (undocumented)
     typeReferenceProperty: Generic<IDocInterface1>;
-    // (undocumented)
+    // @internal (undocumented)
     unionProperty: IDocInterface1 | IDocInterface2;
 }
 
 // @public
 export interface IDocInterface7 {
+    // @internal
     optionalField?: boolean;
+    // @internal
     optionalMember?(): any;
+    // @internal
     readonly optionalReadonlyField?: boolean;
-    // (undocumented)
+    // @internal (undocumented)
     optionalUndocumentedField?: boolean;
 }
 
 // @public
 export namespace OuterNamespace {
+    // @internal
     export namespace InnerNamespace {
         export function nestedFunction(x: number): number;
     }
-    let nestedVariable: boolean;
+    let // @internal
+    nestedVariable: boolean;
 }
 
 // @public
 export class SystemEvent {
+    // @internal
     addHandler(handler: () => void): void;
 }
 

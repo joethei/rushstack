@@ -9,22 +9,3 @@ example: []
 isPreview: false
 isDeprecated: false
 type: class
-methods:
-  - name: addHandler(handler)
-    uid: 'api-documenter-test!SystemEvent#addHandler:member(1)'
-    package: api-documenter-test!
-    fullName: addHandler(handler)
-    summary: Adds an handler for the event.
-    remarks: ''
-    example: []
-    isPreview: false
-    isDeprecated: false
-    syntax:
-      content: 'addHandler(handler: () => void): void;'
-      parameters:
-        - id: handler
-          description: ''
-          type: () =&gt; void
-      return:
-        type: void
-        description: ''

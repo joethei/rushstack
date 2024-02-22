@@ -8,11 +8,11 @@ import { default as default_2 } from 'api-extractor-lib2-test';
 
 // @public (undocumented)
 export interface DefaultImportTypes {
-    // (undocumented)
+    // @internal (undocumented)
     dynamicImport: default_2;
-    // (undocumented)
+    // @internal (undocumented)
     namedImport: default_2;
-    // (undocumented)
+    // @internal (undocumented)
     reExport: default_2;
 }
 

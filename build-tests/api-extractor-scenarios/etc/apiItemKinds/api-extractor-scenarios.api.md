@@ -6,7 +6,7 @@
 
 // @public (undocumented)
 export abstract class AbstractClass {
-    // (undocumented)
+    // @internal (undocumented)
     abstract member(): void;
 }
 
@@ -19,11 +19,11 @@ export const CONST_VARIABLE: string;
 
 // @public (undocumented)
 export const enum ConstEnum {
-    // (undocumented)
+    // @internal (undocumented)
     One = 1,
-    // (undocumented)
+    // @internal (undocumented)
     Two = 2,
-    // (undocumented)
+    // @internal (undocumented)
     Zero = 0
 }
 
@@ -33,22 +33,22 @@ export class ExtendsClassWithTypeParameter extends ClassWithTypeParameter<Simple
 
 // @public (undocumented)
 export interface IInterface {
-    // (undocumented)
+    // @internal (undocumented)
     member: string;
 }
 
 // @public (undocumented)
 export namespace n1 {
-    // (undocumented)
+    // @internal (undocumented)
     export namespace n2 {
         // (undocumented)
         export class SomeClass3 {
         }
     }
-    // (undocumented)
+    // @internal (undocumented)
     export class SomeClass1 {
     }
-    // (undocumented)
+    // @internal (undocumented)
     export class SomeClass2 extends SomeClass1 {
     }
         {};
@@ -56,7 +56,7 @@ export namespace n1 {
 
 // @public (undocumented)
 export namespace n1 {
-    // (undocumented)
+    // @internal (undocumented)
     export class SomeClass4 {
     }
 }
@@ -66,24 +66,27 @@ export let nonConstVariable: string;
 
 // @public (undocumented)
 export enum RegularEnum {
+    // @internal
     One = 1,
+    // @internal
     Two = 2,
+    // @internal
     Zero = 0
 }
 
 // @public (undocumented)
 export class SimpleClass {
-    // (undocumented)
+    // @internal (undocumented)
     member(): void;
-    // (undocumented)
+    // @internal (undocumented)
     optionalParamMethod(x?: number): void;
-    // (undocumented)
+    // @internal (undocumented)
     get readonlyProperty(): string;
-    // (undocumented)
+    // @internal (undocumented)
     readonly someReadonlyProp = 5;
-    // (undocumented)
+    // @internal (undocumented)
     readonly someReadonlyPropWithType: number;
-    // (undocumented)
+    // @internal (undocumented)
     get writeableProperty(): string;
     set writeableProperty(value: string);
 }

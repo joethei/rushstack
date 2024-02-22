@@ -15,35 +15,45 @@ export function getIdentifier(ordinal: number): string;
 
 // @public
 export interface ILocalMinifierOptions {
-    // (undocumented)
+    // @internal (undocumented)
     terserOptions?: MinifyOptions;
 }
 
 // @public
 export interface IMinifierConnection {
+    // @internal
     configHash: string;
+    // @internal
     disconnect(): Promise<void>;
 }
 
 // @public
 export interface IModuleMinificationCallback {
-    // (undocumented)
+    // @internal (undocumented)
     (result: IModuleMinificationResult): void;
 }
 
 // @public
 export interface IModuleMinificationErrorResult {
+    // @internal
     code?: undefined;
+    // @internal
     error: Error;
+    // @internal
     hash: string;
+    // @internal
     map?: undefined;
 }
 
 // @public
 export interface IModuleMinificationRequest {
+    // @internal
     code: string;
+    // @internal
     externals: string[] | undefined;
+    // @internal
     hash: string;
+    // @internal
     nameForMap: string | undefined;
 }
 
@@ -52,46 +62,59 @@ export type IModuleMinificationResult = IModuleMinificationErrorResult | IModule
 
 // @public
 export interface IModuleMinificationSuccessResult {
+    // @internal
     code: string;
+    // @internal
     error: undefined;
+    // @internal
     hash: string;
+    // @internal
     map?: RawSourceMap;
 }
 
 // @public
 export interface IModuleMinifier {
+    // @internal
     connect(): Promise<IMinifierConnection>;
+    // @internal
     minify: IModuleMinifierFunction;
 }
 
 // @public
 export interface IModuleMinifierFunction {
-    // (undocumented)
+    // @internal (undocumented)
     (request: IModuleMinificationRequest, callback: IModuleMinificationCallback): void;
 }
 
 // @public
 export interface IWorkerPoolMinifierOptions {
+    // @internal
     maxThreads?: number;
+    // @internal
     terserOptions?: MinifyOptions;
+    // @internal
     verbose?: boolean;
 }
 
 // @public
 export class LocalMinifier implements IModuleMinifier {
+    // @internal
     constructor(options: ILocalMinifierOptions);
-    // (undocumented)
+    // @internal (undocumented)
     connect(): Promise<IMinifierConnection>;
+    // @internal
     minify(request: IModuleMinificationRequest, callback: IModuleMinificationCallback): void;
 }
 
 // @public
 export class MessagePortMinifier implements IModuleMinifier {
+    // @internal
     constructor(port: MessagePort_2);
-    // (undocumented)
+    // @internal (undocumented)
     connect(): Promise<IMinifierConnection>;
+    // @internal
     minify(request: IModuleMinificationRequest, callback: IModuleMinificationCallback): void;
-    // (undocumented)
+    // @internal (undocumented)
     readonly port: MessagePort_2;
 }
 
@@ -102,19 +125,22 @@ export function _minifySingleFileAsync(request: IModuleMinificationRequest, ters
 
 // @public
 export class NoopMinifier implements IModuleMinifier {
-    // (undocumented)
+    // @internal (undocumented)
     connect(): Promise<IMinifierConnection>;
+    // @internal
     minify(request: IModuleMinificationRequest, callback: IModuleMinificationCallback): void;
 }
 
 // @public
 export class WorkerPoolMinifier implements IModuleMinifier {
+    // @internal
     constructor(options: IWorkerPoolMinifierOptions);
-    // (undocumented)
+    // @internal (undocumented)
     connect(): Promise<IMinifierConnection>;
-    // (undocumented)
+    // @internal (undocumented)
     get maxThreads(): number;
     set maxThreads(threads: number);
+    // @internal
     minify(request: IModuleMinificationRequest, callback: IModuleMinificationCallback): void;
 }
 

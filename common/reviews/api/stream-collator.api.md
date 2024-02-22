@@ -9,50 +9,61 @@ import { TerminalWritable } from '@rushstack/terminal';
 
 // @beta @deprecated
 export class CollatedTerminal {
+    // @internal
     constructor(destination: TerminalWritable);
-    // (undocumented)
+    // @internal (undocumented)
     writeChunk(chunk: ITerminalChunk): void;
-    // (undocumented)
+    // @internal (undocumented)
     writeStderrLine(message: string): void;
-    // (undocumented)
+    // @internal (undocumented)
     writeStdoutLine(message: string): void;
 }
 
 // @beta
 export class CollatedWriter extends TerminalWritable {
+    // @internal
     constructor(taskName: string, collator: StreamCollator);
+    // @internal
     get bufferedChunks(): ReadonlyArray<ITerminalChunk>;
     // @internal (undocumented)
     _flushBufferedChunks(): void;
+    // @internal
     get isActive(): boolean;
-    // (undocumented)
+    // @internal (undocumented)
     onClose(): void;
-    // (undocumented)
+    // @internal (undocumented)
     onWriteChunk(chunk: ITerminalChunk): void;
-    // (undocumented)
+    // @internal (undocumented)
     readonly taskName: string;
-    // (undocumented)
+    // @internal (undocumented)
     readonly terminal: CollatedTerminal;
 }
 
 // @beta
 export interface IStreamCollatorOptions {
+    // @internal
     destination: TerminalWritable;
+    // @internal
     onWriterActive?: (writer: CollatedWriter) => void;
 }
 
 // @beta
 export class StreamCollator {
+    // @internal
     constructor(options: IStreamCollatorOptions);
+    // @internal
     get activeTaskName(): string;
+    // @internal
     get activeWriter(): CollatedWriter | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     readonly destination: TerminalWritable;
+    // @internal
     registerTask(taskName: string): CollatedWriter;
-    // (undocumented)
+    // @internal (undocumented)
     readonly terminal: CollatedTerminal;
     // @internal (undocumented)
     _writerClose(writer: CollatedWriter, bufferedChunks: ITerminalChunk[]): void;
+    // @internal
     get writers(): ReadonlySet<CollatedWriter>;
     // @internal (undocumented)
     _writerWriteChunk(writer: CollatedWriter, chunk: ITerminalChunk, bufferedChunks: ITerminalChunk[]): void;

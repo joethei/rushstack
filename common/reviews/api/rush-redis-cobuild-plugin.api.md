@@ -16,6 +16,7 @@ import type { RushSession } from '@rushstack/rush-sdk';
 
 // @beta
 export interface IRedisCobuildLockProviderOptions extends RedisClientOptions {
+    // @internal
     passwordEnvironmentVariable?: string;
 }
 
@@ -26,28 +27,31 @@ export type IRushRedisCobuildPluginOptions = IRedisCobuildLockProviderOptions;
 
 // @beta (undocumented)
 export class RedisCobuildLockProvider implements ICobuildLockProvider {
+    // @internal
     constructor(options: IRedisCobuildLockProviderOptions, rushSession: RushSession);
+    // @internal
     acquireLockAsync(context: ICobuildContext): Promise<boolean>;
-    // (undocumented)
+    // @internal (undocumented)
     connectAsync(): Promise<void>;
-    // (undocumented)
+    // @internal (undocumented)
     disconnectAsync(): Promise<void>;
-    // (undocumented)
+    // @internal (undocumented)
     static expandOptionsWithEnvironmentVariables(options: IRedisCobuildLockProviderOptions, environment?: NodeJS.ProcessEnv): IRedisCobuildLockProviderOptions;
-    // (undocumented)
+    // @internal (undocumented)
     getCompletedStateAsync(context: ICobuildContext): Promise<ICobuildCompletedState | undefined>;
-    // (undocumented)
+    // @internal (undocumented)
     renewLockAsync(context: ICobuildContext): Promise<void>;
-    // (undocumented)
+    // @internal (undocumented)
     setCompletedStateAsync(context: ICobuildContext, state: ICobuildCompletedState): Promise<void>;
 }
 
 // @public (undocumented)
 class RushRedisCobuildPlugin implements IRushPlugin {
+    // @internal
     constructor(options: IRushRedisCobuildPluginOptions);
-    // (undocumented)
+    // @internal (undocumented)
     apply(rushSession: RushSession, rushConfiguration: RushConfiguration): void;
-    // (undocumented)
+    // @internal (undocumented)
     pluginName: string;
 }
 export default RushRedisCobuildPlugin;

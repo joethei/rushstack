@@ -6,6 +6,8 @@
  * @packageDocumentation
  */
 
+import { Lib1Interface } from 'api-extractor-lib1-test';
+
 /* Excluded from this release type: AlphaClass */
 
 /* Excluded from this release type: BetaClass */
@@ -40,10 +42,7 @@ export declare interface IPublicComplexInterface {
 export declare class PublicClass {
     /* Excluded from this release type: __constructor */
     /* Excluded from this release type: betaField */
-    /**
-     * This is a comment
-     */
-    undecoratedMember(): void;
+    /* Excluded from this release type: undecoratedMember */
     /* Excluded from this release type: betaMember */
     /* Excluded from this release type: alphaMember */
     /* Excluded from this release type: _internalMember */

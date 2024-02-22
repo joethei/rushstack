@@ -8,26 +8,35 @@
 
 // @public
 export interface ILoadSdkAsyncOptions {
+    // @internal
     abortSignal?: AbortSignal;
+    // @internal
     onNotifyEvent?: SdkNotifyEventCallback;
+    // @internal
     rushJsonSearchFolder?: string;
 }
 
 // @public
 export interface IProgressBarCallbackLogMessage {
+    // @internal
     kind: 'info' | 'debug';
+    // @internal
     text: string;
 }
 
 // @public
 export interface ISdkCallbackEvent {
+    // @internal
     logMessage: IProgressBarCallbackLogMessage | undefined;
+    // @internal
     progressPercent: number | undefined;
 }
 
 // @public
 export class RushSdkLoader {
+    // @internal
     static get isLoaded(): boolean;
+    // @internal
     static loadAsync(options?: ILoadSdkAsyncOptions): Promise<void>;
 }
 

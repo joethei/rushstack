@@ -9,6 +9,7 @@ export let MY_CONSTANT : number;
 
 // @public
 export class MyClass {
+    // @internal
     someMethod(x : number , y : string ) : boolean ;
 }
 

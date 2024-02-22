@@ -15,28 +15,31 @@ import type { RushSession } from '@rushstack/rush-sdk';
 
 // @public (undocumented)
 export abstract class AzureAuthenticationBase {
+    // @internal
     constructor(options: IAzureAuthenticationBaseOptions);
-    // (undocumented)
+    // @internal (undocumented)
     protected readonly _additionalDeviceCodeCredentialOptions: DeviceCodeCredentialOptions | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     protected readonly _azureEnvironment: AzureEnvironmentName;
-    // (undocumented)
+    // @internal (undocumented)
     protected abstract readonly _credentialKindForLogging: string;
-    // (undocumented)
+    // @internal (undocumented)
     protected abstract readonly _credentialNameForCache: string;
-    // (undocumented)
+    // @internal (undocumented)
     protected readonly _credentialUpdateCommandForLogging: string | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     deleteCachedCredentialsAsync(terminal: ITerminal): Promise<void>;
+    // @internal
     protected abstract _getCacheIdParts(): string[];
-    // (undocumented)
+    // @internal (undocumented)
     protected abstract _getCredentialFromDeviceCodeAsync(terminal: ITerminal, deviceCodeCredential: DeviceCodeCredential): Promise<ICredentialResult>;
-    // (undocumented)
+    // @internal (undocumented)
     tryGetCachedCredentialAsync(options?: ITryGetCachedCredentialOptionsThrow | ITryGetCachedCredentialOptionsIgnore): Promise<ICredentialCacheEntry | undefined>;
-    // (undocumented)
+    // @internal (undocumented)
     tryGetCachedCredentialAsync(options: ITryGetCachedCredentialOptionsLogWarning): Promise<ICredentialCacheEntry | undefined>;
-    // (undocumented)
+    // @internal (undocumented)
     updateCachedCredentialAsync(terminal: ITerminal, credential: string): Promise<void>;
+    // @internal
     updateCachedCredentialInteractiveAsync(terminal: ITerminal, onlyIfExistingCredentialExpiresAfter?: Date): Promise<void>;
 }
 
@@ -45,22 +48,23 @@ export type AzureEnvironmentName = keyof typeof AzureAuthorityHosts;
 
 // @public (undocumented)
 export class AzureStorageAuthentication extends AzureAuthenticationBase {
+    // @internal
     constructor(options: IAzureStorageAuthenticationOptions);
-    // (undocumented)
+    // @internal (undocumented)
     protected readonly _credentialKindForLogging: string;
-    // (undocumented)
+    // @internal (undocumented)
     protected readonly _credentialNameForCache: string;
-    // (undocumented)
+    // @internal (undocumented)
     protected _getCacheIdParts(): string[];
-    // (undocumented)
+    // @internal (undocumented)
     protected _getCredentialFromDeviceCodeAsync(terminal: ITerminal, deviceCodeCredential: DeviceCodeCredential): Promise<ICredentialResult>;
-    // (undocumented)
+    // @internal (undocumented)
     protected readonly _isCacheWriteAllowedByConfiguration: boolean;
-    // (undocumented)
+    // @internal (undocumented)
     protected readonly _storageAccountName: string;
-    // (undocumented)
+    // @internal (undocumented)
     protected readonly _storageAccountUrl: string;
-    // (undocumented)
+    // @internal (undocumented)
     protected readonly _storageContainerName: string;
 }
 
@@ -69,61 +73,65 @@ export type ExpiredCredentialBehavior = 'logWarning' | 'throwError' | 'ignore';
 
 // @public (undocumented)
 export interface IAzureAuthenticationBaseOptions {
-    // (undocumented)
+    // @internal (undocumented)
     azureEnvironment?: AzureEnvironmentName;
-    // (undocumented)
+    // @internal (undocumented)
     credentialUpdateCommandForLogging?: string | undefined;
 }
 
 // @public (undocumented)
 export interface IAzureStorageAuthenticationOptions extends IAzureAuthenticationBaseOptions {
-    // (undocumented)
+    // @internal (undocumented)
     isCacheWriteAllowed: boolean;
-    // (undocumented)
+    // @internal (undocumented)
     storageAccountName: string;
-    // (undocumented)
+    // @internal (undocumented)
     storageContainerName: string;
 }
 
 // @public (undocumented)
 export interface ICredentialResult {
-    // (undocumented)
+    // @internal (undocumented)
     credentialMetadata?: object;
-    // (undocumented)
+    // @internal (undocumented)
     credentialString: string;
-    // (undocumented)
+    // @internal (undocumented)
     expiresOn?: Date;
 }
 
 // @public (undocumented)
 export interface ITryGetCachedCredentialOptionsBase {
+    // @internal
     expiredCredentialBehavior?: ExpiredCredentialBehavior;
-    // (undocumented)
+    // @internal (undocumented)
     terminal?: ITerminal;
 }
 
 // @public (undocumented)
 export interface ITryGetCachedCredentialOptionsIgnore extends ITryGetCachedCredentialOptionsBase {
+    // @internal
     expiredCredentialBehavior: 'ignore';
 }
 
 // @public (undocumented)
 export interface ITryGetCachedCredentialOptionsLogWarning extends ITryGetCachedCredentialOptionsBase {
+    // @internal
     expiredCredentialBehavior: 'logWarning';
-    // (undocumented)
+    // @internal (undocumented)
     terminal: ITerminal;
 }
 
 // @public (undocumented)
 export interface ITryGetCachedCredentialOptionsThrow extends ITryGetCachedCredentialOptionsBase {
+    // @internal
     expiredCredentialBehavior: 'throwError';
 }
 
 // @public (undocumented)
 class RushAzureStorageBuildCachePlugin implements IRushPlugin {
-    // (undocumented)
+    // @internal (undocumented)
     apply(rushSession: RushSession, rushConfig: RushConfiguration): void;
-    // (undocumented)
+    // @internal (undocumented)
     pluginName: string;
 }
 export default RushAzureStorageBuildCachePlugin;

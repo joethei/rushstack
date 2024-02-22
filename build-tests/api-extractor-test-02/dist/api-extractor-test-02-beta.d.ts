@@ -16,7 +16,7 @@ import * as semver1 from 'semver';
  * @public
  */
 export declare interface GenericInterface<T> {
-    member: T;
+    /* Excluded from this release type: member */
 }
 
 /** @public */
@@ -51,7 +51,7 @@ export { RenamedReexportedClass3 }
  * @public
  */
 export declare class SubclassWithImport extends RenamedReexportedClass3 implements ISimpleInterface {
-    test(): void;
+    /* Excluded from this release type: test */
 }
 
 export { }

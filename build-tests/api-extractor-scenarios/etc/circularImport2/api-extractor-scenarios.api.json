@@ -223,39 +223,7 @@
           "isAbstract": false,
           "name": "IFile",
           "preserveMemberOrder": false,
-          "members": [
-            {
-              "kind": "Property",
-              "canonicalReference": "api-extractor-scenarios!IFile#containingFolder:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "containingFolder: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "IFolder",
-                  "canonicalReference": "api-extractor-scenarios!IFolder:class"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "containingFolder",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "isStatic": false,
-              "isProtected": false,
-              "isAbstract": false
-            }
-          ],
+          "members": [],
           "implementsTokenRanges": []
         },
         {
@@ -273,78 +241,7 @@
           "isAbstract": false,
           "name": "IFolder",
           "preserveMemberOrder": false,
-          "members": [
-            {
-              "kind": "Property",
-              "canonicalReference": "api-extractor-scenarios!IFolder#containingFolder:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "containingFolder: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "IFolder",
-                  "canonicalReference": "api-extractor-scenarios!IFolder:class"
-                },
-                {
-                  "kind": "Content",
-                  "text": " | undefined"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "containingFolder",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 3
-              },
-              "isStatic": false,
-              "isProtected": false,
-              "isAbstract": false
-            },
-            {
-              "kind": "Property",
-              "canonicalReference": "api-extractor-scenarios!IFolder#files:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "files: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "IFile",
-                  "canonicalReference": "api-extractor-scenarios!IFile:class"
-                },
-                {
-                  "kind": "Content",
-                  "text": "[]"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "files",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 3
-              },
-              "isStatic": false,
-              "isProtected": false,
-              "isAbstract": false
-            }
-          ],
+          "members": [],
           "implementsTokenRanges": []
         }
       ]

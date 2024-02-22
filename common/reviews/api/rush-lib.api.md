@@ -24,16 +24,21 @@ import { Terminal } from '@rushstack/terminal';
 
 // @public
 export class ApprovedPackagesConfiguration {
+    // @internal
     constructor(jsonFilename: string);
-    // (undocumented)
+    // @internal (undocumented)
     addOrUpdatePackage(packageName: string, reviewCategory: string): boolean;
+    // @internal
     clear(): void;
-    // (undocumented)
+    // @internal (undocumented)
     getItemByName(packageName: string): ApprovedPackagesItem | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     items: ApprovedPackagesItem[];
+    // @internal
     loadFromFile(): void;
+    // @internal
     saveToFile(): void;
+    // @internal
     tryLoadFromFile(approvedPackagesPolicyEnabled: boolean): boolean;
 }
 
@@ -41,7 +46,9 @@ export class ApprovedPackagesConfiguration {
 export class ApprovedPackagesItem {
     // @internal
     constructor(packageName: string);
+    // @internal
     allowedCategories: Set<string>;
+    // @internal
     packageName: string;
 }
 
@@ -51,43 +58,57 @@ export class ApprovedPackagesPolicy {
     //
     // @internal
     constructor(rushConfiguration: RushConfiguration, rushConfigurationJson: IRushConfigurationJson);
+    // @internal
     readonly browserApprovedPackages: ApprovedPackagesConfiguration;
+    // @internal
     readonly enabled: boolean;
+    // @internal
     readonly ignoredNpmScopes: ReadonlySet<string>;
+    // @internal
     readonly nonbrowserApprovedPackages: ApprovedPackagesConfiguration;
+    // @internal
     readonly reviewCategories: ReadonlySet<string>;
 }
 
 // @beta
 export class BuildCacheConfiguration {
+    // @internal
     readonly buildCacheEnabled: boolean;
+    // @internal
     cacheWriteEnabled: boolean;
+    // @internal
     readonly cloudCacheProvider: ICloudBuildCacheProvider | undefined;
+    // @internal
     static getBuildCacheConfigFilePath(rushConfiguration: RushConfiguration): string;
+    // @internal
     readonly getCacheEntryId: GetCacheEntryIdFunction;
+    // @internal
     static loadAndRequireEnabledAsync(terminal: ITerminal, rushConfiguration: RushConfiguration, rushSession: RushSession): Promise<BuildCacheConfiguration>;
+    // @internal
     readonly localCacheProvider: FileSystemBuildCacheProvider;
+    // @internal
     static tryLoadAsync(terminal: ITerminal, rushConfiguration: RushConfiguration, rushSession: RushSession): Promise<BuildCacheConfiguration | undefined>;
 }
 
 // @public
 export enum BumpType {
-    // (undocumented)
+    // @internal (undocumented)
     'major' = 5,
-    // (undocumented)
+    // @internal (undocumented)
     'minor' = 4,
-    // (undocumented)
+    // @internal (undocumented)
     'none' = 0,
-    // (undocumented)
+    // @internal (undocumented)
     'patch' = 2,
-    // (undocumented)
+    // @internal (undocumented)
     'preminor' = 3,
-    // (undocumented)
+    // @internal (undocumented)
     'prerelease' = 1
 }
 
 // @public
 export class ChangeManager {
+    // @internal
     static createEmptyChangeFiles(rushConfiguration: RushConfiguration, projectName: string, emailAddress: string): string | undefined;
 }
 
@@ -98,18 +119,23 @@ export type CloudBuildCacheProviderFactory = (buildCacheJson: IBuildCacheJson) =
 
 // @beta
 export class CobuildConfiguration {
+    // @internal
     readonly cobuildContextId: string | undefined;
+    // @internal
     readonly cobuildFeatureEnabled: boolean;
+    // @internal
     readonly cobuildLeafProjectLogOnlyAllowed: boolean;
+    // @internal
     readonly cobuildRunnerId: string;
-    // (undocumented)
+    // @internal (undocumented)
     createLockProviderAsync(terminal: ITerminal): Promise<void>;
-    // (undocumented)
+    // @internal (undocumented)
     destroyLockProviderAsync(): Promise<void>;
-    // (undocumented)
+    // @internal (undocumented)
     static getCobuildConfigFilePath(rushConfiguration: RushConfiguration): string;
-    // (undocumented)
+    // @internal (undocumented)
     getCobuildLockProvider(): ICobuildLockProvider;
+    // @internal
     static tryLoadAsync(terminal: ITerminal, rushConfiguration: RushConfiguration, rushSession: RushSession): Promise<CobuildConfiguration | undefined>;
 }
 
@@ -118,63 +144,73 @@ export type CobuildLockProviderFactory = (cobuildJson: ICobuildJson) => ICobuild
 
 // @public
 export class CommonVersionsConfiguration {
+    // @internal
     readonly allowedAlternativeVersions: Map<string, ReadonlyArray<string>>;
+    // @internal
     readonly filePath: string;
+    // @internal
     getAllPreferredVersions(): Map<string, string>;
+    // @internal
     getPreferredVersionsHash(): string;
+    // @internal
     readonly implicitlyPreferredVersions: boolean | undefined;
+    // @internal
     static loadFromFile(jsonFilename: string): CommonVersionsConfiguration;
+    // @internal
     readonly preferredVersions: Map<string, string>;
+    // @internal
     save(): boolean;
 }
 
 // @beta (undocumented)
 export class CredentialCache {
-    // (undocumented)
+    // @internal (undocumented)
     deleteCacheEntry(cacheId: string): void;
-    // (undocumented)
+    // @internal (undocumented)
     dispose(): void;
-    // (undocumented)
+    // @internal (undocumented)
     static initializeAsync(options: ICredentialCacheOptions): Promise<CredentialCache>;
-    // (undocumented)
+    // @internal (undocumented)
     saveIfModifiedAsync(): Promise<void>;
-    // (undocumented)
+    // @internal (undocumented)
     setCacheEntry(cacheId: string, entry: ICredentialCacheEntry): void;
-    // (undocumented)
+    // @internal (undocumented)
     trimExpiredEntries(): void;
-    // (undocumented)
+    // @internal (undocumented)
     tryGetCacheEntry(cacheId: string): ICredentialCacheEntry | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     static usingAsync(options: ICredentialCacheOptions, doActionAsync: (credentialCache: CredentialCache) => Promise<void> | void): Promise<void>;
 }
 
 // @beta
 export enum CustomTipId {
-    // (undocumented)
+    // @internal (undocumented)
     TIP_PNPM_INVALID_NODE_VERSION = "TIP_PNPM_INVALID_NODE_VERSION",
-    // (undocumented)
+    // @internal (undocumented)
     TIP_PNPM_MISMATCHED_RELEASE_CHANNEL = "TIP_PNPM_MISMATCHED_RELEASE_CHANNEL",
-    // (undocumented)
+    // @internal (undocumented)
     TIP_PNPM_NO_MATCHING_VERSION = "TIP_PNPM_NO_MATCHING_VERSION",
-    // (undocumented)
+    // @internal (undocumented)
     TIP_PNPM_NO_MATCHING_VERSION_INSIDE_WORKSPACE = "TIP_PNPM_NO_MATCHING_VERSION_INSIDE_WORKSPACE",
-    // (undocumented)
+    // @internal (undocumented)
     TIP_PNPM_OUTDATED_LOCKFILE = "TIP_PNPM_OUTDATED_LOCKFILE",
-    // (undocumented)
+    // @internal (undocumented)
     TIP_PNPM_PEER_DEP_ISSUES = "TIP_PNPM_PEER_DEP_ISSUES",
-    // (undocumented)
+    // @internal (undocumented)
     TIP_PNPM_TARBALL_INTEGRITY = "TIP_PNPM_TARBALL_INTEGRITY",
-    // (undocumented)
+    // @internal (undocumented)
     TIP_PNPM_UNEXPECTED_STORE = "TIP_PNPM_UNEXPECTED_STORE",
-    // (undocumented)
+    // @internal (undocumented)
     TIP_RUSH_INCONSISTENT_VERSIONS = "TIP_RUSH_INCONSISTENT_VERSIONS"
 }
 
 // @beta
 export class CustomTipsConfiguration {
+    // @internal
     constructor(configFilePath: string);
+    // @internal
     static customTipRegistry: Readonly<Record<CustomTipId, ICustomTipInfo>>;
-    // (undocumented)
+    // @internal (undocumented)
     readonly providedCustomTipsByTipId: ReadonlyMap<CustomTipId, ICustomTipItemJson>;
     // @internal
     _showErrorTip(terminal: ITerminal, tipId: CustomTipId): void;
@@ -188,60 +224,77 @@ export class CustomTipsConfiguration {
 
 // @beta
 export enum CustomTipSeverity {
-    // (undocumented)
+    // @internal (undocumented)
     Error = "Error",
-    // (undocumented)
+    // @internal (undocumented)
     Info = "Info",
-    // (undocumented)
+    // @internal (undocumented)
     Warning = "Warning"
 }
 
 // @beta
 export enum CustomTipType {
-    // (undocumented)
+    // @internal (undocumented)
     pnpm = "pnpm",
-    // (undocumented)
+    // @internal (undocumented)
     rush = "rush"
 }
 
 // @public (undocumented)
 export enum DependencyType {
-    // (undocumented)
+    // @internal (undocumented)
     Dev = "devDependencies",
-    // (undocumented)
+    // @internal (undocumented)
     Optional = "optionalDependencies",
-    // (undocumented)
+    // @internal (undocumented)
     Peer = "peerDependencies",
-    // (undocumented)
+    // @internal (undocumented)
     Regular = "dependencies",
-    // (undocumented)
+    // @internal (undocumented)
     YarnResolutions = "resolutions"
 }
 
 // @beta
 export class EnvironmentConfiguration {
+    // @internal
     static get absoluteSymlinks(): boolean;
+    // @internal
     static get allowUnsupportedNodeVersion(): boolean;
+    // @internal
     static get allowWarningsInSuccessfulBuild(): boolean;
+    // @internal
     static get buildCacheCredential(): string | undefined;
+    // @internal
     static get buildCacheEnabled(): boolean | undefined;
+    // @internal
     static get buildCacheWriteAllowed(): boolean | undefined;
+    // @internal
     static get cobuildContextId(): string | undefined;
+    // @internal
     static get cobuildLeafProjectLogOnlyAllowed(): boolean | undefined;
+    // @internal
     static get cobuildRunnerId(): string | undefined;
     // Warning: (ae-forgotten-export) The symbol "IEnvironment" needs to be exported by the entry point index.d.ts
     //
     // @internal
     static _getRushGlobalFolderOverride(processEnv: IEnvironment): string | undefined;
+    // @internal
     static get gitBinaryPath(): string | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     static parseBooleanEnvironmentVariable(name: string, value: string | undefined): boolean | undefined;
+    // @internal
     static get pnpmStorePathOverride(): string | undefined;
+    // @internal
     static get pnpmVerifyStoreIntegrity(): boolean | undefined;
+    // @internal
     static reset(): void;
+    // @internal
     static get rushGlobalFolderOverride(): string | undefined;
+    // @internal
     static get rushTempFolderOverride(): string | undefined;
+    // @internal
     static get tarBinaryPath(): string | undefined;
+    // @internal
     static validate(options?: IEnvironmentConfigurationInitializeOptions): void;
 }
 
@@ -274,11 +327,17 @@ export const EnvironmentVariableNames: {
 
 // @beta
 enum Event_2 {
+    // @internal
     postRushBuild = 4,
+    // @internal
     postRushInstall = 2,
+    // @internal
     postRushx = 6,
+    // @internal
     preRushBuild = 3,
+    // @internal
     preRushInstall = 1,
+    // @internal
     preRushx = 5
 }
 export { Event_2 as Event }
@@ -289,6 +348,7 @@ export class EventHooks {
     //
     // @internal
     constructor(eventHooksJson: IEventHooksJson);
+    // @internal
     get(event: Event_2): string[];
 }
 
@@ -302,9 +362,13 @@ export class ExperimentsConfiguration {
 
 // @beta
 export class FileSystemBuildCacheProvider {
+    // @internal
     constructor(options: IFileSystemBuildCacheProviderOptions);
+    // @internal
     getCacheEntryPath(cacheId: string): string;
+    // @internal
     tryGetCacheEntryPathByIdAsync(terminal: ITerminal, cacheId: string): Promise<string | undefined>;
+    // @internal
     trySetCacheEntryBufferAsync(terminal: ITerminal, cacheId: string, entryBuffer: Buffer): Promise<string>;
 }
 
@@ -319,173 +383,233 @@ export interface _IBuiltInPluginConfiguration extends _IRushPluginConfigurationB
 
 // @beta (undocumented)
 export interface ICloudBuildCacheProvider {
-    // (undocumented)
+    // @internal (undocumented)
     deleteCachedCredentialsAsync(terminal: ITerminal): Promise<void>;
-    // (undocumented)
+    // @internal (undocumented)
     readonly isCacheWriteAllowed: boolean;
-    // (undocumented)
+    // @internal (undocumented)
     tryGetCacheEntryBufferByIdAsync(terminal: ITerminal, cacheId: string): Promise<Buffer | undefined>;
-    // (undocumented)
+    // @internal (undocumented)
     trySetCacheEntryBufferAsync(terminal: ITerminal, cacheId: string, entryBuffer: Buffer): Promise<boolean>;
-    // (undocumented)
+    // @internal (undocumented)
     updateCachedCredentialAsync(terminal: ITerminal, credential: string): Promise<void>;
-    // (undocumented)
+    // @internal (undocumented)
     updateCachedCredentialInteractiveAsync(terminal: ITerminal): Promise<void>;
 }
 
 // @beta (undocumented)
 export interface ICobuildCompletedState {
+    // @internal
     cacheId: string;
-    // (undocumented)
+    // @internal (undocumented)
     status: OperationStatus.Success | OperationStatus.SuccessWithWarning | OperationStatus.Failure;
 }
 
 // @beta (undocumented)
 export interface ICobuildContext {
+    // @internal
     cacheId: string;
+    // @internal
     clusterId: string;
+    // @internal
     completedStateKey: string;
+    // @internal
     contextId: string;
+    // @internal
     lockExpireTimeInSeconds: number;
+    // @internal
     lockKey: string;
+    // @internal
     packageName: string;
+    // @internal
     phaseName: string;
+    // @internal
     runnerId: string;
 }
 
 // @beta (undocumented)
 export interface ICobuildJson {
-    // (undocumented)
+    // @internal (undocumented)
     cobuildFeatureEnabled: boolean;
-    // (undocumented)
+    // @internal (undocumented)
     cobuildLockProvider: string;
 }
 
 // @beta (undocumented)
 export interface ICobuildLockProvider {
+    // @internal
     acquireLockAsync(context: Readonly<ICobuildContext>): Promise<boolean>;
+    // @internal
     connectAsync(): Promise<void>;
+    // @internal
     disconnectAsync(): Promise<void>;
+    // @internal
     getCompletedStateAsync(context: Readonly<ICobuildContext>): Promise<ICobuildCompletedState | undefined>;
+    // @internal
     renewLockAsync(context: Readonly<ICobuildContext>): Promise<void>;
+    // @internal
     setCompletedStateAsync(context: Readonly<ICobuildContext>, state: ICobuildCompletedState): Promise<void>;
 }
 
 // @public
 export interface IConfigurationEnvironment {
+    // @internal
     [environmentVariableName: string]: IConfigurationEnvironmentVariable;
 }
 
 // @public
 export interface IConfigurationEnvironmentVariable {
+    // @internal
     override?: boolean;
+    // @internal
     value: string;
 }
 
 // @alpha
 export interface ICreateOperationsContext {
+    // @internal
     readonly buildCacheConfiguration: BuildCacheConfiguration | undefined;
+    // @internal
     readonly cobuildConfiguration: CobuildConfiguration | undefined;
+    // @internal
     readonly customParameters: ReadonlyMap<string, CommandLineParameter>;
+    // @internal
     readonly isIncrementalBuildAllowed: boolean;
+    // @internal
     readonly isInitial: boolean;
+    // @internal
     readonly isWatch: boolean;
+    // @internal
     readonly phaseOriginal: ReadonlySet<IPhase>;
+    // @internal
     readonly phaseSelection: ReadonlySet<IPhase>;
+    // @internal
     readonly projectChangeAnalyzer: ProjectChangeAnalyzer;
+    // @internal
     readonly projectConfigurations: ReadonlyMap<RushConfigurationProject, RushProjectConfiguration>;
+    // @internal
     readonly projectSelection: ReadonlySet<RushConfigurationProject>;
+    // @internal
     readonly projectsInUnknownState: ReadonlySet<RushConfigurationProject>;
+    // @internal
     readonly rushConfiguration: RushConfiguration;
 }
 
 // @beta (undocumented)
 export interface ICredentialCacheEntry {
-    // (undocumented)
+    // @internal (undocumented)
     credential: string;
-    // (undocumented)
+    // @internal (undocumented)
     credentialMetadata?: object;
-    // (undocumented)
+    // @internal (undocumented)
     expires?: Date;
 }
 
 // @beta (undocumented)
 export interface ICredentialCacheOptions {
-    // (undocumented)
+    // @internal (undocumented)
     supportEditing: boolean;
 }
 
 // @beta
 export interface ICustomTipInfo {
+    // @internal
     isMatch?: (str: string) => boolean;
+    // @internal
     severity: CustomTipSeverity;
-    // (undocumented)
+    // @internal (undocumented)
     tipId: CustomTipId;
+    // @internal
     type: CustomTipType;
 }
 
 // @beta
 export interface ICustomTipItemJson {
+    // @internal
     message: string;
+    // @internal
     tipId: CustomTipId;
 }
 
 // @beta
 export interface ICustomTipsJson {
+    // @internal
     customTips?: ICustomTipItemJson[];
 }
 
 // @beta (undocumented)
 export interface IEnvironmentConfigurationInitializeOptions {
-    // (undocumented)
+    // @internal (undocumented)
     doNotNormalizePaths?: boolean;
 }
 
 // @alpha
 export interface IExecutionResult {
+    // @internal
     readonly operationResults: ReadonlyMap<Operation, IOperationExecutionResult>;
+    // @internal
     readonly status: OperationStatus;
 }
 
 // @beta
 export interface IExperimentsJson {
+    // @internal
     buildCacheWithAllowWarningsInSuccessfulBuild?: boolean;
+    // @internal
     buildSkipWithAllowWarningsInSuccessfulBuild?: boolean;
+    // @internal
     cleanInstallAfterNpmrcChanges?: boolean;
+    // @internal
     forbidPhantomResolvableNodeModulesFolders?: boolean;
+    // @internal
     generateProjectImpactGraphDuringRushUpdate?: boolean;
+    // @internal
     noChmodFieldInTarHeaderNormalization?: boolean;
+    // @internal
     omitImportersFromPreventManualShrinkwrapChanges?: boolean;
+    // @internal
     phasedCommands?: boolean;
+    // @internal
     printEventHooksOutputToConsole?: boolean;
+    // @internal
     usePnpmFrozenLockfileForRushInstall?: boolean;
+    // @internal
     usePnpmLockfileOnlyThenFrozenLockfileForRushUpdate?: boolean;
+    // @internal
     usePnpmPreferFrozenLockfileForRushUpdate?: boolean;
+    // @internal
     usePnpmSyncForInjectedDependencies?: boolean;
 }
 
 // @beta
 export interface IFileSystemBuildCacheProviderOptions {
+    // @internal
     rushConfiguration: RushConfiguration;
+    // @internal
     rushUserConfiguration: RushUserConfiguration;
 }
 
 // @beta
 export interface IGenerateCacheEntryIdOptions {
+    // @internal
     phaseName: string;
+    // @internal
     projectName: string;
+    // @internal
     projectStateHash: string;
 }
 
 // @beta (undocumented)
 export interface IGetChangedProjectsOptions {
+    // @internal
     enableFiltering: boolean;
+    // @internal
     includeExternalDependencies: boolean;
-    // (undocumented)
+    // @internal (undocumented)
     shouldFetch?: boolean;
-    // (undocumented)
+    // @internal (undocumented)
     targetBranchName: string;
-    // (undocumented)
+    // @internal (undocumented)
     terminal: ITerminal;
 }
 
@@ -495,10 +619,13 @@ export interface IGlobalCommand extends IRushCommand {
 
 // @public
 export interface ILaunchOptions {
+    // @internal
     alreadyReportedNodeTooNewError?: boolean;
     // @internal
     builtInPluginConfigurations?: _IBuiltInPluginConfiguration[];
+    // @internal
     isManaged: boolean;
+    // @internal
     terminalProvider?: ITerminalProvider;
 }
 
@@ -512,9 +639,11 @@ export interface _ILockfileValidityCheckOptions {
 
 // @beta (undocumented)
 export interface ILogger {
+    // @internal
     emitError(error: Error): void;
+    // @internal
     emitWarning(warning: Error): void;
-    // (undocumented)
+    // @internal (undocumented)
     readonly terminal: Terminal;
 }
 
@@ -524,11 +653,15 @@ export class IndividualVersionPolicy extends VersionPolicy {
     //
     // @internal
     constructor(versionPolicyJson: IIndividualVersionJson);
+    // @internal
     bump(bumpType?: BumpType, identifier?: string): void;
+    // @internal
     ensure(project: IPackageJson, force?: boolean): IPackageJson | undefined;
     // @internal
     get _json(): IIndividualVersionJson;
+    // @internal
     readonly lockedMajor: number | undefined;
+    // @internal
     validate(versionString: string, packageName: string): void;
 }
 
@@ -538,12 +671,19 @@ export interface _INpmOptionsJson extends IPackageManagerOptionsJsonBase {
 
 // @alpha
 export interface IOperationExecutionResult {
+    // @internal
     readonly cobuildRunnerId: string | undefined;
+    // @internal
     readonly error: Error | undefined;
+    // @internal
     readonly nonCachedDurationMs: number | undefined;
+    // @internal
     readonly operation: Operation;
+    // @internal
     readonly status: OperationStatus;
+    // @internal
     readonly stdioSummarizer: StdioSummarizer;
+    // @internal
     readonly stopwatch: IStopwatchResult;
 }
 
@@ -571,43 +711,67 @@ export interface _IOperationMetadataManagerOptions {
 
 // @alpha
 export interface IOperationOptions {
+    // @internal
     phase?: IPhase | undefined;
+    // @internal
     project?: RushConfigurationProject | undefined;
+    // @internal
     runner?: IOperationRunner | undefined;
 }
 
 // @beta
 export interface IOperationRunner {
+    // @internal
     cacheable: boolean;
+    // @internal
     executeAsync(context: IOperationRunnerContext): Promise<OperationStatus>;
+    // @internal
     getConfigHash(): string;
+    // @internal
     readonly isNoOp?: boolean;
+    // @internal
     readonly name: string;
+    // @internal
     reportTiming: boolean;
+    // @internal
     silent: boolean;
+    // @internal
     warningsAreAllowed: boolean;
 }
 
 // @beta
 export interface IOperationRunnerContext {
+    // @internal
     readonly changedProjectsOnly: boolean;
+    // @internal
     collatedWriter: CollatedWriter;
+    // @internal
     debugMode: boolean;
+    // @internal
     error?: Error;
     // @internal
     _operationMetadataManager?: _OperationMetadataManager;
+    // @internal
     quietMode: boolean;
+    // @internal
     status: OperationStatus;
+    // @internal
     stdioSummarizer: StdioSummarizer;
+    // @internal
     stopwatch: IStopwatchResult;
 }
 
 // @alpha (undocumented)
 export interface IOperationSettings {
+    // @internal
     dependsOnAdditionalFiles?: string[];
+    // @internal
     dependsOnEnvVars?: string[];
+    // @internal
     disableBuildCacheForOperation?: boolean;
+    // @internal
     operationName: string;
+    // @internal
     outputFolderNames?: string[];
 }
 
@@ -631,21 +795,30 @@ export interface _IOperationStateJson {
 
 // @public
 export interface IPackageManagerOptionsJsonBase {
+    // @internal
     environmentVariables?: IConfigurationEnvironment;
 }
 
 // @alpha
 export interface IPhase {
+    // @internal
     allowWarningsOnSuccess: boolean;
+    // @internal
     associatedParameters: Set<CommandLineParameter>;
+    // @internal
     dependencies: {
         self: Set<IPhase>;
         upstream: Set<IPhase>;
     };
+    // @internal
     isSynthetic: boolean;
+    // @internal
     logFilenameIdentifier: string;
+    // @internal
     missingScriptBehavior: IPhaseBehaviorForMissingScript;
+    // @internal
     name: string;
+    // @internal
     shellCommand?: string;
 }
 
@@ -679,9 +852,9 @@ export interface _IPnpmOptionsJson extends IPackageManagerOptionsJsonBase {
 
 // @beta
 export interface IPrefixMatch<TItem> {
-    // (undocumented)
+    // @internal (undocumented)
     index: number;
-    // (undocumented)
+    // @internal (undocumented)
     value: TItem;
 }
 
@@ -697,12 +870,13 @@ export interface _IRawRepoState {
 
 // @beta
 export interface IRushCommand {
+    // @internal
     readonly actionName: string;
 }
 
 // @beta (undocumented)
 export interface IRushPlugin {
-    // (undocumented)
+    // @internal (undocumented)
     apply(rushSession: RushSession, rushConfiguration: RushConfiguration): void;
 }
 
@@ -724,57 +898,81 @@ export interface _IRushProjectJson {
 
 // @beta (undocumented)
 export interface IRushSessionOptions {
-    // (undocumented)
+    // @internal (undocumented)
     getIsDebugMode: () => boolean;
-    // (undocumented)
+    // @internal (undocumented)
     terminalProvider: ITerminalProvider;
 }
 
 // @beta
 export interface IStopwatchResult {
+    // @internal
     get duration(): number;
+    // @internal
     get endTime(): number | undefined;
+    // @internal
     get startTime(): number | undefined;
+    // @internal
     toString(): string;
 }
 
 // @beta (undocumented)
 export interface ITelemetryData {
+    // @internal
     readonly durationInSeconds: number;
-    // (undocumented)
+    // @internal (undocumented)
     readonly extraData?: {
         [key: string]: string | number | boolean;
     };
+    // @internal
     readonly machineInfo?: ITelemetryMachineInfo;
+    // @internal
     readonly name: string;
+    // @internal
     readonly operationResults?: Record<string, ITelemetryOperationResult>;
+    // @internal
     readonly platform?: string;
+    // @internal
     readonly result: 'Succeeded' | 'Failed';
+    // @internal
     readonly rushVersion?: string;
+    // @internal
     readonly timestampMs?: number;
 }
 
 // @beta (undocumented)
 export interface ITelemetryMachineInfo {
+    // @internal
     machineArchitecture: string;
+    // @internal
     machineCores: number;
+    // @internal
     machineCpu: string;
+    // @internal
     machineFreeMemoryMiB: number;
+    // @internal
     machineTotalMemoryMiB: number;
 }
 
 // @beta (undocumented)
 export interface ITelemetryOperationResult {
+    // @internal
     dependencies: string[];
+    // @internal
     endTimestampMs?: number;
+    // @internal
     nonCachedDurationMs?: number;
+    // @internal
     result: string;
+    // @internal
     startTimestampMs?: number;
 }
 
 // @public
 export interface ITryFindRushJsonLocationOptions {
+    // @internal
     showVerbose?: boolean;
+    // @internal
     startingFolder?: string;
 }
 
@@ -802,26 +1000,41 @@ export class LockStepVersionPolicy extends VersionPolicy {
     //
     // @internal
     constructor(versionPolicyJson: ILockStepVersionJson);
+    // @internal
     bump(bumpType?: BumpType, identifier?: string): void;
+    // @internal
     ensure(project: IPackageJson, force?: boolean): IPackageJson | undefined;
     // @internal
     get _json(): ILockStepVersionJson;
+    // @internal
     readonly mainProject: string | undefined;
+    // @internal
     readonly nextBump: BumpType | undefined;
+    // @internal
     update(newVersionString: string): boolean;
+    // @internal
     validate(versionString: string, packageName: string): void;
+    // @internal
     get version(): string;
 }
 
 // @beta
 export class LookupByPath<TItem> {
+    // @internal
     constructor(entries?: Iterable<[string, TItem]>, delimiter?: string);
+    // @internal
     readonly delimiter: string;
+    // @internal
     findChildPath(childPath: string): TItem | undefined;
+    // @internal
     findChildPathFromSegments(childPathSegments: Iterable<string>): TItem | undefined;
+    // @internal
     findLongestPrefixMatch(query: string): IPrefixMatch<TItem> | undefined;
+    // @internal
     static iteratePathSegments(serializedPath: string, delimiter?: string): Iterable<string>;
+    // @internal
     setItem(serializedPath: string, value: TItem): this;
+    // @internal
     setItemFromSegments(pathSegments: Iterable<string>, value: TItem): this;
 }
 
@@ -833,15 +1046,25 @@ export class NpmOptionsConfiguration extends PackageManagerOptionsConfigurationB
 
 // @alpha
 export class Operation {
+    // @internal
     constructor(options?: IOperationOptions);
+    // @internal
     addDependency(dependency: Operation): void;
+    // @internal
     readonly associatedPhase: IPhase | undefined;
+    // @internal
     readonly associatedProject: RushConfigurationProject | undefined;
+    // @internal
     readonly consumers: ReadonlySet<Operation>;
+    // @internal
     deleteDependency(dependency: Operation): void;
+    // @internal
     readonly dependencies: ReadonlySet<Operation>;
+    // @internal
     get name(): string | undefined;
+    // @internal
     runner: IOperationRunner | undefined;
+    // @internal
     weight: number;
 }
 
@@ -878,39 +1101,53 @@ export class _OperationStateFile {
 
 // @beta
 export enum OperationStatus {
+    // @internal
     Blocked = "BLOCKED",
+    // @internal
     Executing = "EXECUTING",
+    // @internal
     Failure = "FAILURE",
+    // @internal
     FromCache = "FROM CACHE",
+    // @internal
     NoOp = "NO OP",
+    // @internal
     Queued = "QUEUED",
+    // @internal
     Ready = "READY",
+    // @internal
     RemoteExecuting = "REMOTE EXECUTING",
+    // @internal
     Skipped = "SKIPPED",
+    // @internal
     Success = "SUCCESS",
+    // @internal
     SuccessWithWarning = "SUCCESS WITH WARNINGS",
+    // @internal
     Waiting = "WAITING"
 }
 
 // @public (undocumented)
 export class PackageJsonDependency {
+    // @internal
     constructor(name: string, version: string, type: DependencyType, onChange: () => void);
-    // (undocumented)
+    // @internal (undocumented)
     readonly dependencyType: DependencyType;
-    // (undocumented)
+    // @internal (undocumented)
     readonly name: string;
-    // (undocumented)
+    // @internal (undocumented)
     setVersion(newVersion: string): void;
-    // (undocumented)
+    // @internal (undocumented)
     get version(): string;
 }
 
 // @public (undocumented)
 export class PackageJsonDependencyMeta {
+    // @internal
     constructor(name: string, injected: boolean, onChange: () => void);
-    // (undocumented)
+    // @internal (undocumented)
     get injected(): boolean;
-    // (undocumented)
+    // @internal (undocumented)
     readonly name: string;
 }
 
@@ -918,30 +1155,35 @@ export class PackageJsonDependencyMeta {
 export class PackageJsonEditor {
     // @internal
     protected constructor(filepath: string, data: IPackageJson);
-    // (undocumented)
+    // @internal (undocumented)
     addOrUpdateDependency(packageName: string, newVersion: string, dependencyType: DependencyType): void;
+    // @internal
     get dependencyList(): ReadonlyArray<PackageJsonDependency>;
+    // @internal
     get dependencyMetaList(): ReadonlyArray<PackageJsonDependencyMeta>;
+    // @internal
     get devDependencyList(): ReadonlyArray<PackageJsonDependency>;
-    // (undocumented)
+    // @internal (undocumented)
     readonly filePath: string;
-    // (undocumented)
+    // @internal (undocumented)
     static fromObject(object: IPackageJson, filename: string): PackageJsonEditor;
-    // (undocumented)
+    // @internal (undocumented)
     static load(filePath: string): PackageJsonEditor;
-    // (undocumented)
+    // @internal (undocumented)
     get name(): string;
-    // (undocumented)
+    // @internal (undocumented)
     removeDependency(packageName: string, dependencyType: DependencyType): void;
+    // @internal
     get resolutionsList(): ReadonlyArray<PackageJsonDependency>;
-    // (undocumented)
+    // @internal (undocumented)
     saveIfModified(): boolean;
+    // @internal
     saveToObject(): IPackageJson;
-    // (undocumented)
+    // @internal (undocumented)
     tryGetDependency(packageName: string): PackageJsonDependency | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     tryGetDevDependency(packageName: string): PackageJsonDependency | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     get version(): string;
 }
 
@@ -949,8 +1191,11 @@ export class PackageJsonEditor {
 export abstract class PackageManager {
     // @internal
     protected constructor(version: string, packageManager: PackageManagerName, shrinkwrapFilename: string);
+    // @internal
     readonly packageManager: PackageManagerName;
+    // @internal
     readonly shrinkwrapFilename: string;
+    // @internal
     readonly version: string;
 }
 
@@ -961,50 +1206,74 @@ export type PackageManagerName = 'pnpm' | 'npm' | 'yarn';
 export abstract class PackageManagerOptionsConfigurationBase implements IPackageManagerOptionsJsonBase {
     // @internal
     protected constructor(json: IPackageManagerOptionsJsonBase);
+    // @internal
     readonly environmentVariables?: IConfigurationEnvironment;
 }
 
 // @alpha
 export class PhasedCommandHooks {
+    // @internal
     readonly afterExecuteOperation: AsyncSeriesHook<[
     IOperationRunnerContext & IOperationExecutionResult
     ]>;
+    // @internal
     readonly afterExecuteOperations: AsyncSeriesHook<[IExecutionResult, ICreateOperationsContext]>;
+    // @internal
     readonly beforeExecuteOperation: AsyncSeriesBailHook<[
     IOperationRunnerContext & IOperationExecutionResult
     ], OperationStatus | undefined>;
+    // @internal
     readonly beforeExecuteOperations: AsyncSeriesHook<[
     Map<Operation, IOperationExecutionResult>,
     ICreateOperationsContext
     ]>;
+    // @internal
     readonly beforeLog: SyncHook<ITelemetryData, void>;
+    // @internal
     readonly createOperations: AsyncSeriesWaterfallHook<[Set<Operation>, ICreateOperationsContext]>;
+    // @internal
     readonly onOperationStatusChanged: SyncHook<[IOperationExecutionResult]>;
+    // @internal
     readonly waitingForChanges: SyncHook<void>;
 }
 
 // @public
 export class PnpmOptionsConfiguration extends PackageManagerOptionsConfigurationBase {
+    // @internal
     readonly autoInstallPeers: boolean | undefined;
+    // @internal
     readonly globalAllowedDeprecatedVersions: Record<string, string> | undefined;
+    // @internal
     readonly globalNeverBuiltDependencies: string[] | undefined;
+    // @internal
     readonly globalOverrides: Record<string, string> | undefined;
+    // @internal
     readonly globalPackageExtensions: Record<string, IPnpmPackageExtension> | undefined;
+    // @internal
     get globalPatchedDependencies(): Record<string, string> | undefined;
+    // @internal
     readonly globalPeerDependencyRules: IPnpmPeerDependencyRules | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     readonly jsonFilename: string | undefined;
     // @internal (undocumented)
     static loadFromJsonFileOrThrow(jsonFilename: string, commonTempFolder: string): PnpmOptionsConfiguration;
     // @internal (undocumented)
     static loadFromJsonObject(json: _IPnpmOptionsJson, commonTempFolder: string): PnpmOptionsConfiguration;
+    // @internal
     readonly pnpmStore: PnpmStoreLocation;
+    // @internal
     readonly pnpmStorePath: string;
+    // @internal
     readonly preventManualShrinkwrapChanges: boolean;
+    // @internal
     readonly resolutionMode: PnpmResolutionMode | undefined;
+    // @internal
     readonly strictPeerDependencies: boolean;
+    // @internal
     readonly unsupportedPackageJsonSettings: unknown | undefined;
+    // @internal
     updateGlobalPatchedDependencies(patchedDependencies: Record<string, string> | undefined): void;
+    // @internal
     readonly useWorkspaces: boolean;
 }
 
@@ -1019,11 +1288,13 @@ export type PnpmStoreOptions = PnpmStoreLocation;
 
 // @beta (undocumented)
 export class ProjectChangeAnalyzer {
+    // @internal
     constructor(rushConfiguration: RushConfiguration);
     // @internal (undocumented)
     _ensureInitializedAsync(terminal: ITerminal): Promise<_IRawRepoState | undefined>;
-    // (undocumented)
+    // @internal (undocumented)
     _filterProjectDataAsync<T>(project: RushConfigurationProject, unfilteredProjectData: Map<string, T>, rootDir: string, terminal: ITerminal): Promise<Map<string, T>>;
+    // @internal
     getChangedProjectsAsync(options: IGetChangedProjectsOptions): Promise<Set<RushConfigurationProject>>;
     // @internal
     _tryGetProjectDependenciesAsync(project: RushConfigurationProject, terminal: ITerminal): Promise<Map<string, string> | undefined>;
@@ -1033,39 +1304,59 @@ export class ProjectChangeAnalyzer {
 
 // @public
 export class RepoStateFile {
+    // @internal
     readonly filePath: string;
+    // @internal
     get isValid(): boolean;
+    // @internal
     static loadFromFile(jsonFilename: string): RepoStateFile;
+    // @internal
     get pnpmShrinkwrapHash(): string | undefined;
+    // @internal
     get preferredVersionsHash(): string | undefined;
+    // @internal
     refreshState(rushConfiguration: RushConfiguration, subspace: Subspace | undefined): boolean;
 }
 
 // @public
 export class Rush {
+    // @internal
     static launch(launcherVersion: string, options: ILaunchOptions): void;
+    // @internal
     static launchRushPnpm(launcherVersion: string, options: ILaunchOptions): void;
+    // @internal
     static launchRushX(launcherVersion: string, options: ILaunchOptions): void;
-    // (undocumented)
+    // @internal (undocumented)
     static get _rushLibPackageFolder(): string;
     // @internal (undocumented)
     static get _rushLibPackageJson(): IPackageJson;
+    // @internal
     static get version(): string;
 }
 
 // @public
 export class RushConfiguration {
+    // @internal
     readonly allowMostlyStandardPackageNames: boolean;
+    // @internal
     readonly approvedPackagesPolicy: ApprovedPackagesPolicy;
+    // @internal
     readonly changesFolder: string;
+    // @internal
     get commonAutoinstallersFolder(): string;
+    // @internal
     readonly commonFolder: string;
+    // @internal
     readonly commonRushConfigFolder: string;
+    // @internal
     readonly commonScriptsFolder: string;
+    // @internal
     readonly commonTempFolder: string;
-    // @deprecated
+    // @internal @deprecated
     get commonVersions(): CommonVersionsConfiguration;
+    // @internal
     get currentInstalledVariant(): string | undefined;
+    // @internal
     readonly currentVariantJsonFilename: string;
     // @beta
     readonly customTipsConfiguration: CustomTipsConfiguration;
@@ -1073,102 +1364,141 @@ export class RushConfiguration {
     readonly customTipsConfigurationFilePath: string;
     // @beta (undocumented)
     get defaultSubspace(): Subspace;
+    // @internal
     readonly ensureConsistentVersions: boolean;
     // @beta
     readonly eventHooks: EventHooks;
     // @beta
     readonly experimentsConfiguration: ExperimentsConfiguration;
+    // @internal
     findProjectByShorthandName(shorthandProjectName: string): RushConfigurationProject | undefined;
+    // @internal
     findProjectByTempName(tempProjectName: string): RushConfigurationProject | undefined;
-    // @deprecated (undocumented)
+    // @internal @deprecated (undocumented)
     getCommittedShrinkwrapFilename(subspace?: Subspace): string;
-    // @deprecated (undocumented)
+    // @internal @deprecated (undocumented)
     getCommonVersions(subspace?: Subspace): CommonVersionsConfiguration;
-    // @deprecated (undocumented)
+    // @internal @deprecated (undocumented)
     getCommonVersionsFilePath(subspace?: Subspace): string;
+    // @internal
     getImplicitlyPreferredVersions(variant?: string | undefined): Map<string, string>;
-    // @deprecated (undocumented)
+    // @internal @deprecated (undocumented)
     getPnpmfilePath(subspace?: Subspace): string;
+    // @internal
     getProjectByName(projectName: string): RushConfigurationProject | undefined;
     // @beta (undocumented)
     getProjectLookupForRoot(rootPath: string): LookupByPath<RushConfigurationProject>;
-    // @deprecated (undocumented)
+    // @internal @deprecated (undocumented)
     getRepoState(subspace?: Subspace): RepoStateFile;
-    // @deprecated (undocumented)
+    // @internal @deprecated (undocumented)
     getRepoStateFilePath(subspace?: Subspace): string;
     // @beta (undocumented)
     getSubspace(subspaceName: string): Subspace;
     // @beta
     getSubspacesForProjects(projects: ReadonlySet<RushConfigurationProject>): ReadonlySet<Subspace>;
+    // @internal
     readonly gitAllowedEmailRegExps: string[];
+    // @internal
     readonly gitChangefilesCommitMessage: string | undefined;
+    // @internal
     readonly gitChangeLogUpdateCommitMessage: string | undefined;
+    // @internal
     readonly gitSampleEmail: string;
+    // @internal
     readonly gitTagSeparator: string | undefined;
+    // @internal
     readonly gitVersionBumpCommitMessage: string | undefined;
+    // @internal
     readonly hotfixChangeEnabled: boolean;
+    // @internal
     static loadFromConfigurationFile(rushJsonFilename: string): RushConfiguration;
-    // (undocumented)
+    // @internal (undocumented)
     static loadFromDefaultLocation(options?: ITryFindRushJsonLocationOptions): RushConfiguration;
+    // @internal
     readonly npmCacheFolder: string;
+    // @internal
     readonly npmOptions: NpmOptionsConfiguration;
+    // @internal
     readonly npmTmpFolder: string;
+    // @internal
     readonly packageManager: PackageManagerName;
+    // @internal
     readonly packageManagerOptions: PackageManagerOptionsConfigurationBase;
+    // @internal
     readonly packageManagerToolFilename: string;
+    // @internal
     readonly packageManagerToolVersion: string;
     // @beta
     readonly packageManagerWrapper: PackageManager;
+    // @internal
     readonly packageNameParser: PackageNameParser;
+    // @internal
     readonly pnpmOptions: PnpmOptionsConfiguration;
+    // @internal
     readonly projectFolderMaxDepth: number;
+    // @internal
     readonly projectFolderMinDepth: number;
-    // (undocumented)
+    // @internal (undocumented)
     get projects(): RushConfigurationProject[];
     // @beta (undocumented)
     get projectsByName(): ReadonlyMap<string, RushConfigurationProject>;
     // @beta
     get projectsByTag(): ReadonlyMap<string, ReadonlySet<RushConfigurationProject>>;
+    // @internal
     readonly repositoryDefaultBranch: string;
+    // @internal
     get repositoryDefaultFullyQualifiedRemoteBranch(): string;
+    // @internal
     readonly repositoryDefaultRemote: string;
+    // @internal
     readonly repositoryUrls: string[];
     // @internal
     readonly rushConfigurationJson: IRushConfigurationJson;
+    // @internal
     readonly rushJsonFile: string;
+    // @internal
     readonly rushJsonFolder: string;
-    // @deprecated
+    // @internal @deprecated
     get rushLinkJsonFilename(): string;
+    // @internal
     get rushPluginOptionsFolder(): string;
     // Warning: (ae-forgotten-export) The symbol "RushPluginsConfiguration" needs to be exported by the entry point index.d.ts
     //
     // @internal (undocumented)
     readonly _rushPluginsConfiguration: RushPluginsConfiguration;
+    // @internal
     readonly shrinkwrapFilename: string;
+    // @internal
     get shrinkwrapFilePhrase(): string;
     // @beta
     get subspaces(): readonly Subspace[];
     // @beta
     readonly subspacesConfiguration: SubspacesConfiguration | undefined;
+    // @internal
     readonly subspacesFeatureEnabled: boolean;
+    // @internal
     readonly suppressNodeLtsWarning: boolean;
     // @beta
     readonly telemetryEnabled: boolean;
-    // @deprecated
+    // @internal @deprecated
     get tempShrinkwrapFilename(): string;
-    // @deprecated
+    // @internal @deprecated
     get tempShrinkwrapPreinstallFilename(): string;
+    // @internal
     static tryFindRushJsonLocation(options?: ITryFindRushJsonLocationOptions): string | undefined;
+    // @internal
     tryGetProjectForPath(currentFolderPath: string): RushConfigurationProject | undefined;
     // @beta (undocumented)
     tryGetSubspace(subspaceName: string): Subspace | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     static tryLoadFromDefaultLocation(options?: ITryFindRushJsonLocationOptions): RushConfiguration | undefined;
     // @beta (undocumented)
     readonly versionPolicyConfiguration: VersionPolicyConfiguration;
     // @beta (undocumented)
     readonly versionPolicyConfigurationFilePath: string;
+    // @internal
     readonly yarnCacheFolder: string;
+    // @internal
     readonly yarnOptions: YarnOptionsConfiguration;
 }
 
@@ -1180,34 +1510,51 @@ export class RushConfigurationProject {
     constructor(options: IRushConfigurationProjectOptions);
     // @beta
     readonly configuredSubspaceName: string | undefined;
+    // @internal
     get consumingProjects(): ReadonlySet<RushConfigurationProject>;
-    // @deprecated
+    // @internal @deprecated
     get cyclicDependencyProjects(): Set<string>;
+    // @internal
     readonly decoupledLocalDependencies: Set<string>;
+    // @internal
     get dependencyProjects(): ReadonlySet<RushConfigurationProject>;
-    // @deprecated
+    // @internal @deprecated
     get downstreamDependencyProjects(): string[];
     // @beta
     get isMainProject(): boolean;
-    // @deprecated
+    // @internal @deprecated
     get localDependencyProjects(): ReadonlyArray<RushConfigurationProject>;
+    // @internal
     get packageJson(): IPackageJson;
     // @beta
     readonly packageJsonEditor: PackageJsonEditor;
+    // @internal
     readonly packageName: string;
+    // @internal
     readonly projectFolder: string;
+    // @internal
     readonly projectRelativeFolder: string;
+    // @internal
     readonly projectRushConfigFolder: string;
+    // @internal
     readonly projectRushTempFolder: string;
+    // @internal
     readonly publishFolder: string;
+    // @internal
     readonly reviewCategory: string | undefined;
+    // @internal
     readonly rushConfiguration: RushConfiguration;
+    // @internal
     get shouldPublish(): boolean;
+    // @internal
     readonly skipRushCheck: boolean;
+    // @internal
     readonly subspace: Subspace;
     // @beta
     readonly tags: ReadonlySet<string>;
+    // @internal
     readonly tempProjectName: string;
+    // @internal
     readonly unscopedTempProjectName: string;
     // @beta
     get versionPolicy(): VersionPolicy | undefined;
@@ -1217,62 +1564,113 @@ export class RushConfigurationProject {
 
 // @beta
 export class RushConstants {
+    // @internal
     static readonly artifactoryFilename: string;
+    // @internal
     static readonly browserApprovedPackagesFilename: string;
+    // @internal
     static readonly buildCacheFilename: string;
+    // @internal
     static readonly buildCacheVersion: number;
+    // @internal
     static readonly buildCommandName: string;
+    // @internal
     static readonly bulkCommandKind: 'bulk';
+    // @internal
     static readonly bypassPolicyFlagLongName: '--bypass-policy';
+    // @internal
     static readonly changeFilesFolderName: string;
+    // @internal
     static readonly cobuildFilename: string;
+    // @internal
     static readonly commandLineFilename: string;
+    // @internal
     static readonly commonFolderName: string;
+    // @internal
     static readonly commonVersionsFilename: string;
+    // @internal
     static readonly customTipsFilename: string;
+    // @internal
     static readonly defaultMaxInstallAttempts: number;
+    // @internal
     static readonly defaultSubspaceName: string;
+    // @internal
     static readonly defaultWatchDebounceMs: number;
+    // @internal
     static readonly experimentsFilename: string;
+    // @internal
     static readonly globalCommandKind: 'global';
+    // @internal
     static readonly hashDelimiter: string;
+    // @internal
     static readonly mergeQueueIgnoreFileName: string;
+    // @internal
     static readonly nodeModulesFolderName: string;
+    // @internal
     static readonly nonbrowserApprovedPackagesFilename: string;
+    // @internal
     static readonly npmShrinkwrapFilename: string;
+    // @internal
     static readonly phasedCommandKind: 'phased';
+    // @internal
     static readonly phaseNamePrefix: '_phase:';
-    // @deprecated
+    // @internal @deprecated
     static readonly pinnedVersionsFilename: string;
+    // @internal
     static readonly pnpmConfigFilename: string;
+    // @internal
     static readonly pnpmfileGlobalFilename: string;
+    // @internal
     static readonly pnpmfileV1Filename: string;
+    // @internal
     static readonly pnpmfileV6Filename: string;
+    // @internal
     static readonly pnpmPatchesCommonFolderName: string;
+    // @internal
     static readonly pnpmPatchesFolderName: string;
+    // @internal
     static readonly pnpmV3ShrinkwrapFilename: string;
+    // @internal
     static readonly projectImpactGraphFilename: string;
+    // @internal
     static readonly projectRushFolderName: string;
+    // @internal
     static readonly projectShrinkwrapFilename: string;
+    // @internal
     static readonly rebuildCommandName: string;
+    // @internal
     static readonly repoStateFilename: string;
+    // @internal
     static readonly rushLogsFolderName: string;
+    // @internal
     static readonly rushPackageName: string;
+    // @internal
     static readonly rushPluginManifestFilename: string;
+    // @internal
     static readonly rushPluginsConfigFilename: string;
+    // @internal
     static readonly rushProjectConfigFilename: string;
+    // @internal
     static readonly rushRecyclerFolderName: string;
+    // @internal
     static readonly rushTempFolderName: string;
+    // @internal
     static readonly rushTempNpmScope: string;
+    // @internal
     static readonly rushTempProjectsFolderName: string;
+    // @internal
     static readonly rushUserConfigurationFolderName: string;
+    // @internal
     static readonly rushVariantsFolderName: string;
+    // @internal
     static readonly rushWebSiteUrl: string;
+    // @internal
     static readonly subspacesConfigFilename: string;
-    // (undocumented)
+    // @internal (undocumented)
     static readonly updateCloudCredentialsCommandName: string;
-    // (undocumented)
+    // @internal (undocumented)
     static readonly versionPoliciesFilename: string;
+    // @internal
     static readonly yarnShrinkwrapFilename: string;
 }
 
@@ -1290,61 +1688,79 @@ export class _RushInternals {
 
 // @beta
 export class RushLifecycleHooks {
+    // @internal
     beforeInstall: AsyncSeriesHook<IGlobalCommand>;
+    // @internal
     flushTelemetry: AsyncParallelHook<[ReadonlyArray<ITelemetryData>]>;
+    // @internal
     initialize: AsyncSeriesHook<IRushCommand>;
+    // @internal
     runAnyGlobalCustomCommand: AsyncSeriesHook<IGlobalCommand>;
+    // @internal
     runAnyPhasedCommand: AsyncSeriesHook<IPhasedCommand>;
+    // @internal
     runGlobalCustomCommand: HookMap<AsyncSeriesHook<IGlobalCommand>>;
+    // @internal
     runPhasedCommand: HookMap<AsyncSeriesHook<IPhasedCommand>>;
 }
 
 // @alpha
 export class RushProjectConfiguration {
+    // @internal
     readonly disableBuildCacheForProject: boolean;
+    // @internal
     getCacheDisabledReason(trackedFileNames: Iterable<string>, phaseName: string): string | undefined;
+    // @internal
     readonly incrementalBuildIgnoredGlobs: ReadonlyArray<string>;
-    // (undocumented)
+    // @internal (undocumented)
     readonly operationSettingsByOperationName: ReadonlyMap<string, Readonly<IOperationSettings>>;
-    // (undocumented)
+    // @internal (undocumented)
     readonly project: RushConfigurationProject;
+    // @internal
     static tryLoadForProjectAsync(project: RushConfigurationProject, terminal: ITerminal): Promise<RushProjectConfiguration | undefined>;
+    // @internal
     static tryLoadForProjectsAsync(projects: Iterable<RushConfigurationProject>, terminal: ITerminal): Promise<ReadonlyMap<RushConfigurationProject, RushProjectConfiguration>>;
+    // @internal
     static tryLoadIgnoreGlobsForProjectAsync(project: RushConfigurationProject, terminal: ITerminal): Promise<ReadonlyArray<string> | undefined>;
+    // @internal
     validatePhaseConfiguration(phases: Iterable<IPhase>, terminal: ITerminal): void;
 }
 
 // @beta (undocumented)
 export class RushSession {
+    // @internal
     constructor(options: IRushSessionOptions);
-    // (undocumented)
+    // @internal (undocumented)
     getCloudBuildCacheProviderFactory(cacheProviderName: string): CloudBuildCacheProviderFactory | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     getCobuildLockProviderFactory(cobuildLockProviderName: string): CobuildLockProviderFactory | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     getLogger(name: string): ILogger;
-    // (undocumented)
+    // @internal (undocumented)
     readonly hooks: RushLifecycleHooks;
-    // (undocumented)
+    // @internal (undocumented)
     registerCloudBuildCacheProviderFactory(cacheProviderName: string, factory: CloudBuildCacheProviderFactory): void;
-    // (undocumented)
+    // @internal (undocumented)
     registerCobuildLockProviderFactory(cobuildLockProviderName: string, factory: CobuildLockProviderFactory): void;
-    // (undocumented)
+    // @internal (undocumented)
     get terminalProvider(): ITerminalProvider;
 }
 
 // @beta
 export class RushUserConfiguration {
+    // @internal
     readonly buildCacheFolder: string | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     static getRushUserFolderPath(): string;
-    // (undocumented)
+    // @internal (undocumented)
     static initializeAsync(): Promise<RushUserConfiguration>;
 }
 
 // @public
 export class Subspace {
     // Warning: (ae-forgotten-export) The symbol "ISubspaceOptions" needs to be exported by the entry point index.d.ts
+    //
+    // @internal
     constructor(options: ISubspaceOptions);
     // @internal (undocumented)
     _addProject(project: RushConfigurationProject): void;
@@ -1372,7 +1788,7 @@ export class Subspace {
     getTempShrinkwrapFilename(): string;
     // @beta
     getTempShrinkwrapPreinstallFilename(subspaceName?: string | undefined): string;
-    // (undocumented)
+    // @internal (undocumented)
     readonly subspaceName: string;
 }
 
@@ -1380,17 +1796,23 @@ export class Subspace {
 export class SubspacesConfiguration {
     // @internal
     static _convertNameToEnvironmentVariable(subspaceName: string, splitWorkspaceCompatibility: boolean): string;
+    // @internal
     static explainIfInvalidSubspaceName(subspaceName: string, splitWorkspaceCompatibility?: boolean): string | undefined;
+    // @internal
     readonly preventSelectingAllSubspaces: boolean;
+    // @internal
     static requireValidSubspaceName(subspaceName: string, splitWorkspaceCompatibility?: boolean): void;
+    // @internal
     readonly splitWorkspaceCompatibility: boolean;
+    // @internal
     readonly subspaceJsonFilePath: string;
+    // @internal
     readonly subspaceNames: ReadonlySet<string>;
-    // (undocumented)
+    // @internal (undocumented)
     readonly subspacesEnabled: boolean;
-    // (undocumented)
+    // @internal (undocumented)
     static tryLoadFromConfigurationFile(subspaceJsonFilePath: string): SubspacesConfiguration | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     static tryLoadFromDefaultLocation(rushConfiguration: RushConfiguration): SubspacesConfiguration | undefined;
 }
 
@@ -1400,19 +1822,29 @@ export abstract class VersionPolicy {
     //
     // @internal
     constructor(versionPolicyJson: IVersionPolicyJson);
+    // @internal
     abstract bump(bumpType?: BumpType, identifier?: string): void;
+    // @internal
     readonly definitionName: VersionPolicyDefinitionName;
+    // @internal
     abstract ensure(project: IPackageJson, force?: boolean): IPackageJson | undefined;
+    // @internal
     readonly exemptFromRushChange: boolean;
+    // @internal
     readonly includeEmailInChangeFile: boolean;
+    // @internal
     get isLockstepped(): boolean;
     // @internal
     abstract get _json(): IVersionPolicyJson;
     // @internal
     static load(versionPolicyJson: IVersionPolicyJson): VersionPolicy | undefined;
+    // @internal
     readonly policyName: string;
+    // @internal
     setDependenciesBeforeCommit(packageName: string, configuration: RushConfiguration): void;
+    // @internal
     setDependenciesBeforePublish(packageName: string, configuration: RushConfiguration): void;
+    // @internal
     abstract validate(versionString: string, packageName: string): void;
 }
 
@@ -1420,18 +1852,23 @@ export abstract class VersionPolicy {
 export class VersionPolicyConfiguration {
     // @internal
     constructor(jsonFileName: string);
+    // @internal
     bump(versionPolicyName?: string, bumpType?: BumpType, identifier?: string, shouldCommit?: boolean): void;
+    // @internal
     getVersionPolicy(policyName: string): VersionPolicy;
+    // @internal
     update(versionPolicyName: string, newVersion: string, shouldCommit?: boolean): void;
+    // @internal
     validate(projectsByName: ReadonlyMap<string, RushConfigurationProject>): void;
+    // @internal
     readonly versionPolicies: Map<string, VersionPolicy>;
 }
 
 // @public
 export enum VersionPolicyDefinitionName {
-    // (undocumented)
+    // @internal (undocumented)
     'individualVersion' = 1,
-    // (undocumented)
+    // @internal (undocumented)
     'lockStepVersion' = 0
 }
 
@@ -1439,6 +1876,7 @@ export enum VersionPolicyDefinitionName {
 export class YarnOptionsConfiguration extends PackageManagerOptionsConfigurationBase {
     // @internal
     constructor(json: _IYarnOptionsJson);
+    // @internal
     readonly ignoreEngines: boolean;
 }
 

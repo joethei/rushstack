@@ -8,7 +8,9 @@ import { ITerminal } from '@rushstack/terminal';
 
 // @public (undocumented)
 export interface IStringValuesTypingsGeneratorBaseOptions {
+    // @internal
     exportAsDefault?: boolean;
+    // @internal
     exportAsDefaultInterfaceName?: string;
 }
 
@@ -22,53 +24,53 @@ export interface IStringValuesTypingsGeneratorOptionsWithCustomReadFile<TFileCon
 
 // @public (undocumented)
 export interface IStringValueTyping {
-    // (undocumented)
+    // @internal (undocumented)
     comment?: string;
-    // (undocumented)
+    // @internal (undocumented)
     exportName: string;
 }
 
 // @public (undocumented)
 export interface IStringValueTypings {
-    // (undocumented)
+    // @internal (undocumented)
     typings: IStringValueTyping[];
 }
 
 // @public (undocumented)
 export interface ITypingsGeneratorBaseOptions {
-    // (undocumented)
+    // @internal (undocumented)
     generatedTsFolder: string;
-    // (undocumented)
+    // @internal (undocumented)
     globsToIgnore?: string[];
-    // (undocumented)
+    // @internal (undocumented)
     secondaryGeneratedTsFolders?: string[];
-    // (undocumented)
+    // @internal (undocumented)
     srcFolder: string;
-    // (undocumented)
+    // @internal (undocumented)
     terminal?: ITerminal;
 }
 
 // @public (undocumented)
 export interface ITypingsGeneratorOptions<TTypingsResult = string | undefined, TFileContents extends string = string> extends ITypingsGeneratorOptionsWithoutReadFile<TTypingsResult, TFileContents> {
-    // (undocumented)
+    // @internal (undocumented)
     readFile?: ReadFile<TFileContents>;
 }
 
 // @public
 export interface ITypingsGeneratorOptionsWithCustomReadFile<TTypingsResult = string | undefined, TFileContents = string> extends ITypingsGeneratorOptionsWithoutReadFile<TTypingsResult, TFileContents> {
-    // (undocumented)
+    // @internal (undocumented)
     readFile: ReadFile<TFileContents>;
 }
 
 // @public (undocumented)
 export interface ITypingsGeneratorOptionsWithoutReadFile<TTypingsResult = string | undefined, TFileContents = string> extends ITypingsGeneratorBaseOptions {
-    // (undocumented)
+    // @internal (undocumented)
     fileExtensions: string[];
-    // @deprecated (undocumented)
+    // @internal @deprecated (undocumented)
     filesToIgnore?: string[];
-    // (undocumented)
+    // @internal (undocumented)
     getAdditionalOutputFiles?: (relativePath: string) => string[];
-    // (undocumented)
+    // @internal (undocumented)
     parseAndGenerateTypings: (fileContents: TFileContents, filePath: string, relativePath: string) => TTypingsResult | Promise<TTypingsResult>;
 }
 
@@ -77,24 +79,33 @@ export type ReadFile<TFileContents = string> = (filePath: string, relativePath: 
 
 // @public
 export class StringValuesTypingsGenerator<TFileContents = string> extends TypingsGenerator<TFileContents> {
+    // @internal
     constructor(options: TFileContents extends string ? IStringValuesTypingsGeneratorOptions<TFileContents> : never);
+    // @internal
     constructor(options: IStringValuesTypingsGeneratorOptionsWithCustomReadFile<TFileContents>);
 }
 
 // @public
 export class TypingsGenerator<TFileContents = string> {
+    // @internal
     constructor(options: TFileContents extends string ? ITypingsGeneratorOptions<string | undefined, TFileContents> : never);
+    // @internal
     constructor(options: ITypingsGeneratorOptionsWithCustomReadFile<string | undefined, TFileContents>);
+    // @internal
     generateTypingsAsync(relativeFilePaths?: string[]): Promise<void>;
-    // (undocumented)
+    // @internal (undocumented)
     getOutputFilePaths(relativePath: string): string[];
+    // @internal
     readonly ignoredFileGlobs: readonly string[];
+    // @internal
     readonly inputFileGlob: string;
-    // (undocumented)
+    // @internal (undocumented)
     protected _options: ITypingsGeneratorOptionsWithCustomReadFile<string | undefined, TFileContents>;
+    // @internal
     registerDependency(consumer: string, rawDependency: string): void;
-    // (undocumented)
+    // @internal (undocumented)
     runWatcherAsync(): Promise<void>;
+    // @internal
     readonly sourceFolderPath: string;
 }
 

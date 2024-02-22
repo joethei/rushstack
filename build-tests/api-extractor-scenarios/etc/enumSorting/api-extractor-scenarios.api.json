@@ -186,71 +186,7 @@
           "releaseTag": "Public",
           "name": "ConstEnum",
           "preserveMemberOrder": true,
-          "members": [
-            {
-              "kind": "EnumMember",
-              "canonicalReference": "api-extractor-scenarios!ConstEnum.Zero:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "Zero = "
-                },
-                {
-                  "kind": "Content",
-                  "text": "0"
-                }
-              ],
-              "initializerTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "releaseTag": "Public",
-              "name": "Zero"
-            },
-            {
-              "kind": "EnumMember",
-              "canonicalReference": "api-extractor-scenarios!ConstEnum.One:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "One = "
-                },
-                {
-                  "kind": "Content",
-                  "text": "1"
-                }
-              ],
-              "initializerTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "releaseTag": "Public",
-              "name": "One"
-            },
-            {
-              "kind": "EnumMember",
-              "canonicalReference": "api-extractor-scenarios!ConstEnum.Two:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "Two = "
-                },
-                {
-                  "kind": "Content",
-                  "text": "2"
-                }
-              ],
-              "initializerTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "releaseTag": "Public",
-              "name": "Two"
-            }
-          ]
+          "members": []
         },
         {
           "kind": "Enum",
@@ -266,71 +202,7 @@
           "releaseTag": "Public",
           "name": "RegularEnum",
           "preserveMemberOrder": true,
-          "members": [
-            {
-              "kind": "EnumMember",
-              "canonicalReference": "api-extractor-scenarios!RegularEnum.Zero:member",
-              "docComment": "/**\n * These are some docs for Zero\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "Zero = "
-                },
-                {
-                  "kind": "Content",
-                  "text": "0"
-                }
-              ],
-              "initializerTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "releaseTag": "Public",
-              "name": "Zero"
-            },
-            {
-              "kind": "EnumMember",
-              "canonicalReference": "api-extractor-scenarios!RegularEnum.One:member",
-              "docComment": "/**\n * These are some docs for One\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "One = "
-                },
-                {
-                  "kind": "Content",
-                  "text": "1"
-                }
-              ],
-              "initializerTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "releaseTag": "Public",
-              "name": "One"
-            },
-            {
-              "kind": "EnumMember",
-              "canonicalReference": "api-extractor-scenarios!RegularEnum.Two:member",
-              "docComment": "/**\n * These are some docs for Two\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "Two = "
-                },
-                {
-                  "kind": "Content",
-                  "text": "2"
-                }
-              ],
-              "initializerTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "releaseTag": "Public",
-              "name": "Two"
-            }
-          ]
+          "members": []
         }
       ]
     }

@@ -17,35 +17,47 @@ export type IWebpackConfiguration = IWebpackConfigurationWithDevServer | IWebpac
 
 // @public
 export interface IWebpackConfigurationFnEnvironment {
+    // @internal
     heftConfiguration: HeftConfiguration;
+    // @internal
     prod: boolean;
+    // @internal
     production: boolean;
+    // @internal
     taskSession: IHeftTaskSession;
+    // @internal
     webpack: typeof TWebpack;
 }
 
 // @public (undocumented)
 export interface IWebpackConfigurationWithDevServer extends TWebpack.Configuration {
-    // (undocumented)
+    // @internal (undocumented)
     devServer?: Configuration;
 }
 
 // @public (undocumented)
 export interface IWebpackPluginAccessor {
+    // @internal
     readonly hooks: IWebpackPluginAccessorHooks;
+    // @internal
     readonly parameters: IWebpackPluginAccessorParameters;
 }
 
 // @public (undocumented)
 export interface IWebpackPluginAccessorHooks {
+    // @internal
     readonly onAfterConfigure: AsyncParallelHook<IWebpackConfiguration, never, never>;
+    // @internal
     readonly onConfigure: AsyncSeriesHook<IWebpackConfiguration, never, never>;
+    // @internal
     readonly onEmitStats: AsyncParallelHook<TWebpack.Stats | TWebpack.MultiStats, never, never>;
+    // @internal
     readonly onLoadConfiguration: AsyncSeriesBailHook<never, never, never, IWebpackConfiguration | false>;
 }
 
 // @public (undocumented)
 export interface IWebpackPluginAccessorParameters {
+    // @internal
     readonly isServeMode: boolean;
 }
 

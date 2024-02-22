@@ -21,7 +21,7 @@ import { MAX_UNSIGNED_VALUE } from 'long';
  * @public
  */
 export declare abstract class AbstractClass {
-    abstract test(): void;
+    /* Excluded from this release type: test */
 }
 
 /**
@@ -31,7 +31,7 @@ export declare abstract class AbstractClass {
  * @public
  */
 export declare abstract class AbstractClass2 {
-    abstract test2(): void;
+    /* Excluded from this release type: test2 */
 }
 
 /**
@@ -40,7 +40,7 @@ export declare abstract class AbstractClass2 {
  * @public
  */
 export declare abstract class AbstractClass3 {
-    abstract test3(): void;
+    /* Excluded from this release type: test3 */
 }
 
 /**
@@ -48,30 +48,15 @@ export declare abstract class AbstractClass3 {
  * @public
  */
 export declare class AmbientConsumer {
-    /**
-     * Found via tsconfig.json's "lib" setting, which specifies the built-in "es2015.collection"
-     */
-    builtinDefinition1(): Map<string, string>;
-    /**
-     * Found via tsconfig.json's "lib" setting, which specifies the built-in "es2015.promise"
-     */
-    builtinDefinition2(): Promise<void>;
-    /**
-     * Configured via tsconfig.json's "lib" setting, which specifies `@types/jest`.
-     * The emitted index.d.ts gets a reference like this:  <reference types="jest" />
-     */
-    definitelyTyped(): jest.MockContext<number, any>;
-    /**
-     * Found via tsconfig.json's "include" setting point to a *.d.ts file.
-     * This is an old-style Definitely Typed definition, which is the worst possible kind,
-     * because consumers are expected to provide this, with no idea where it came from.
-     */
-    localTypings(): IAmbientInterfaceExample;
+    /* Excluded from this release type: builtinDefinition1 */
+    /* Excluded from this release type: builtinDefinition2 */
+    /* Excluded from this release type: definitelyTyped */
+    /* Excluded from this release type: localTypings */
 }
 
 /** @public */
 declare namespace ANamespace {
-    const locallyExportedCustomSymbol: unique symbol;
+    /* Excluded from this release type: locallyExportedCustomSymbol */
     /** @public */
     const fullyExportedCustomSymbol: unique symbol;
 }
@@ -88,40 +73,29 @@ export declare class ClassExportedAsDefault {
  * @public
  */
 export declare class ClassWithAccessModifiers {
-    /** Doc comment */
-    private _privateField;
-    /** Doc comment */
-    private privateMethod;
-    /** Doc comment */
-    private get privateGetter();
-    /** Doc comment */
-    private privateSetter;
-    /** Doc comment */
-    private constructor();
-    /** Doc comment */
-    private static privateStaticMethod;
-    /** Doc comment */
-    protected protectedField: number;
-    /** Doc comment */
-    protected get protectedGetter(): string;
-    /** Doc comment */
-    protected protectedSetter(x: string): void;
-    /** Doc comment */
-    static publicStaticField: number;
-    /** Doc comment */
-    defaultPublicMethod(): void;
+    /* Excluded from this release type: _privateField */
+    /* Excluded from this release type: privateMethod */
+    /* Excluded from this release type: privateGetter */
+    /* Excluded from this release type: privateSetter */
+    /* Excluded from this release type: __constructor */
+    /* Excluded from this release type: privateStaticMethod */
+    /* Excluded from this release type: protectedField */
+    /* Excluded from this release type: protectedGetter */
+    /* Excluded from this release type: protectedSetter */
+    /* Excluded from this release type: publicStaticField */
+    /* Excluded from this release type: defaultPublicMethod */
 }
 
 /**
  * @public
  */
 export declare class ClassWithSymbols {
-    readonly [unexportedCustomSymbol]: number;
-    get [locallyExportedCustomSymbol](): string;
-    [fullyExportedCustomSymbol](): void;
-    get [ANamespace.locallyExportedCustomSymbol](): string;
-    [ANamespace.fullyExportedCustomSymbol](): void;
-    get [Symbol.toStringTag](): string;
+    /* Excluded from this release type: [unexportedCustomSymbol] */
+    /* Excluded from this release type: [locallyExportedCustomSymbol] */
+    /* Excluded from this release type: [fullyExportedCustomSymbol] */
+    /* Excluded from this release type: [ANamespace.locallyExportedCustomSymbol] */
+    /* Excluded from this release type: [ANamespace.fullyExportedCustomSymbol] */
+    /* Excluded from this release type: [Symbol.toStringTag] */
 }
 
 /**
@@ -129,25 +103,17 @@ export declare class ClassWithSymbols {
  * @public
  */
 export declare class ClassWithTypeLiterals {
-    /** type literal in  */
-    method1(vector: {
-        x: number;
-        y: number;
-    }): void;
-    /** type literal output  */
-    method2(): {
-        classValue: ClassWithTypeLiterals;
-        callback: () => number;
-    } | undefined;
+    /* Excluded from this release type: method1 */
+    /* Excluded from this release type: method2 */
 }
 
 /**
  * @public
  */
 export declare const enum ConstEnum {
-    Zero = 0,
-    One = 1,
-    Two = 2
+    /* Excluded from this release type: Zero */
+    /* Excluded from this release type: One */
+    /* Excluded from this release type: Two */
 }
 
 /**
@@ -155,31 +121,24 @@ export declare const enum ConstEnum {
  * @public
  */
 export declare class DecoratorTest {
-    /**
-     * Function with a decorator
-     */
-    test(): void;
+    /* Excluded from this release type: test */
 }
 
 /**
  * @public
  */
 export declare class DefaultExportEdgeCase {
-    /**
-     * This reference is encountered before the definition of DefaultExportEdgeCase.
-     * The symbol.name will be "default" in this situation.
-     */
-    reference: ClassExportedAsDefault;
+    /* Excluded from this release type: reference */
 }
 
 /** @public */
 export declare class ForgottenExportConsumer1 {
-    test1(): IForgottenExport | undefined;
+    /* Excluded from this release type: test1 */
 }
 
 /** @public */
 export declare class ForgottenExportConsumer2 {
-    test2(): IForgottenExport_2 | undefined;
+    /* Excluded from this release type: test2 */
 }
 
 /* Excluded from this release type: ForgottenExportConsumer3 */
@@ -187,47 +146,20 @@ export declare class ForgottenExportConsumer2 {
 /** @public */
 export declare const fullyExportedCustomSymbol: unique symbol;
 
-/**
- * This class is directly consumed by ForgottenExportConsumer3.
- */
-declare interface IForgottenDirectDependency {
-    member: IForgottenIndirectDependency;
-}
+/* Excluded from this release type: IForgottenDirectDependency */
 
-/**
- * The ForgottenExportConsumer1 class relies on this IForgottenExport.
- *
- * This should end up as a non-exported "IForgottenExport" in the index.d.ts.
- */
-declare interface IForgottenExport {
-    instance1: string;
-}
+/* Excluded from this release type: IForgottenExport */
 
-/**
- * The ForgottenExportConsumer2 class relies on this IForgottenExport.
- *
- * This should end up as a non-exported "IForgottenExport_2" in the index.d.ts.
- * It is renamed to avoid a conflict with the IForgottenExport from ForgottenExportConsumer1.
- */
-declare interface IForgottenExport_2 {
-    instance2: string;
-}
+/* Excluded from this release type: IForgottenExport_2 */
 
-/**
- * This class is indirectly consumed by ForgottenExportConsumer3.
- */
-declare interface IForgottenIndirectDependency {
-}
+/* Excluded from this release type: IForgottenIndirectDependency */
 
 /**
  * This interface is exported as the default export for its source file.
  * @public
  */
 export declare interface IInterfaceAsDefaultExport {
-    /**
-     * A member of the interface
-     */
-    member: string;
+    /* Excluded from this release type: member */
 }
 
 /* Excluded from this release type: IMergedInterface */
@@ -241,9 +173,11 @@ export declare interface IInterfaceAsDefaultExport {
 export declare interface ISimpleInterface {
 }
 
-declare const locallyExportedCustomSymbol: unique symbol;
+/* Excluded from this release type: locallyExportedCustomSymbol */
 
-export { MAX_UNSIGNED_VALUE }
+/* Excluded from this release type: Long_2 */
+
+/* Excluded from this release type: MAX_UNSIGNED_VALUE */
 
 /** @public */
 export declare namespace NamespaceContainingVariable {
@@ -255,8 +189,8 @@ export declare namespace NamespaceContainingVariable {
  * @public
  */
 export declare class ReexportedClass {
-    getSelfReference(): ReexportedClass;
-    getValue(): string;
+    /* Excluded from this release type: getSelfReference */
+    /* Excluded from this release type: getValue */
 }
 
 /** @public */
@@ -267,18 +201,9 @@ export declare class ReferenceLibDirective extends Intl.PluralRules {
  * @public
  */
 export declare enum RegularEnum {
-    /**
-     * These are some docs for Zero
-     */
-    Zero = 0,
-    /**
-     * These are some docs for One
-     */
-    One = 1,
-    /**
-     * These are some docs for Two
-     */
-    Two = 2
+    /* Excluded from this release type: Zero */
+    /* Excluded from this release type: One */
+    /* Excluded from this release type: Two */
 }
 
 /**
@@ -286,25 +211,16 @@ export declare enum RegularEnum {
  * @public
  */
 export declare class TypeReferencesInAedoc {
-    /**
-     * Returns a value
-     * @param arg1 - The input parameter of type {@link TypeReferencesInAedoc}.
-     * @returns An object of type {@link TypeReferencesInAedoc}.
-     */
-    getValue(arg1: TypeReferencesInAedoc): TypeReferencesInAedoc;
-    /** {@inheritDoc api-extractor-test-01#TypeReferencesInAedoc.getValue} */
-    getValue2(arg1: TypeReferencesInAedoc): TypeReferencesInAedoc;
-    /**
-     * @param arg - Malformed param reference.
-     */
-    getValue3(arg1: TypeReferencesInAedoc): TypeReferencesInAedoc;
+    /* Excluded from this release type: getValue */
+    /* Excluded from this release type: getValue2 */
+    /* Excluded from this release type: getValue3 */
 }
 
-declare const unexportedCustomSymbol: unique symbol;
+/* Excluded from this release type: unexportedCustomSymbol */
 
 /** @public */
 export declare class UseLong {
-    use_long(): Long_2;
+    /* Excluded from this release type: use_long */
 }
 
 /* Excluded from this release type: VARIABLE */

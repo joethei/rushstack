@@ -16,7 +16,7 @@ import * as semver1 from 'semver';
  * @public
  */
 export declare interface GenericInterface<T> {
-    member: T;
+    /* Excluded from this release type: member */
 }
 
 /** @public */
@@ -46,12 +46,14 @@ export declare function importedModuleAsReturnType(): semver1.SemVer | undefined
 
 export { RenamedReexportedClass3 }
 
+/* Excluded from this release type: semver1 */
+
 /**
  * Example of a class that inherits from an externally imported class.
  * @public
  */
 export declare class SubclassWithImport extends RenamedReexportedClass3 implements ISimpleInterface {
-    test(): void;
+    /* Excluded from this release type: test */
 }
 
 export { }

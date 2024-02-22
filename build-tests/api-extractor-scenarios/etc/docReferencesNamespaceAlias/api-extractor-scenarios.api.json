@@ -187,39 +187,7 @@
           "isAbstract": false,
           "name": "Item",
           "preserveMemberOrder": false,
-          "members": [
-            {
-              "kind": "Property",
-              "canonicalReference": "api-extractor-scenarios!Item#options:member",
-              "docComment": "",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "options: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "Options",
-                  "canonicalReference": "api-extractor-scenarios!renamed.Options:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "options",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "isStatic": false,
-              "isProtected": false,
-              "isAbstract": false
-            }
-          ],
+          "members": [],
           "implementsTokenRanges": []
         },
         {
@@ -246,90 +214,7 @@
               "releaseTag": "Public",
               "name": "Options",
               "preserveMemberOrder": false,
-              "members": [
-                {
-                  "kind": "PropertySignature",
-                  "canonicalReference": "api-extractor-scenarios!renamed.Options#color:member",
-                  "docComment": "",
-                  "excerptTokens": [
-                    {
-                      "kind": "Content",
-                      "text": "color: "
-                    },
-                    {
-                      "kind": "Content",
-                      "text": "'red' | 'blue'"
-                    },
-                    {
-                      "kind": "Content",
-                      "text": ";"
-                    }
-                  ],
-                  "isReadonly": false,
-                  "isOptional": false,
-                  "releaseTag": "Public",
-                  "name": "color",
-                  "propertyTypeTokenRange": {
-                    "startIndex": 1,
-                    "endIndex": 2
-                  }
-                },
-                {
-                  "kind": "PropertySignature",
-                  "canonicalReference": "api-extractor-scenarios!renamed.Options#name:member",
-                  "docComment": "",
-                  "excerptTokens": [
-                    {
-                      "kind": "Content",
-                      "text": "name: "
-                    },
-                    {
-                      "kind": "Content",
-                      "text": "string"
-                    },
-                    {
-                      "kind": "Content",
-                      "text": ";"
-                    }
-                  ],
-                  "isReadonly": false,
-                  "isOptional": false,
-                  "releaseTag": "Public",
-                  "name": "name",
-                  "propertyTypeTokenRange": {
-                    "startIndex": 1,
-                    "endIndex": 2
-                  }
-                },
-                {
-                  "kind": "PropertySignature",
-                  "canonicalReference": "api-extractor-scenarios!renamed.Options#subOptions:member",
-                  "docComment": "",
-                  "excerptTokens": [
-                    {
-                      "kind": "Content",
-                      "text": "subOptions: "
-                    },
-                    {
-                      "kind": "Reference",
-                      "text": "SubOptions",
-                      "canonicalReference": "api-extractor-scenarios!renamed.sub.SubOptions:interface"
-                    },
-                    {
-                      "kind": "Content",
-                      "text": ";"
-                    }
-                  ],
-                  "isReadonly": false,
-                  "isOptional": false,
-                  "releaseTag": "Public",
-                  "name": "subOptions",
-                  "propertyTypeTokenRange": {
-                    "startIndex": 1,
-                    "endIndex": 2
-                  }
-                }
-              ],
+              "members": [],
               "extendsTokenRanges": []
             },
             {
@@ -356,35 +241,7 @@
                   "releaseTag": "Public",
                   "name": "SubOptions",
                   "preserveMemberOrder": false,
-                  "members": [
-                    {
-                      "kind": "PropertySignature",
-                      "canonicalReference": "api-extractor-scenarios!renamed.sub.SubOptions#count:member",
-                      "docComment": "",
-                      "excerptTokens": [
-                        {
-                          "kind": "Content",
-                          "text": "count: "
-                        },
-                        {
-                          "kind": "Content",
-                          "text": "number"
-                        },
-                        {
-                          "kind": "Content",
-                          "text": ";"
-                        }
-                      ],
-                      "isReadonly": false,
-                      "isOptional": false,
-                      "releaseTag": "Public",
-                      "name": "count",
-                      "propertyTypeTokenRange": {
-                        "startIndex": 1,
-                        "endIndex": 2
-                      }
-                    }
-                  ],
+                  "members": [],
                   "extendsTokenRanges": []
                 }
               ]

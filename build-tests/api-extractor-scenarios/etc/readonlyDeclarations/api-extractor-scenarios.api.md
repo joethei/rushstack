@@ -6,23 +6,23 @@
 
 // @public (undocumented)
 export class MyClass {
-    // (undocumented)
+    // @internal (undocumented)
     get _onlyGetter(): string;
-    // (undocumented)
+    // @internal (undocumented)
     readonly readonlyModifier: string;
-    // (undocumented)
+    // @internal (undocumented)
     tsDocReadonly: string;
 }
 
 // @public (undocumented)
 export interface MyInterface {
-    // (undocumented)
+    // @internal (undocumented)
     readonly [x: number]: void;
-    // (undocumented)
+    // @internal (undocumented)
     get _onlyGetter(): string;
-    // (undocumented)
+    // @internal (undocumented)
     readonly readonlyModifier: string;
-    // (undocumented)
+    // @internal (undocumented)
     set tsDocReadonly(value: string);
 }
 

@@ -6,7 +6,7 @@
 
 // @public (undocumented)
 export class ClassWithGenericMethod {
-    // (undocumented)
+    // @internal (undocumented)
     method<T>(): void;
 }
 
@@ -34,13 +34,13 @@ export type GenericTypeAlias<T> = T;
 
 // @public (undocumented)
 export interface InterfaceWithGenericCallSignature {
-    // (undocumented)
+    // @internal (undocumented)
     <T>(): void;
 }
 
 // @public (undocumented)
 export interface InterfaceWithGenericConstructSignature {
-    // (undocumented)
+    // @internal (undocumented)
     new <T>(): T;
 }
 

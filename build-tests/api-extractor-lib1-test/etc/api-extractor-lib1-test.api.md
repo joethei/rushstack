@@ -8,9 +8,9 @@
 //
 // @public (undocumented)
 export class Lib1Class extends Lib1ForgottenExport {
-    // (undocumented)
+    // @internal (undocumented)
     readonly readonlyProperty: string;
-    // (undocumented)
+    // @internal (undocumented)
     writeableProperty: string;
 }
 
@@ -26,13 +26,13 @@ export interface Lib1Interface {
 
 // @public (undocumented)
 export namespace Lib1Namespace {
-    // (undocumented)
+    // @internal (undocumented)
     export namespace Inner {
         // (undocumented)
         export class X {
         }
     }
-    // (undocumented)
+    // @internal (undocumented)
     export class Y {
     }
 }

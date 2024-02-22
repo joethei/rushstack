@@ -6,15 +6,15 @@
 
 // @public (undocumented)
 export class IFile {
-    // (undocumented)
+    // @internal (undocumented)
     containingFolder: IFolder;
 }
 
 // @public (undocumented)
 export class IFolder {
-    // (undocumented)
+    // @internal (undocumented)
     containingFolder: IFolder | undefined;
-    // (undocumented)
+    // @internal (undocumented)
     files: IFile[];
 }
 

@@ -8,7 +8,7 @@ import type * as webpack from 'webpack';
 
 // @public (undocumented)
 export class PreserveDynamicRequireWebpackPlugin {
-    // (undocumented)
+    // @internal (undocumented)
     apply(compiler: webpack.Compiler): void;
 }
 

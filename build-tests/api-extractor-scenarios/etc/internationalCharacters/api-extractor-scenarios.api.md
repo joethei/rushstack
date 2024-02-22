@@ -6,11 +6,11 @@
 
 // @public (undocumented)
 class ClassΞ {
-    // (undocumented)
+    // @internal (undocumented)
     'invalid chars'<T = ClassΞ>(): void;
-    // (undocumented)
+    // @internal (undocumented)
     memberΔ(paramΩ: string): ClassΞ;
-    // (undocumented)
+    // @internal (undocumented)
     'validChars'(): void;
 }
 export { ClassΞ }

@@ -10,7 +10,7 @@ import * as semver1 from 'semver';
 
 // @public
 export interface GenericInterface<T> {
-    // (undocumented)
+    // @internal (undocumented)
     member: T;
 }
 
@@ -34,9 +34,8 @@ export { RenamedReexportedClass3 }
 
 // @public
 export class SubclassWithImport extends RenamedReexportedClass3 implements ISimpleInterface {
-    // (undocumented)
+    // @internal (undocumented)
     test(): void;
 }
-
 
 ```

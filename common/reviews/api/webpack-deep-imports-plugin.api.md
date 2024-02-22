@@ -9,8 +9,9 @@ import { DllPlugin } from 'webpack';
 
 // @public
 export class DeepImportsPlugin extends DllPlugin {
+    // @internal
     constructor(options: IDeepImportsPluginOptions);
-    // (undocumented)
+    // @internal (undocumented)
     apply(compiler: Compiler): void;
 }
 
@@ -18,9 +19,13 @@ export class DeepImportsPlugin extends DllPlugin {
 //
 // @public (undocumented)
 export interface IDeepImportsPluginOptions extends DllPluginOptions {
+    // @internal
     dTsFilesInputFolderName?: string;
+    // @internal
     inFolderName: string;
+    // @internal
     outFolderName: string;
+    // @internal
     pathsToIgnore?: string[];
 }
 

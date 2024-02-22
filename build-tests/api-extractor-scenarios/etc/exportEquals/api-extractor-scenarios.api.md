@@ -8,7 +8,7 @@ import { Context } from '@microsoft/teams-js';
 
 // @public (undocumented)
 export interface ITeamsContext {
-    // (undocumented)
+    // @internal (undocumented)
     context: Context;
 }
 

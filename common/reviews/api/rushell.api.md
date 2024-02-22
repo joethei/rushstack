@@ -6,12 +6,13 @@
 
 // @beta
 export interface IRushellExecuteResult {
+    // @internal
     value: string;
 }
 
 // @beta
 export class Rushell {
-    // (undocumented)
+    // @internal (undocumented)
     execute(script: string): IRushellExecuteResult;
 }
 

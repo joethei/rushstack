@@ -10,6 +10,7 @@ import { Lib1Interface } from 'api-extractor-lib1-test';
 export class AlphaClass {
     // @internal
     _internalMember(): void;
+    // @internal
     undecoratedMember(): void;
 }
 
@@ -19,6 +20,7 @@ export class BetaClass implements BetaInterface {
     alphaMember(): void;
     // @internal
     _internalMember(): void;
+    // @internal
     undecoratedMember(): void;
 }
 
@@ -28,6 +30,7 @@ export interface BetaInterface {
     alphaMember(): void;
     // @internal
     _internalMember(): void;
+    // @internal
     undecoratedMember(): void;
 }
 
@@ -35,6 +38,7 @@ export interface BetaInterface {
 export const enum ConstEnum {
     // @alpha
     AlphaMember = "AlphaMember",
+    // @internal
     BetaMember2 = "BetaMember2",
     // @internal
     _InternalMember = "_InternalMember"
@@ -42,14 +46,16 @@ export const enum ConstEnum {
 
 // @beta
 export namespace EntangledNamespace {
+    // @internal
     export namespace N2 {
         // @alpha
         export class ClassX {
+            // @internal
             static a: string;
         }
     }
+    // @internal
     export namespace N3 {
-        // @internal
         export class _ClassY {
             b: EntangledNamespace.N2.ClassX;
             c(): typeof N2.ClassX.a;
@@ -61,14 +67,14 @@ export namespace EntangledNamespace {
 export type ExportedAlias = AlphaClass;
 
 // Warning: (ae-internal-missing-underscore) The name "InternalClass" should be prefixed with an underscore because the declaration is marked as @internal
-// 
+//
 // @internal
 export class InternalClass {
     undecoratedMember(): void;
 }
 
 // Warning: (ae-internal-missing-underscore) The name "IPublicClassInternalParameters" should be prefixed with an underscore because the declaration is marked as @internal
-// 
+//
 // @internal
 export interface IPublicClassInternalParameters {
 }
@@ -95,6 +101,7 @@ export class PublicClass {
     betaMember(): void;
     // @internal
     _internalMember(): void;
+    // @internal
     undecoratedMember(): void;
 }
 
@@ -102,6 +109,7 @@ export class PublicClass {
 export enum RegularEnum {
     // @alpha
     AlphaMember = 101,
+    // @internal
     BetaMember = 100,
     // @internal
     _InternalMember = 102
@@ -109,6 +117,5 @@ export enum RegularEnum {
 
 // @beta
 export const variableDeclaration: string;
-
 
 ```

@@ -6,52 +6,52 @@
 
 // @public (undocumented)
 export class MergedClassAndInterface {
-    // (undocumented)
+    // @internal (undocumented)
     someProp: number;
 }
 
 // @public (undocumented)
 export interface MergedClassAndInterface {
-    // (undocumented)
+    // @internal (undocumented)
     anotherProp: boolean;
-    // (undocumented)
+    // @internal (undocumented)
     someMethod(x: string | boolean): void;
 }
 
 // @public (undocumented)
 export class MergedClassAndNamespace {
-    // (undocumented)
+    // @internal (undocumented)
     someProp: number;
 }
 
 // @public (undocumented)
 export namespace MergedClassAndNamespace {
-    let // (undocumented)
+    let // @internal (undocumented)
     anotherProp: number;
 }
 
 // @public (undocumented)
 export interface MergedInterfaces {
-    // (undocumented)
+    // @internal (undocumented)
     someProp: number;
 }
 
 // @public (undocumented)
 export interface MergedInterfaces {
-    // (undocumented)
+    // @internal (undocumented)
     someProp: number;
 }
 
 // @public (undocumented)
 export namespace MergedNamespaces {
-    // (undocumented)
+    // @internal (undocumented)
     export class SomeClass {
     }
 }
 
 // @public (undocumented)
 export namespace MergedNamespaces {
-    // (undocumented)
+    // @internal (undocumented)
     export class AnotherClass {
     }
 }
