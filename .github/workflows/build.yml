@@ -46,6 +46,11 @@ jobs:
           git push origin main
           echo "tag=${{ github.run_number }}" >> $GITHUB_OUTPUT
 
+      - name: create ZIP
+        id: zip
+        run: |
+          zip -r rushstack.zip .
+
       - name: Release
         uses: softprops/action-gh-release@v1
         env:
@@ -57,6 +62,4 @@ jobs:
           draft: false
           prerelease: false
           tag_name: ${{ steps.create_tag.outputs.tag }}
-          files: |
-              ./apps/api-documenter/bin/api-documenter
-              ./apps/api-extractor/bin/api-extractor
+          files: rushstack.zip
