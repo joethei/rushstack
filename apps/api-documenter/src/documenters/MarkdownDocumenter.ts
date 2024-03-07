@@ -1260,27 +1260,12 @@ export class MarkdownDocumenter {
     for (const hierarchyItem of apiItem.getHierarchy()) {
       let qualifiedName = hierarchyItem.displayName;
 
-      let eventName = false;
-      if (ApiParameterListMixin.isBaseClassOf(apiItem)) {
-        let i = 0;
-        for (const parameter of apiItem.parameters) {
-          let next = false;
-          for (const token of parameter.parameterTypeExcerpt.tokens) {
-            if (next) {
-              i++;
-              if (i === 1) {
-                qualifiedName = `on(${token.text})`;
-                eventName = true;
-              }
-            }
-            next = token.text.includes('on(name:');
-          }
+      if (ApiParameterListMixin.isBaseClassOf(hierarchyItem)) {
+        if (hierarchyItem.displayName === 'on') {
+          qualifiedName += `('${hierarchyItem.parameters[0].name}')`;
         }
-      }
-
-      // For overloaded methods, add a suffix such as "MyClass.myMethod_2".
-      if (ApiParameterListMixin.isBaseClassOf(hierarchyItem) && !eventName) {
-        if (hierarchyItem.overloadIndex > 1) {
+        // For overloaded methods, add a suffix such as "MyClass.myMethod_2".
+        else if (hierarchyItem.overloadIndex > 1) {
           // Subtract one for compatibility with earlier releases of API Documenter.
           // (This will get revamped when we fix GitHub issue #1308)
           qualifiedName += `_${hierarchyItem.overloadIndex - 1}`;
