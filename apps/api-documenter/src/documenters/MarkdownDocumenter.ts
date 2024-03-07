@@ -1267,7 +1267,7 @@ export class MarkdownDocumenter {
             if (next) {
               i++;
               if (i === 1) {
-                qualifiedName = `on('${token.text}')`;
+                qualifiedName = `on(${token.text})`;
                 eventName = true;
               }
             }
