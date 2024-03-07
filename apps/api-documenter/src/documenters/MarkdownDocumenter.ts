@@ -1261,26 +1261,40 @@ export class MarkdownDocumenter {
       let qualifiedName = hierarchyItem.displayName;
 
       if (ApiParameterListMixin.isBaseClassOf(hierarchyItem)) {
-        if (hierarchyItem.displayName === 'on') {
-          qualifiedName += `('${hierarchyItem.parameters[0].parameterTypeExcerpt.tokens[0].text}}')`;
+        let i = 0;
+        let nameOverwritten = false;
+        for (const parameter of hierarchyItem.parameters) {
+          let next = false;
+          for (const token of parameter.parameterTypeExcerpt.tokens) {
+            if (next) {
+              i++;
+              if (i === 1) {
+                qualifiedName += `('${token.text}}')`;
+                nameOverwritten = true;
+              }
+            }
+            next = token.text.includes('on(name:');
+          }
+          // For overloaded methods, add a suffix such as "MyClass.myMethod_2".
+          if (hierarchyItem.overloadIndex > 1 && !nameOverwritten) {
+            // Subtract one for compatibility with earlier releases of API Documenter.
+            // (This will get revamped when we fix GitHub issue #1308)
+            qualifiedName += `_${hierarchyItem.overloadIndex - 1}`;
+          }
         }
-        // For overloaded methods, add a suffix such as "MyClass.myMethod_2".
-        else if (hierarchyItem.overloadIndex > 1) {
-          // Subtract one for compatibility with earlier releases of API Documenter.
-          // (This will get revamped when we fix GitHub issue #1308)
-          qualifiedName += `_${hierarchyItem.overloadIndex - 1}`;
+        switch (hierarchyItem.kind) {
+          case ApiItemKind.Model:
+          case ApiItemKind.EntryPoint:
+          case ApiItemKind.EnumMember:
+            break;
+          case ApiItemKind.Package:
+            baseName = Utilities.getSafeFilenameForName(
+              PackageName.getUnscopedName(hierarchyItem.displayName)
+            );
+            break;
+          default:
+            baseName += '.' + qualifiedName;
         }
-      }
-      switch (hierarchyItem.kind) {
-        case ApiItemKind.Model:
-        case ApiItemKind.EntryPoint:
-        case ApiItemKind.EnumMember:
-          break;
-        case ApiItemKind.Package:
-          baseName = Utilities.getSafeFilenameForName(PackageName.getUnscopedName(hierarchyItem.displayName));
-          break;
-        default:
-          baseName += '.' + qualifiedName;
       }
     }
     return baseName + '.md';
