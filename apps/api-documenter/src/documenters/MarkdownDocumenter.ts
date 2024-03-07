@@ -1255,52 +1255,47 @@ export class MarkdownDocumenter {
       return 'index.md';
     }
 
-    let eventName = false;
-    let qualifiedName: string = '';
-    if (ApiParameterListMixin.isBaseClassOf(apiItem)) {
-      let i = 0;
-      for (const parameter of apiItem.parameters) {
-        let next = false;
-        for (const token of parameter.parameterTypeExcerpt.tokens) {
-          if (next) {
-            i++;
-            if (i === 1) {
-              qualifiedName = Utilities.getSafeFilenameForName(`on(${token.text})`);
-              eventName = true;
-            }
-          }
-          next = token.text.includes('on(name:');
-        }
-      }
-    }
-
     let baseName: string = '';
 
-    if (!eventName) {
-      for (const hierarchyItem of apiItem.getHierarchy()) {
-        qualifiedName = hierarchyItem.displayName;
+    for (const hierarchyItem of apiItem.getHierarchy()) {
+      let qualifiedName = hierarchyItem.displayName;
 
-        // For overloaded methods, add a suffix such as "MyClass.myMethod_2".
-        if (ApiParameterListMixin.isBaseClassOf(hierarchyItem) && !eventName) {
-          if (hierarchyItem.overloadIndex > 1) {
-            // Subtract one for compatibility with earlier releases of API Documenter.
-            // (This will get revamped when we fix GitHub issue #1308)
-            qualifiedName += `_${hierarchyItem.overloadIndex - 1}`;
+      let eventName = false;
+      if (ApiParameterListMixin.isBaseClassOf(apiItem)) {
+        let i = 0;
+        for (const parameter of apiItem.parameters) {
+          let next = false;
+          for (const token of parameter.parameterTypeExcerpt.tokens) {
+            if (next) {
+              i++;
+              if (i === 1) {
+                qualifiedName = Utilities.getSafeFilenameForName(`on(${token.text})`);
+                eventName = true;
+              }
+            }
+            next = token.text.includes('on(name:');
           }
         }
-        switch (hierarchyItem.kind) {
-          case ApiItemKind.Model:
-          case ApiItemKind.EntryPoint:
-          case ApiItemKind.EnumMember:
-            break;
-          case ApiItemKind.Package:
-            baseName = Utilities.getSafeFilenameForName(
-              PackageName.getUnscopedName(hierarchyItem.displayName)
-            );
-            break;
-          default:
-            baseName += '.' + qualifiedName;
+      }
+
+      // For overloaded methods, add a suffix such as "MyClass.myMethod_2".
+      if (ApiParameterListMixin.isBaseClassOf(hierarchyItem) && !eventName) {
+        if (hierarchyItem.overloadIndex > 1) {
+          // Subtract one for compatibility with earlier releases of API Documenter.
+          // (This will get revamped when we fix GitHub issue #1308)
+          qualifiedName += `_${hierarchyItem.overloadIndex - 1}`;
         }
+      }
+      switch (hierarchyItem.kind) {
+        case ApiItemKind.Model:
+        case ApiItemKind.EntryPoint:
+        case ApiItemKind.EnumMember:
+          break;
+        case ApiItemKind.Package:
+          baseName = Utilities.getSafeFilenameForName(PackageName.getUnscopedName(hierarchyItem.displayName));
+          break;
+        default:
+          baseName += '.' + qualifiedName;
       }
     }
     return baseName + '.md';
