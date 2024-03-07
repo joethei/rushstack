@@ -1262,7 +1262,7 @@ export class MarkdownDocumenter {
 
       if (ApiParameterListMixin.isBaseClassOf(hierarchyItem)) {
         if (hierarchyItem.displayName === 'on') {
-          qualifiedName += `('${hierarchyItem.parameters[0].parameterTypeExcerpt.tokens[0]}}')`;
+          qualifiedName += `('${hierarchyItem.parameters[0].parameterTypeExcerpt.tokens[0].text}}')`;
         }
         // For overloaded methods, add a suffix such as "MyClass.myMethod_2".
         else if (hierarchyItem.overloadIndex > 1) {
