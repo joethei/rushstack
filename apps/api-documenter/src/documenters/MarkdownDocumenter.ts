@@ -1257,6 +1257,24 @@ export class MarkdownDocumenter {
 
     let baseName: string = '';
     for (const hierarchyItem of apiItem.getHierarchy()) {
+      let eventName = false;
+      if (ApiParameterListMixin.isBaseClassOf(apiItem)) {
+        let i = 0;
+        for (const parameter of apiItem.parameters) {
+          let next = false;
+          for (const token of parameter.parameterTypeExcerpt.tokens) {
+            if (next) {
+              i++;
+              if (i === 1) {
+                baseName = `on('${token.text}')`;
+                eventName = true;
+              }
+            }
+            next = token.text.includes('on(name:');
+          }
+        }
+      }
+
       // For overloaded methods, add a suffix such as "MyClass.myMethod_2".
       let qualifiedName: string = hierarchyItem.displayName;
       if (ApiParameterListMixin.isBaseClassOf(hierarchyItem)) {
