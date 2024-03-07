@@ -1257,6 +1257,7 @@ export class MarkdownDocumenter {
 
     let baseName: string = '';
     for (const hierarchyItem of apiItem.getHierarchy()) {
+      let qualifiedName: string = hierarchyItem.displayName;
       let eventName = false;
       if (ApiParameterListMixin.isBaseClassOf(apiItem)) {
         let i = 0;
@@ -1266,7 +1267,7 @@ export class MarkdownDocumenter {
             if (next) {
               i++;
               if (i === 1) {
-                baseName = `on('${token.text}')`;
+                qualifiedName = `on('${token.text}')`;
                 eventName = true;
               }
             }
@@ -1276,8 +1277,7 @@ export class MarkdownDocumenter {
       }
 
       // For overloaded methods, add a suffix such as "MyClass.myMethod_2".
-      let qualifiedName: string = hierarchyItem.displayName;
-      if (ApiParameterListMixin.isBaseClassOf(hierarchyItem)) {
+      if (ApiParameterListMixin.isBaseClassOf(hierarchyItem) && !eventName) {
         if (hierarchyItem.overloadIndex > 1) {
           // Subtract one for compatibility with earlier releases of API Documenter.
           // (This will get revamped when we fix GitHub issue #1308)
