@@ -1275,12 +1275,12 @@ export class MarkdownDocumenter {
             }
             next = token.text.includes('on(name:');
           }
-          // For overloaded methods, add a suffix such as "MyClass.myMethod_2".
-          if (hierarchyItem.overloadIndex > 1 && !nameOverwritten) {
-            // Subtract one for compatibility with earlier releases of API Documenter.
-            // (This will get revamped when we fix GitHub issue #1308)
-            qualifiedName += `_${hierarchyItem.overloadIndex - 1}`;
-          }
+        }
+        // For overloaded methods, add a suffix such as "MyClass.myMethod_2".
+        if (hierarchyItem.overloadIndex > 1 && !nameOverwritten) {
+          // Subtract one for compatibility with earlier releases of API Documenter.
+          // (This will get revamped when we fix GitHub issue #1308)
+          qualifiedName += `_${hierarchyItem.overloadIndex - 1}`;
         }
         switch (hierarchyItem.kind) {
           case ApiItemKind.Model:
