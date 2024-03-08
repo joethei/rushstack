@@ -1162,7 +1162,7 @@ export class MarkdownDocumenter {
           if (index === 4 && ApiParameterListMixin.isBaseClassOf(apiItem)) {
             loop: for (const parameter of apiItem.parameters) {
               for (const token of parameter.parameterTypeExcerpt.tokens) {
-                if (token.text.startsWith("'") && token.text.endsWith("'")) {
+                if (token.text.startsWith("'") && token.text.endsWith("'") && !token.text.includes('|')) {
                   text = `${hierarchyItem.displayName}(${token.text})`;
                   break loop;
                 }
@@ -1274,7 +1274,7 @@ export class MarkdownDocumenter {
         let nameOverwritten = false;
         parameterLoop: for (const parameter of hierarchyItem.parameters) {
           for (const token of parameter.parameterTypeExcerpt.tokens) {
-            if (token.text.startsWith("'") && token.text.endsWith("'")) {
+            if (token.text.startsWith("'") && token.text.endsWith("'") && !token.text.includes('|')) {
               qualifiedName += `(${token.text})`;
               nameOverwritten = true;
               break parameterLoop;

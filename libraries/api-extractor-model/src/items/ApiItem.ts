@@ -243,7 +243,7 @@ export class ApiItem {
               let ran = false;
               loop: for (const parameter of current.parameters) {
                 for (const token of parameter.parameterTypeExcerpt.tokens) {
-                  if (token.text.startsWith("'") && token.text.endsWith("'")) {
+                  if (token.text.startsWith("'") && token.text.endsWith("'") && !token.text.includes('|')) {
                     reversedParts.push(`(${token.text})`);
                     ran = true;
                     break loop;
