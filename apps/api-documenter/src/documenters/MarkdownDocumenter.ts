@@ -1158,11 +1158,22 @@ export class MarkdownDocumenter {
             ]);
           }
 
+          let text = '`' + hierarchyItem.displayName + '`';
+          if (index === 4 && ApiParameterListMixin.isBaseClassOf(apiItem)) {
+            loop: for (const parameter of apiItem.parameters) {
+              for (const token of parameter.parameterTypeExcerpt.tokens) {
+                if (token.text.startsWith("'") && token.text.endsWith("'")) {
+                  text = `${hierarchyItem.displayName}(${token.text})`;
+                  break loop;
+                }
+              }
+            }
+          }
           output.appendNodeInParagraph(
             new DocLinkTag({
               configuration,
               tagName: '@link',
-              linkText: '`' + hierarchyItem.displayName + '`',
+              linkText: text,
               urlDestination: this._getLinkFilenameForApiItem(hierarchyItem)
             })
           );
@@ -1256,24 +1267,18 @@ export class MarkdownDocumenter {
     }
 
     let baseName: string = '';
-
     for (const hierarchyItem of apiItem.getHierarchy()) {
       let qualifiedName = hierarchyItem.displayName;
 
       if (ApiParameterListMixin.isBaseClassOf(hierarchyItem)) {
-        let i = 0;
         let nameOverwritten = false;
-        for (const parameter of hierarchyItem.parameters) {
-          let next = false;
+        parameterLoop: for (const parameter of hierarchyItem.parameters) {
           for (const token of parameter.parameterTypeExcerpt.tokens) {
-            if (next) {
-              i++;
-              if (i === 1) {
-                qualifiedName += `('${token.text}}')`;
-                nameOverwritten = true;
-              }
+            if (token.text.startsWith("'") && token.text.endsWith("'")) {
+              qualifiedName += `(${token.text})`;
+              nameOverwritten = true;
+              break parameterLoop;
             }
-            next = token.text.includes('on(name:');
           }
         }
         // For overloaded methods, add a suffix such as "MyClass.myMethod_2".
@@ -1282,19 +1287,17 @@ export class MarkdownDocumenter {
           // (This will get revamped when we fix GitHub issue #1308)
           qualifiedName += `_${hierarchyItem.overloadIndex - 1}`;
         }
-        switch (hierarchyItem.kind) {
-          case ApiItemKind.Model:
-          case ApiItemKind.EntryPoint:
-          case ApiItemKind.EnumMember:
-            break;
-          case ApiItemKind.Package:
-            baseName = Utilities.getSafeFilenameForName(
-              PackageName.getUnscopedName(hierarchyItem.displayName)
-            );
-            break;
-          default:
-            baseName += '.' + qualifiedName;
-        }
+      }
+      switch (hierarchyItem.kind) {
+        case ApiItemKind.Model:
+        case ApiItemKind.EntryPoint:
+        case ApiItemKind.EnumMember:
+          break;
+        case ApiItemKind.Package:
+          baseName = Utilities.getSafeFilenameForName(PackageName.getUnscopedName(hierarchyItem.displayName));
+          break;
+        default:
+          baseName += '.' + qualifiedName;
       }
     }
     return baseName + '.md';

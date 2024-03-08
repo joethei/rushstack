@@ -240,7 +240,17 @@ export class ApiItem {
             break;
           default:
             if (ApiParameterListMixin.isBaseClassOf(current)) {
-              reversedParts.push('()');
+              let ran = false;
+              loop: for (const parameter of current.parameters) {
+                for (const token of parameter.parameterTypeExcerpt.tokens) {
+                  if (token.text.startsWith("'") && token.text.endsWith("'")) {
+                    reversedParts.push(`(${token.text})`);
+                    ran = true;
+                    break loop;
+                  }
+                }
+              }
+              if (!ran) reversedParts.push('()');
             }
         }
       }
